@@ -1,0 +1,8 @@
+requests>=2.31
+pandas>=2.0
+# duckdb makes the 5.4M-row Companies House CSV queryable without loading it
+# all into RAM. Swap for plain pandas if you prefer — say which and why.
+duckdb>=0.10
+beautifulsoup4>=4.12
+lxml>=5.0
+tqdm>=4.66

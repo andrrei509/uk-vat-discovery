@@ -1,0 +1,2 @@
+{"vrn": "220430231", "requested_at": "2026-08-18T15:15:39.859276+00:00", "http_status": 401, "attempt": 1, "env": "sandbox"}
+{"vrn": "220430231", "requested_at": "2026-08-18T15:20:30.129801+00:00", "http_status": 404, "attempt": 1, "env": "sandbox"}

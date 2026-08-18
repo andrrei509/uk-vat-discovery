@@ -1,0 +1,12 @@
+{
+  "attempt": 1,
+  "body": {
+    "code": "NOT_FOUND",
+    "message": "targetVrn does not match a registered company"
+  },
+  "env": "sandbox",
+  "http_status": 404,
+  "requested_at": "2026-08-18T15:20:30.129801+00:00",
+  "url": "https://test-api.service.hmrc.gov.uk/organisations/vat/check-vat-number/lookup/220430231",
+  "vrn": "220430231"
+}

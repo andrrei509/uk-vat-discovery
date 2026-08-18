@@ -1,0 +1,212 @@
+source: companies.parquet (0.29 GB)
+
+=== size ========================================================
+  total_rows
+  5695465   
+
+=== columns =====================================================
+  cid  name                                type     notnull  dflt_value  pk   
+  0    CompanyName                         VARCHAR  False    None        False
+  1    CompanyNumber                       VARCHAR  False    None        False
+  2    RegAddress.CareOf                   VARCHAR  False    None        False
+  3    RegAddress.POBox                    VARCHAR  False    None        False
+  4    RegAddress.AddressLine1             VARCHAR  False    None        False
+  5    RegAddress.AddressLine2             VARCHAR  False    None        False
+  6    RegAddress.PostTown                 VARCHAR  False    None        False
+  7    RegAddress.County                   VARCHAR  False    None        False
+  8    RegAddress.Country                  VARCHAR  False    None        False
+  9    RegAddress.PostCode                 VARCHAR  False    None        False
+  10   CompanyCategory                     VARCHAR  False    None        False
+  11   CompanyStatus                       VARCHAR  False    None        False
+  12   CountryOfOrigin                     VARCHAR  False    None        False
+  13   DissolutionDate                     VARCHAR  False    None        False
+  14   IncorporationDate                   VARCHAR  False    None        False
+  15   Accounts.AccountRefDay              VARCHAR  False    None        False
+  16   Accounts.AccountRefMonth            VARCHAR  False    None        False
+  17   Accounts.NextDueDate                VARCHAR  False    None        False
+  18   Accounts.LastMadeUpDate             VARCHAR  False    None        False
+  19   Accounts.AccountCategory            VARCHAR  False    None        False
+  20   Returns.NextDueDate                 VARCHAR  False    None        False
+  21   Returns.LastMadeUpDate              VARCHAR  False    None        False
+  22   Mortgages.NumMortCharges            VARCHAR  False    None        False
+  23   Mortgages.NumMortOutstanding        VARCHAR  False    None        False
+  24   Mortgages.NumMortPartSatisfied      VARCHAR  False    None        False
+  25   Mortgages.NumMortSatisfied          VARCHAR  False    None        False
+  26   SICCode.SicText_1                   VARCHAR  False    None        False
+  27   SICCode.SicText_2                   VARCHAR  False    None        False
+  28   SICCode.SicText_3                   VARCHAR  False    None        False
+  29   SICCode.SicText_4                   VARCHAR  False    None        False
+  30   LimitedPartnerships.NumGenPartners  VARCHAR  False    None        False
+  31   LimitedPartnerships.NumLimPartners  VARCHAR  False    None        False
+  32   URI                                 VARCHAR  False    None        False
+  33   PreviousName_1.CONDATE              VARCHAR  False    None        False
+  34   PreviousName_1.CompanyName          VARCHAR  False    None        False
+  35   PreviousName_2.CONDATE              VARCHAR  False    None        False
+  36   PreviousName_2.CompanyName          VARCHAR  False    None        False
+  37   PreviousName_3.CONDATE              VARCHAR  False    None        False
+  38   PreviousName_3.CompanyName          VARCHAR  False    None        False
+  39   PreviousName_4.CONDATE              VARCHAR  False    None        False
+  40   PreviousName_4.CompanyName          VARCHAR  False    None        False
+  41   PreviousName_5.CONDATE              VARCHAR  False    None        False
+  42   PreviousName_5.CompanyName          VARCHAR  False    None        False
+  43   PreviousName_6.CONDATE              VARCHAR  False    None        False
+  44   PreviousName_6.CompanyName          VARCHAR  False    None        False
+  45   PreviousName_7.CONDATE              VARCHAR  False    None        False
+  46   PreviousName_7.CompanyName          VARCHAR  False    None        False
+  47   PreviousName_8.CONDATE              VARCHAR  False    None        False
+  48   PreviousName_8.CompanyName          VARCHAR  False    None        False
+  49   PreviousName_9.CONDATE              VARCHAR  False    None        False
+  50   PreviousName_9.CompanyName          VARCHAR  False    None        False
+  51   PreviousName_10.CONDATE             VARCHAR  False    None        False
+  52   PreviousName_10.CompanyName         VARCHAR  False    None        False
+  53   ConfStmtNextDueDate                 VARCHAR  False    None        False
+  54   ConfStmtLastMadeUpDate              VARCHAR  False    None        False
+
+=== company status ==============================================
+  CompanyStatus                                     n        pct  
+  Active                                            5190464  91.13
+  Active - Proposal to Strike off                   388951   6.83 
+  Liquidation                                       108797   1.91 
+  In Administration                                 3739     0.07 
+  Live but Receiver Manager on at least one charge  2119     0.04 
+  Voluntary Arrangement                             576      0.01 
+  In Administration/Administrative Receiver         344      0.01 
+  RECEIVERSHIP                                      182      0.0  
+  ADMINISTRATION ORDER                              121      0.0  
+  ADMINISTRATIVE RECEIVER                           105      0.0  
+  In Administration/Receiver Manager                54       0.0  
+  RECEIVER MANAGER / ADMINISTRATIVE RECEIVER        10       0.0  
+  VOLUNTARY ARRANGEMENT / RECEIVER MANAGER          2        0.0  
+  VOLUNTARY ARRANGEMENT / ADMINISTRATIVE RECEIVER   1        0.0  
+
+=== accounts category (ACTIVE only) - your main size proxy ======
+  accounts_category            n        pct  
+  MICRO ENTITY                 1668539  32.15
+  NO ACCOUNTS FILED            1357087  26.15
+  TOTAL EXEMPTION FULL         1229622  23.69
+  DORMANT                      573450   11.05
+  UNAUDITED ABRIDGED           149083   2.87 
+  FULL                         79223    1.53 
+  SMALL                        63000    1.21 
+  AUDIT EXEMPTION SUBSIDIARY   33019    0.64 
+  GROUP                        26997    0.52 
+  MEDIUM                       6168     0.12 
+  TOTAL EXEMPTION SMALL        1484     0.03 
+  ACCOUNTS TYPE NOT AVAILABLE  1274     0.02 
+  AUDITED ABRIDGED             1109     0.02 
+  FILING EXEMPTION SUBSIDIARY  398      0.01 
+  PARTIAL EXEMPTION            11       0.0  
+
+=== legal form (ACTIVE only) ====================================
+  CompanyCategory                                                                            n      
+  Private Limited Company                                                                    4773689
+  PRI/LTD BY GUAR/NSC (Private, limited by guarantee, no share capital)                      115515 
+  Limited Partnership                                                                        60915  
+  Limited Liability Partnership                                                              47933  
+  Community Interest Company                                                                 42376  
+  Charitable Incorporated Organisation                                                       40152  
+  PRI/LBG/NSC (Private, Limited by guarantee, no share capital, use of 'Limited' exemption)  34949  
+  Overseas Entity                                                                            30198  
+  Other company type                                                                         15348  
+  Registered Society                                                                         10786  
+  Scottish Charitable Incorporated Organisation                                              7872   
+  Private Unlimited Company                                                                  4525   
+  Public Limited Company                                                                     3816   
+  Royal Charter Company                                                                      908    
+  Investment Company with Variable Capital                                                   638    
+  United Kingdom Economic Interest Grouping                                                  256    
+  Scottish Partnership                                                                       241    
+  Industrial and Provident Society                                                           159    
+  Private Unlimited                                                                          81     
+  Investment Company with Variable Capital(Umbrella)                                         67     
+  PRIV LTD SECT. 30 (Private limited company, section 30 of the Companies Act)               13     
+  Investment Company with Variable Capital (Securities)                                      8      
+  Old Public Company                                                                         7      
+  United Kingdom Societas                                                                    6      
+  Protected Cell Company                                                                     3      
+  ... 2 more rows
+
+=== top SIC divisions (ACTIVE only) =============================
+  sic_division     example                                                           n     
+  68               68209 - Other letting and operating of own or leased real estate  604791
+  47               47910 - Retail sale via mail order houses or via Internet         388553
+  43               43220 - Plumbing, heat and air-conditioning installation          276435
+  62               62012 - Business and domestic software development                267678
+  70               70221 - Financial management                                      259818
+  (none supplied)  None Supplied                                                     216285
+  56               56103 - Take-away food shops and mobile food stands               204858
+  41               41202 - Construction of domestic buildings                        204169
+  64               64999 - Financial intermediation not elsewhere classified         187526
+  96               96090 - Other service activities n.e.c.                           184609
+  82               82990 - Other business support service activities n.e.c.          182889
+  46               46719 - Wholesale of other fuels and related products             168995
+  86               86210 - General medical practice activities                       159472
+  74               74901 - Environmental consulting activities                       156685
+  98               98000 - Residents property management                             125193
+  85               85590 - Other education n.e.c.                                    104925
+  45               45200 - Maintenance and repair of motor vehicles                  103584
+  99               99999 - Dormant Company                                           99417 
+  49               49100 - Passenger rail transport, interurban                      88543 
+  71               71129 - Other engineering activities                              81584 
+  69               69102 - Solicitors                                                75889 
+  59               59112 - Video production activities                               71955 
+  93               93290 - Other amusement and recreation activities n.e.c.          66444 
+  81               81300 - Landscape service activities                              64723 
+  90               90010 - Performing arts                                           51894 
+  55               55100 - Hotels and similar accommodation                          46104 
+  78               78109 - Other activities of employment placement agencies         45805 
+  58               58290 - Other software publishing                                 45185 
+  73               73120 - Media representation services                             40158 
+  01               01430 - Raising of horses and other equines                       32890 
+  ... 62 more rows
+
+=== incorporations by year (ACTIVE only) ========================
+  year  n     
+  2026  464097
+  2025  698913
+  2024  458015
+  2023  391127
+  2022  311494
+  2021  277742
+  2020  253700
+  2019  230264
+  2018  203125
+  2017  183653
+  2016  166820
+  2015  155621
+  2014  141005
+  2013  121062
+  2012  105393
+  2011  92706 
+  2010  78464 
+  2009  65591 
+  2008  59465 
+  2007  65044 
+  ... 185 more rows
+
+=== data quality gaps (ACTIVE only) =============================
+  active_total  no_postcode  no_usable_sic  sic_dormant_code  sic_nontrading_code
+  5190464       88670        216285         98777             38703              
+
+=== most-shared registered addresses - why address agreement is weak 
+  line1                          postcode  companies_at_this_address
+  71-75 SHELTON STREET           WC2H 9JQ  82123                    
+  128 CITY ROAD                  EC1V 2NX  39905                    
+  167-169 GREAT PORTLAND STREET  W1W 5PF   20801                    
+  20 WENLOCK ROAD                N1 7GU    19465                    
+  124 CITY ROAD                  EC1V 2NX  15969                    
+  20-22 WENLOCK ROAD             N1 7GU    14426                    
+  3RD FLOOR, 86-90               EC2A 4NE  13138                    
+  27 OLD GLOUCESTER STREET       WC1N 3AX  12459                    
+  86-90 PAUL STREET              EC2A 4NE  8610                     
+  66 PAUL STREET                 EC2A 4NA  8550                     
+  61 BRIDGE STREET               HR5 3DJ   8076                     
+  85 GREAT PORTLAND STREET       W1W 7LT   6624                     
+  82A JAMES CARTER ROAD          IP28 7DE  6542                     
+  50 LOTHIAN ROAD                EH3 9WJ   6444                     
+  7 BELL YARD                    WC2A 2JR  5781                     
+  ... 2449773 more rows
+file  : BasicCompanyDataAsOneFile-2026-08-01.zip
+bytes : 493049031
+sha256: dd625ad9b37c023c3cd8d942467d0a8348608bee15c13a4a9db1927e7ff23c21
+rows  : 5695465
