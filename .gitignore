@@ -14,9 +14,10 @@ data/raw/pages/
 # Keep raw HMRC responses — they are the evidence trail and they are small.
 !data/raw/hmrc/
 
-# Veridion's brief, reproduced verbatim. Kept on disk as the source of truth
-# for this work, but not republished — it is their text, not mine.
-docs/ASSIGNMENT.md
+# Veridion's brief, reproduced verbatim, kept on disk as the source of truth
+# for this work. Not republished — it is their text, not mine. The tracked
+# docs/ASSIGNMENT.md is a stub that points at the original instead.
+docs/ASSIGNMENT.local.md
 
 # Scratch: duplicate scaffold kept around during setup. Not part of the
 # deliverable — unlike src/sources/, which keeps its failures on purpose.
