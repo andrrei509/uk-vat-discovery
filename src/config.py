@@ -26,7 +26,7 @@ import os
 VERSION = "0.1"
 
 # Change this, or set VAT_CONTACT in your environment.
-CONTACT = os.environ.get("VAT_CONTACT", "andrei_marian.dulce@gmail.com")
+CONTACT = os.environ.get("VAT_CONTACT", "andreimarian.dulce@gmail.com")
 
 # Set once the repo is public. An empty value is simply omitted.
 PROJECT_URL = os.environ.get("VAT_PROJECT_URL", "")
