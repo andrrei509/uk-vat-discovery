@@ -17,8 +17,12 @@ Retrieved 18 Aug 2026 from the HMRC Developer Hub.
 - **Version 1 was removed on 17 February 2025.** It was open; v2 is not.
 - Stated purpose, verbatim: *"for the sole purpose of allowing traders to do due
   diligence on VAT-registered businesses."*
-- Stated reason for adding authentication, verbatim: *"We moved the API behind
-  authentication so we can fully understand our users."*
+- Stated reason for adding authentication. Two consecutive sentences on the
+  page, both verbatim:
+
+  > "Version 2 moved the Check a UK VAT Number API behind authentication."
+
+  > "We moved the API behind authentication so we can fully understand our users."
 
 ### Production access — quoted verbatim
 
@@ -156,3 +160,59 @@ Things to measure rather than assume:
 3. What happens for a VRN belonging to a business that does not trade goods
    internationally, and therefore should hold no EORI?
 4. Do branch suffixes (`001`, `002`, …) matter in practice, or is `000` enough?
+
+---
+
+## GOV.UK public VAT checker + terms
+
+Retrieved 19 Aug 2026. Both pages are robots-blocked to automated agents; these
+quotes were gathered by hand in a browser and are transcribed verbatim.
+
+### Check a UK VAT number (the public web service)
+
+<https://www.gov.uk/check-uk-vat-number>
+
+> "You cannot use this service to check if a business or organisation is
+> registered for VAT by searching its name."
+
+> "You can find the VAT numbers for most businesses and organisations on their
+> invoices, receipts or website."
+
+> "If you are a UK VAT-registered business, you can also use this service to
+> prove when you checked a UK VAT number. You will need your own VAT number to
+> do this."
+
+Service entry point:
+<https://www.tax.service.gov.uk/check-vat-number/enter-vat-details>
+
+Page footer states the content is available under the **Open Government
+Licence v3.0**.
+
+**UNRESOLVED — must not be claimed either way.** Whether OGL v3.0 extends to the
+VAT register data the service *returns*, as opposed to the GOV.UK page content
+itself, has not been checked. No conclusion about reuse of returned data is
+supported by anything in this file.
+
+### GOV.UK terms and conditions
+
+<https://www.gov.uk/help/terms-conditions>
+
+> "You agree to use GOV.UK only for lawful purposes"
+
+Two observations about the text of that page, recorded as observations and not
+as permissions:
+
+- No clause prohibiting automated access was found.
+- The prohibition that is present is directed at activity which restricts other
+  people's use of the site.
+
+### Cross-reference
+
+The public service above sits alongside the authenticated API. HMRC gives its
+reason for putting the API behind authentication in two consecutive sentences,
+both recorded verbatim earlier in this file under *Check a UK VAT Number API
+v2.0*:
+
+> "Version 2 moved the Check a UK VAT Number API behind authentication."
+
+> "We moved the API behind authentication so we can fully understand our users."

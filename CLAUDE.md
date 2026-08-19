@@ -108,12 +108,33 @@ Parts 1 and 3 are stated to be "at least as important as Part 2".
 - Companies House snapshot downloaded, profiled, hashed. See
   `audit/ch_profile_2026-08-01.txt`.
 
-**Open questions:**
-1. **Does `GB<VRN>000` actually resolve?** Untested. Everything above is docs,
-   not observation. Test it before building on it.
-2. What share of `valid: true` EORI responses include `companyDetails`? Traders
-   opt in, so this share bounds how much *ownership* testing this route can do.
-   It is a measurable number nobody else will have.
+**Verification strategy — decided 19 Aug:**
+
+| Tier | Test | How it runs | What it establishes |
+|---|---|---|---|
+| 1 | checksum | automated, local, free | the number is **plausible** |
+| 2 | EORI checker | automated, production, no auth, batches of 10 | the number **exists** |
+| 3 | HMRC web form | **MANUAL, by hand** | it **belongs to this company** |
+
+**Decided:** do *not* automate the public web form, and do *not* rely on
+production API access arriving before the 24 Aug deadline.
+
+**Consequence:** the ownership test is manual and does not scale. That is
+deliberate, and it becomes Part 3 material.
+
+Andrei is not a VAT-registered business, so the `consultationNumber` receipt
+mechanism is unavailable. **`HMRC_REQUESTER_VRN` stays blank.**
+
+Tooling for the manual tier: `src/audit_worklist.py` generates the sheet,
+`src/metrics.py` reads it back.
+
+**Still open:**
+1. Does the checksum ever **reject a real VRN**? Untested. A false *negative*
+   here silently drops real numbers before any verifier sees them.
+2. What share of `valid: true` EORI responses include `companyDetails`?
+   **n=1 so far** — `GB220430231000` returned `valid: true` with no
+   `companyDetails` block. That share bounds how much ownership testing this
+   route can do.
 3. Which denominator framing to use (Andrei's call, not yours) — external
    registration population, threshold-first reasoning, or frame-local only.
    External anchor available: ONS *UK Business 2025*, 14 Mar 2025 — 2.73M VAT
