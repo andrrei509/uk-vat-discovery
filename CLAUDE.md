@@ -82,22 +82,29 @@ Parts 1 and 3 are stated to be "at least as important as Part 2".
   accept both allocation schemes and cannot distinguish them from the number
   alone — a real precision cost, and half the answer to debate topic #1).
 - `src/hmrc_client.py` — OAuth client_credentials, disk cache, backoff, raw
-  response capture. **Verified working against sandbox: `authenticated=True`,
+  response capture. **Verified working against sandbox: `auth_mode=auth`,
   HTTP 404 for a real VRN (sandbox holds only stub data).**
 - HMRC Developer Hub sandbox application created and subscribed to
   *Check a UK VAT number*. Credentials in `.env` (untracked).
 
 **Empirically established:**
-- `/check-vat-number/lookup/{vrn}` returns **401 without a bearer token** →
+- `/check-vat-number/lookup/{vrn}` returns **401 `MISSING_CREDENTIALS`
+  ("Authentication information is not provided") without a bearer token** →
   application-restricted, confirmed by running it, not just by reading the docs.
-  Both raw responses (401 and 404) are in `data/raw/hmrc/sandbox/`.
+  Both raw responses are on disk and reproducible:
+  `data/raw/hmrc/sandbox/220430231.noauth.single.json` (401, needs no
+  credentials at all) and `.../220430231.json` (404, needs credentials).
+  See `notes/cache_key_bug.md` — the 401 was destroyed once by a cache-key bug
+  and had to be recaptured.
 - HMRC lists **Check an EORI Number** under *APIs with only open access
   endpoints* — no application, no subscription, no token.
 
 **Resolved 18 Aug — see `notes/hmrc_api_findings.md` for citations:**
 - HMRC production access for the VAT checker takes, verbatim, *"around 2 weeks.
-  It may take longer if we need more information."* **The submission deadline is
-  6 days away, so production VAT verification will not exist before submission.**
+  It may take longer if we need more information."* The application was created
+  **18 Aug 2026** and the submission deadline is **24 Aug 2026**, so on HMRC's own
+  stated turnaround **production VAT verification will not exist before
+  submission.**
   This is the single most schedule-relevant fact in the project and it must be
   stated plainly in the writeup, not hidden.
 - Sandbox test VRNs mirrored to `data/reference/hmrc_sandbox_test_vrns.csv`
@@ -131,6 +138,14 @@ mechanism is unavailable. **`HMRC_REQUESTER_VRN` stays blank.**
 
 Tooling for the manual tier: `src/audit_worklist.py` generates the sheet,
 `src/metrics.py` reads it back.
+
+**Sample FROZEN 20 Aug.** `data/sample/sample.csv` — n=500, seed 20260820,
+stratified on sector_group x size_band (20 cells, proportional), 50 marked
+`holdout`. Frame 2,362,322 of 5,695,465 rows after exclusions; `age_band` is
+recorded but not stratified on. `src/sample.py` refuses to overwrite without
+`--force`, and `--check-determinism` proves the same seed gives a byte-identical
+file. Counts in `notes/sample_design_output.txt`. **Do not redraw it** — any
+company added later is contamination.
 
 **Still open:**
 1. Does the checksum ever **reject a real VRN**? Untested. A false *negative*
@@ -166,4 +181,10 @@ python src\hmrc_client.py 220430231 --no-consultation     # single lookup
 python src\companies_house.py --to-parquet                # once, after download
 python src\companies_house.py --profile                   # distributions
 python src\companies_house.py --hash                      # snapshot SHA256, for reproducibility
+python src\companies_house.py --profile --no-parquet      # CSV path, for the timing comparison
+python src\hmrc_client.py 220430231 --no-auth             # capture the 401, no token sent
+python src\sample.py --dry-run                            # frame + strata counts, writes nothing
+python src\sample.py                                      # draw and FREEZE the sample
+python src\sample.py --check-determinism                  # same seed -> byte-identical file
+python src\metrics.py --self-test                         # Wilson interval cross-check
 ```

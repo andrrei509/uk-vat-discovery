@@ -27,7 +27,15 @@ grades "are tools used to support the solution, or is the solution shaped
 around the tool".
 
     python src/companies_house.py --profile
-    python src/companies_house.py --to-parquet      # do this once, it's ~10x faster after
+    python src/companies_house.py --to-parquet      # do this once
+
+Measured on the 2026-08-01 snapshot: `--profile` takes **2.42 s** against the
+parquet and **23.31 s** against the CSV, so the parquet is **9.6x faster** (best
+of two runs each). Reproduce the comparison with `--no-parquet`, which forces the
+CSV path even when a parquet exists:
+
+    python src/companies_house.py --profile                # parquet
+    python src/companies_house.py --profile --no-parquet    # CSV
 
 Columns that matter for this project (of the 55; most are filing dates):
     CompanyName                     the string the customer is matching on
@@ -60,9 +68,14 @@ CH_DIR = REPO_ROOT / "data" / "companies_house"
 PARQUET = CH_DIR / "companies.parquet"
 
 
-def find_source() -> Path:
-    """Locate the snapshot: prefer parquet, then csv, then zip."""
-    if PARQUET.exists():
+def find_source(prefer_parquet: bool = True) -> Path:
+    """
+    Locate the snapshot: prefer parquet, then csv, then zip.
+
+    `prefer_parquet=False` forces the CSV path, which exists so the "parquet is
+    faster" claim can be measured rather than asserted (`--no-parquet`).
+    """
+    if prefer_parquet and PARQUET.exists():
         return PARQUET
     for pattern in ("*.csv", "*.zip"):
         hits = sorted(CH_DIR.glob(pattern))
@@ -289,6 +302,8 @@ def main() -> int:
     ap.add_argument("--sql", help="run an ad-hoc query against view `ch`")
     ap.add_argument("--header", action="store_true",
                     help="print the CSV header as Companies House wrote it")
+    ap.add_argument("--no-parquet", action="store_true",
+                    help="read the CSV even when a parquet exists; for timing comparisons")
     args = ap.parse_args()
 
     CH_DIR.mkdir(parents=True, exist_ok=True)
@@ -318,7 +333,7 @@ def main() -> int:
         print(f"rows  : {con.execute('SELECT count(*) FROM ch').fetchone()[0]}")
         return 0
 
-    source = find_source()
+    source = find_source(prefer_parquet=not args.no_parquet)
     print(f"source: {source.name} ({source.stat().st_size / 1e9:.2f} GB)")
 
     if args.to_parquet:

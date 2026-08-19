@@ -1,5 +1,11 @@
 requests>=2.31
 pandas>=2.0
+# numpy is imported directly by src/sample.py (default_rng/PCG64 for the frozen
+# draw), not just inherited from pandas. The version used is recorded in the
+# sample's header block, because NumPy does not guarantee Generator streams
+# across major versions - so byte-identity is guaranteed per numpy version, and
+# the header tells you which one produced the file.
+numpy>=1.25
 # duckdb makes the 5.4M-row Companies House CSV queryable without loading it
 # all into RAM. Swap for plain pandas if you prefer — say which and why.
 duckdb>=0.10

@@ -1,0 +1,516 @@
+﻿# Frozen sample - do not edit by hand, do not re-draw without --force.
+# seed=20260820  n=500  frame_size=2362322
+# snapshot=BasicCompanyDataAsOneFile-2026-08-01.zip
+# snapshot_sha256=dd625ad9b37c023c3cd8d942467d0a8348608bee15c13a4a9db1927e7ff23c21
+# numpy=2.4.4 (default_rng/PCG64)
+# stratified on sector_group x size_band (20 cells), proportional allocation.
+# age_band is recorded but NOT stratified on.
+# exclusions applied in order (removed -> remaining):
+#   all rows in snapshot: removed 0 -> remaining 5695465
+#   CompanyStatus = 'Active': removed 505001 -> remaining 5190464
+#   SIC present: removed 216285 -> remaining 4974179
+#   SIC not 99999 / 74990: removed 137480 -> remaining 4836699
+#   accounts not DORMANT: removed 476051 -> remaining 4360648
+#   SIC division is supplier-like: removed 1998326 -> remaining 2362322
+# no generated-at timestamp on purpose: the same seed must give a byte-identical file.
+company_number,company_name,reg_address_line1,reg_post_town,reg_postcode,sic_code,sic_text,accounts_category,incorporation_date,sector_group,size_band,age_band,holdout
+00393793,DAISY TUFTS LIMITED,SHAFTESBURY HOUSE 13-14 HOXTON MARKET,LONDON,N1 6HG,46900,Non-specialised wholesale trade,TOTAL EXEMPTION FULL,09/03/1945,wholesale_retail,small,old,False
+00741597,ARGENTA PRIVATE CAPITAL LIMITED,5TH FLOOR,LONDON,EC3V 0XL,82990,Other business support service activities n.e.c.,FULL,21/11/1962,business_services,larger,old,False
+00927976,RUNG HEATING SUPPLIES LIMITED,"UNIT 4A, MARSH LANE",TEMPLECOMBE,BA8 0TG,43220,"Plumbing, heat and air-conditioning installation",TOTAL EXEMPTION FULL,28/02/1968,construction_trades,small,old,False
+01003695,AMPLIVOX LIMITED,GENEVA HOUSE INTERNATIONAL PARK,BIRMINGHAM,B37 7GN,28990,Manufacture of other special-purpose machinery n.e.c.,SMALL,02/03/1971,manufacturing,small,old,False
+01262251,MCKENNA (PLASTERERS) LIMITED,4 SOUTH TERRACE,DURHAM CITY,DH7 9ED,41100,Development of building projects,TOTAL EXEMPTION FULL,09/06/1976,construction_trades,small,old,False
+01407765,MOUNTNEY LIMITED,7 GRANARD BUSINESS CENTRE,MILL HILL,NW7 2DQ,45310,Wholesale trade of motor vehicle parts and accessories,TOTAL EXEMPTION FULL,04/01/1979,wholesale_retail,small,old,False
+01472159,T. SPENCER BUILDING AND JOINERY LIMITED,LYNDHURST,LONG EATON,NG10 1NJ,43390,Other building completion and finishing,TOTAL EXEMPTION FULL,10/01/1980,construction_trades,small,old,False
+01589528,APPLIED RELATIONAL TECHNOLOGY LIMITED,THE OLD RECTORY,CANTERBURY,CT4 7HS,62020,Information technology consultancy activities,TOTAL EXEMPTION FULL,06/10/1981,business_services,small,old,False
+01937849,ROY FLEETWOOD LIMITED,9 QUY COURT COLLIERS LANE,CAMBRIDGE,CB25 9AU,71129,Other engineering activities,MICRO ENTITY,12/08/1985,business_services,micro,old,True
+02134862,THE OPEN GROUP LIMITED,APEX PLAZA,READING,RG1 1AX,62020,Information technology consultancy activities,SMALL,28/05/1987,business_services,small,old,False
+02231034,O.R.C.A. (PORTSMOUTH) LIMITED,1 PARISH COTTAGES,ALTON,GU34 3AT,45310,Wholesale trade of motor vehicle parts and accessories,TOTAL EXEMPTION FULL,16/03/1988,wholesale_retail,small,old,False
+02823490,DURAVAC PRODUCTS LIMITED,"170 JOHN WILSON BUSINESS PARK, HARVEY DRIVE",WHITSTABLE,CT5 3RA,23200,Manufacture of refractory products,MICRO ENTITY,02/06/1993,manufacturing,micro,old,False
+02898715,HIGH PERFORM LIMITED,2 JARVIS BROOK CLOSE,BEXHILL-ON-SEA,TN39 3UQ,74909,"Other professional, scientific and technical activities n.e.c.",MICRO ENTITY,15/02/1994,business_services,micro,old,True
+02976791,INTERNET SECURITIES LIMITED,BLUEFIN BUILDING,LONDON,SE1 0SU,70100,Activities of head offices,SMALL,10/10/1994,business_services,small,old,False
+03006401,CAMBRIA ESTATES LIMITED,1759 LONDON ROAD,ESSEX,SS9 2RZ,42990,Construction of other civil engineering projects n.e.c.,TOTAL EXEMPTION FULL,05/01/1995,construction_trades,small,old,False
+03090204,LEA CONSULTANCY SERVICES LIMITED,2 HALL DRIVE,NANTWICH,CW5 6NA,70229,Management consultancy activities other than financial management,TOTAL EXEMPTION FULL,11/08/1995,business_services,small,old,False
+03117037,TJK DEVELOPMENTS LIMITED,C/O STELLAR ASSET MANAGEMENT LIMITED,LIVERPOOL,L3 9AG,41100,Development of building projects,MICRO ENTITY,23/10/1995,construction_trades,micro,old,False
+03400701,JAYLEC ELECTRICAL CONTRACTORS LIMITED,65 KNOWL PIECE,HITCHIN,SG4 0TY,43210,Electrical installation,TOTAL EXEMPTION FULL,09/07/1997,construction_trades,small,old,False
+03671068,SYKES CHEMISTS LIMITED,328 ST HELENS ROAD,,BL3 3RP,47730,Dispensing chemist in specialised stores,MEDIUM,20/11/1998,wholesale_retail,larger,old,False
+03737368,ANNOG CYF,TOWN HALL,LLANGEFNI,LL77 7LR,74909,"Other professional, scientific and technical activities n.e.c.",SMALL,22/03/1999,business_services,small,old,False
+03771876,ELITE WORLDWIDE LIMITED,"5 ELSTREE GATE, ELSTREE WAY",HERTFORDSHIRE,WD6 1JD,53202,Unlicensed carrier,TOTAL EXEMPTION FULL,17/05/1999,transport_logistics,small,old,False
+03859134,WILLINGHAM INVESTMENTS LIMITED,163 WEST ELLA ROAD,HULL,HU10 7RP,62020,Information technology consultancy activities,MICRO ENTITY,14/10/1999,business_services,micro,old,False
+03918357,HASEMORE LIMITED,2 COMMUNICATIONS ROAD,NEWBURY,RG19 6AB,82990,Other business support service activities n.e.c.,TOTAL EXEMPTION FULL,03/02/2000,business_services,small,old,False
+03925108,BW TECHNOLOGIES LIMITED,12A FLEET BUSINESS PARK SANDY LANE,FLEET,GU52 8BF,46900,Non-specialised wholesale trade,TOTAL EXEMPTION FULL,14/02/2000,wholesale_retail,small,old,False
+04037750,JAMES MANSFIELD TIMBER LIMITED,UNIT F,UXBRIDGE,UB8 2RT,47789,Other retail sale of new goods in specialised stores (not commercial art galleries and opticians),TOTAL EXEMPTION FULL,20/07/2000,wholesale_retail,small,old,False
+04116177,BP CORPORATE HOLDINGS LIMITED,CHERTSEY ROAD,MIDDLESEX,TW16 7BP,70100,Activities of head offices,FULL,23/11/2000,business_services,larger,old,False
+04121793,PHSC PLC,THE OLD CHURCH,AYLESFORD,ME20 7PR,70229,Management consultancy activities other than financial management,GROUP,08/12/2000,business_services,larger,old,False
+04241663,T.I.S.S. LIMITED,2 AVROE CRESCENT,BLACKPOOL,FY4 2DP,30990,Manufacture of other transport equipment n.e.c.,TOTAL EXEMPTION FULL,26/06/2001,manufacturing,small,old,False
+04283420,AMBER-TECH ELECTRICAL SERVICES LIMITED,19 ABBEY ROAD,SURREY,CR2 8NJ,43210,Electrical installation,MICRO ENTITY,07/09/2001,construction_trades,micro,old,False
+04403769,MICKLETON ENGINEERING LIMITED,STATION INDUSTRIAL ESTATE,BARNARD CASTLE,DL12 0NG,45200,Maintenance and repair of motor vehicles,MICRO ENTITY,26/03/2002,wholesale_retail,micro,old,False
+04417292,THINK-LAB LIMITED,43 SEDGEFORD ROAD,LONDON,W12 0NA,74909,"Other professional, scientific and technical activities n.e.c.",MICRO ENTITY,15/04/2002,business_services,micro,old,False
+04421657,CONDOR UK HOLDINGS LIMITED,CONDOR UK HOLDINGS LIMITED,POOLE,BH15 4AJ,52290,Other transportation support activities,GROUP,22/04/2002,transport_logistics,larger,old,False
+04452147,JEREMY LEWISON LIMITED,21 ELMS AVENUE,LONDON,N10 2JN,82990,Other business support service activities n.e.c.,TOTAL EXEMPTION FULL,30/05/2002,business_services,small,old,False
+04476908,PORTLAND JOINERY LIMITED,WADEBRIDGE HOUSE 16 WADEBRIDGE SQUARE,DORCHESTER,DT1 3AQ,16230,Manufacture of other builders' carpentry and joinery,MICRO ENTITY,03/07/2002,manufacturing,micro,old,False
+04576779,MELODI LIMITED,STRADDEN HOUSE,LICHFIELD,WS13 6QD,62090,Other information technology service activities,TOTAL EXEMPTION FULL,30/10/2002,business_services,small,old,False
+04647066,PTERO-BYTE LIMITED,FINSBURY HOUSE,CHIPPING NORTON,OX7 5LL,71111,Architectural activities,MICRO ENTITY,24/01/2003,business_services,micro,old,False
+04660630,OUR WORLD OUR SAY,COASTWISE HOUSE,WORTHING,BN11 1SU,82990,Other business support service activities n.e.c.,UNAUDITED ABRIDGED,10/02/2003,business_services,small,old,False
+04677276,ALLSERVE HEATING AND PLUMBING LIMITED,"HALE HOUSE, UNIT 5",PALMERS GREEN,N13 5TW,43220,"Plumbing, heat and air-conditioning installation",TOTAL EXEMPTION FULL,25/02/2003,construction_trades,small,old,False
+04697898,ROTHERHAM HEALTHCARE HOLDINGS LIMITED,"SUITE 1, 7TH FLOOR, 50",LONDON,SW1H 0DB,70100,Activities of head offices,GROUP,14/03/2003,business_services,larger,old,True
+04708345,TOP LINE MANAGEMENT UK LIMITED,19 OXFORD ROAD,BOURNEMOUTH,BH8 8GS,82990,Other business support service activities n.e.c.,TOTAL EXEMPTION FULL,23/03/2003,business_services,small,old,False
+04743793,A1 MACHINE TOOLS LIMITED,1 CHURCH MEWS,MACCLESFIELD,SK11 6AY,33120,Repair of machinery,MICRO ENTITY,24/04/2003,manufacturing,micro,old,False
+04749703,NETDALE LIMITED,THE POPLARS,BRIGG,DN20 8NQ,28990,Manufacture of other special-purpose machinery n.e.c.,MICRO ENTITY,30/04/2003,manufacturing,micro,old,False
+04782202,TSC ENGINEERING LIMITED,UNIT E UPPER,SHIPLEY,BD17 7DW,71129,Other engineering activities,SMALL,30/05/2003,business_services,small,old,False
+04818845,SURIYA JEWELS LIMITED,292 HIGH STREET NORTH,LONDON,E12 6SA,47770,Retail sale of watches and jewellery in specialised stores,UNAUDITED ABRIDGED,02/07/2003,wholesale_retail,small,old,False
+04911799,PEMBROKE CASTLE SHOP LIMITED,RICHMOND HOUSE,PEMBROKE,SA71 4LA,47190,Other retail sale in non-specialised stores,TOTAL EXEMPTION FULL,25/09/2003,wholesale_retail,small,old,False
+04938443,SHANE ANDREW (BUILDING) LIMITED,305 KINGSTON ROAD,HULL,HU10 6PX,43390,Other building completion and finishing,MICRO ENTITY,21/10/2003,construction_trades,micro,old,False
+04951755,PYRAMID PROPERTY DEVELOPMENT LIMITED,UNIT 10 VALLEY COURT,MIDDLEWICH,CW10 0GF,82990,Other business support service activities n.e.c.,TOTAL EXEMPTION FULL,03/11/2003,business_services,small,old,False
+04951981,IPCA LABORATORIES UK LIMITED,UNITS 97-98 SILVERBRIAR,SUNDERLAND,SR5 2TQ,21200,Manufacture of pharmaceutical preparations,GROUP,04/11/2003,manufacturing,larger,old,False
+05050419,BSN (LONDON) LIMITED,55 LOUDOUN ROAD,LONDON,NW8 0DL,82990,Other business support service activities n.e.c.,TOTAL EXEMPTION FULL,20/02/2004,business_services,small,old,True
+05062973,CAPITAL HOMES & CONSTRUCTION LIMITED,TOP FLOOR BUCKLEY HOUSE,ROMSEY,SO51 8GD,41100,Development of building projects,TOTAL EXEMPTION FULL,03/03/2004,construction_trades,small,old,False
+05089080,VENTING LIMITED,72 LAIRGATE,BEVERLEY,HU17 8EU,32990,Other manufacturing n.e.c.,TOTAL EXEMPTION FULL,30/03/2004,manufacturing,small,old,True
+05131762,LOVE WATER LIMITED,THE ESTATE OFFICE,WOODSTOCK,OX20 1PP,82990,Other business support service activities n.e.c.,SMALL,18/05/2004,business_services,small,old,False
+05141783,WE ARE FACILITY LIMITED,THE STUDIO,BURGH HEATH,KT20 6DP,47190,Other retail sale in non-specialised stores,UNAUDITED ABRIDGED,01/06/2004,wholesale_retail,small,old,False
+05178694,ENDEAVOURS (UK) LTD,"SENTINEL HOUSE, UNIT 36 OAKWOOD HILL INDUSTRIAL ESTATE",LOUGHTON,IG10 3TZ,82990,Other business support service activities n.e.c.,MICRO ENTITY,13/07/2004,business_services,micro,old,False
+05198353,RESOURCE PRINT MANAGEMENT LIMITED,THE OLD STAR,PRINCES RISBOROUGH,HP27 9AA,18129,Printing n.e.c.,TOTAL EXEMPTION FULL,05/08/2004,manufacturing,small,old,False
+05294390,CLEAR INVESTMENTS (UK) LIMITED,1 GREAT TOWER STREET,LONDON,EC3R 5AA,70100,Activities of head offices,GROUP,23/11/2004,business_services,larger,old,False
+05426775,THE LAKELAND WINDOW COMPANY LIMITED,WIZA HOUSE,WIGTON,CA7 9BA,43341,Painting,MICRO ENTITY,18/04/2005,construction_trades,micro,old,False
+05477996,G R STONE LIMITED,MANOR LODGE BROOK LANE,SOUTHAMPTON,SO30 2ER,69201,Accounting and auditing activities,MICRO ENTITY,10/06/2005,business_services,micro,old,False
+05482648,FISH! RESTAURANTS LTD,"FIFTH FLOOR, CLAREVILLE HOUSE 26-27 OXENDON STREET",LONDON,SW1Y 4EL,46380,"Wholesale of other food, including fish, crustaceans and molluscs",TOTAL EXEMPTION FULL,16/06/2005,wholesale_retail,small,old,True
+05506012,INTELLETECH LIMITED,TAGUS HOUSE,SOUTHAMPTON,SO14 3TJ,62090,Other information technology service activities,TOTAL EXEMPTION FULL,12/07/2005,business_services,small,old,False
+05547333,BELLA CARS LIMITED,"PRINCE ROYD, HALIFAX ROAD",HUDDERSFIELD,HD3 3BS,45112,Sale of used cars and light motor vehicles,TOTAL EXEMPTION FULL,26/08/2005,wholesale_retail,small,old,False
+05638730,DOUGLAS WILLIS LIMITED,5 GRANGE INDUSTRIAL ESTATE,CWMBRAN,NP44 8HQ,10130,Production of meat and poultry meat products,TOTAL EXEMPTION FULL,29/11/2005,manufacturing,small,old,True
+06100322,BC PROJECTS LIMITED,82 KEMPS GREEN ROAD,COVENTRY,CV7 7QE,43390,Other building completion and finishing,MICRO ENTITY,13/02/2007,construction_trades,micro,old,False
+06124143,EXEGY UK LIMITED,5 NEW STREET SQUARE,LONDON,EC4A 3TW,62020,Information technology consultancy activities,GROUP,22/02/2007,business_services,larger,old,False
+06293394,STEVE METCALFE SERVICES LIMITED,"ROSYTH, 6 KNUTSFORD OLD ROAD",WARRINGTON,WA4 2LD,82990,Other business support service activities n.e.c.,MICRO ENTITY,26/06/2007,business_services,micro,old,False
+06296862,KND CONSTRUCTION LIMITED,CORONATION PARADE,PINNER,HA5 1HW,43320,Joinery installation,TOTAL EXEMPTION FULL,29/06/2007,construction_trades,small,old,False
+06393834,MATLEGA CONSTRUCTION LIMITED,1 THE FRENCHES,REDHILL,RH1 2HF,41100,Development of building projects,TOTAL EXEMPTION FULL,09/10/2007,construction_trades,small,old,False
+06416356,ALPHA CLADDING SYSTEMS LIMITED,15 OAKCROFT CLOSE,GLOUCESTER,GL4 6NU,46130,Agents involved in the sale of timber and building materials,TOTAL EXEMPTION FULL,02/11/2007,wholesale_retail,small,old,False
+06452852,DAVE BARNETT MOTORS LTD,UNIT17C RAWDON COURT BUSINESS,MAIDSTONE,ME15 6PT,45200,Maintenance and repair of motor vehicles,MICRO ENTITY,13/12/2007,wholesale_retail,micro,old,True
+06648143,GOOSEDALE BANQUETING LIMITED,GOOSEDALE GOOSEDALE LANE,NOTTINGHAM,NG6 8UJ,70229,Management consultancy activities other than financial management,TOTAL EXEMPTION FULL,16/07/2008,business_services,small,old,False
+06753925,NUMBER CRUNCHER BUSINESS SERVICES LIMITED,THE CONIFERS CHAVEY DOWN ROAD,BRACKNELL,RG42 7PS,82990,Other business support service activities n.e.c.,MICRO ENTITY,20/11/2008,business_services,micro,old,False
+06759982,ONBIKE LIMITED,ANGLO HOUSE,STOURPORT-ON-SEVERN,DY13 9AW,47990,"Other retail sale not in stores, stalls or markets",MICRO ENTITY,27/11/2008,wholesale_retail,micro,old,False
+06789108,MI CONSULTING UK LIMITED,MAGMA HOUSE,RUGBY,CV23 0UZ,70229,Management consultancy activities other than financial management,TOTAL EXEMPTION FULL,12/01/2009,business_services,small,old,False
+06827853,LUCIAN CAMP CONSULTING LIMITED,YEW TREE HOUSE,FOREST ROW,RH18 5AA,70229,Management consultancy activities other than financial management,TOTAL EXEMPTION FULL,24/02/2009,business_services,small,old,False
+06875003,KDM FORCE LTD,"BALFOUR HOUSE, SUITE 205",LONDON,N12 0BP,82990,Other business support service activities n.e.c.,MICRO ENTITY,09/04/2009,business_services,micro,old,False
+06967109,TGI TAVERNS LIMITED,SUITES 10 - 12 THE HIVE,STEVENAGE,SG1 3HW,41100,Development of building projects,TOTAL EXEMPTION FULL,20/07/2009,construction_trades,small,old,False
+06989729,AXIOM MEDICAL LTD,5 ST. ANDREWS ROAD,LONDON,NW11 0PH,72110,Research and experimental development on biotechnology,MICRO ENTITY,13/08/2009,business_services,micro,old,True
+07087811,VGAAS UK LIMITED,MACHINE WORKS HOUSE,HAYES,UB3 1FD,41201,Construction of commercial buildings,MICRO ENTITY,26/11/2009,construction_trades,micro,old,False
+07130437,M. YOUDE CONSULTANCY LIMITED,ELM PARK COURT,PINNER,HA5 3NN,82990,Other business support service activities n.e.c.,MICRO ENTITY,19/01/2010,business_services,micro,old,False
+07145959,DIAMOND FACILITIES SUPPORT LIMITED,UNIT 2222 - 2226 THE CRESCENT,BIRMINGHAM,B37 7YE,43999,Other specialised construction activities n.e.c.,MEDIUM,04/02/2010,construction_trades,larger,old,False
+07263810,BLACKPOOL FOOD & BEVERAGES LIMITED,11 GEORGE STREET WEST,LUTON,LU1 2BJ,47110,"Retail sale in non-specialised stores with food, beverages or tobacco predominating",TOTAL EXEMPTION FULL,25/05/2010,wholesale_retail,small,old,True
+07291471,EZ MANAGEMENT LIMITED,1192A STRATFORD ROAD,BIRMINGHAM,B28 8AB,43999,Other specialised construction activities n.e.c.,MICRO ENTITY,22/06/2010,construction_trades,micro,old,False
+07343111,ABBEY SCIENTIFIC LIMITED,LANTERNS 4 LONG PARK,AMERSHAM,HP6 5JX,72190,Other research and experimental development on natural sciences and engineering,MICRO ENTITY,11/08/2010,business_services,micro,old,False
+07352081,HPPA LIMITED,424 MARGATE ROAD,RAMSGATE,CT12 6SJ,33170,Repair and maintenance of other transport equipment n.e.c.,TOTAL EXEMPTION FULL,20/08/2010,manufacturing,small,old,False
+07395444,FUNMISTIC UK LIMITED,50 WALES FARM ROAD,LONDON,W3 6UE,47990,"Other retail sale not in stores, stalls or markets",TOTAL EXEMPTION FULL,04/10/2010,wholesale_retail,small,old,True
+07405306,COUVRE-FEU FIRE CONSULTING LIMITED,8 PARK ROAD,HERTFORD,SG13 7LF,74909,"Other professional, scientific and technical activities n.e.c.",MICRO ENTITY,12/10/2010,business_services,micro,old,False
+07503252,ASSOCIATE PLANET LIMITED,GREENBANK COTTAGE BLACK HILL,HAYWARDS HEATH,RH16 2BU,62020,Information technology consultancy activities,MICRO ENTITY,24/01/2011,business_services,micro,old,False
+07506175,PERSONAL BEST CONSULTING LTD,WOODBURY BANNACLE HILL ROAD,GODALMING,GU8 5UB,70229,Management consultancy activities other than financial management,MICRO ENTITY,26/01/2011,business_services,micro,old,True
+07588214,OVERBURY INTERIORS LIMITED,OVERBURY COURT,ALTON,GU34 4BX,74100,specialised design activities,TOTAL EXEMPTION FULL,01/04/2011,business_services,small,old,False
+07660695,KINGSTON LABS LTD,16 PELHAM GARDENS,FOLKESTONE,CT20 2LF,62090,Other information technology service activities,UNAUDITED ABRIDGED,07/06/2011,business_services,small,old,False
+07661280,VANTAGE FUNDRAISING LTD,6 TERRICK ROAD,LONDON,N22 7SH,82990,Other business support service activities n.e.c.,MICRO ENTITY,07/06/2011,business_services,micro,old,False
+07853618,ASET CONSULTING LIMITED,4 FRIARY ROAD,LICHFIELD,WS13 6QL,62020,Information technology consultancy activities,UNAUDITED ABRIDGED,18/11/2011,business_services,small,old,False
+07871599,LYBURN CONSTRUCTION LTD,512 STAINES ROAD,FELTHAM,TW14 8DF,41202,Construction of domestic buildings,MICRO ENTITY,05/12/2011,construction_trades,micro,old,False
+07871717,STUART ARMSTRONG & CO (SCUNTHORPE) LIMITED,25 WELLS STREET,SCUNTHORPE,DN15 6HL,69201,Accounting and auditing activities,MICRO ENTITY,05/12/2011,business_services,micro,old,False
+07930424,MY SPARE TIME LIMITED,"UNIT 6, CHERRYTREE FARM BLACKMORE END ROAD",HALSTEAD,CO9 3LZ,43999,Other specialised construction activities n.e.c.,TOTAL EXEMPTION FULL,31/01/2012,construction_trades,small,old,False
+07948940,KJZH CONSULTING LIMITED,BLACKACRE COTTAGE,BRADFORD ON-AVON,BA15 2RW,74909,"Other professional, scientific and technical activities n.e.c.",TOTAL EXEMPTION FULL,14/02/2012,business_services,small,old,False
+07958670,MAIKE GRUNA INTERIORS LIMITED,4H FLOOR CHARLES HOUSE,LONDON,NW3 5JJ,74100,specialised design activities,TOTAL EXEMPTION FULL,21/02/2012,business_services,small,old,False
+07972006,1ST CHOICE STAFF RECRUITMENT LIMITED,CHESTER BUSINESS CENTRE,CHESTER,CH1 1QP,78109,Other activities of employment placement agencies,SMALL,01/03/2012,business_services,small,old,False
+07986475,BRISTOL AVON RIVERS TRUST,THE OAKLEY,DROITWICH,WR9 9AY,82990,Other business support service activities n.e.c.,TOTAL EXEMPTION FULL,12/03/2012,business_services,small,old,False
+07992976,SAM WILKINSON SOLID FUELS LTD,28 BAGDALE,WHITBY,YO21 1QL,46719,Wholesale of other fuels and related products,MICRO ENTITY,15/03/2012,wholesale_retail,micro,old,False
+08029705,ANFIELD E-COMMERCE LTD,20-22 WENLOCK ROAD,LONDON,N1 7GU,47910,Retail sale via mail order houses or via Internet,TOTAL EXEMPTION FULL,13/04/2012,wholesale_retail,small,old,False
+08109951,SHOWCASE INDUSTRIES LTD,THE BARN,STOCKBRIDGE,SO20 6LQ,73110,Advertising agencies,TOTAL EXEMPTION FULL,18/06/2012,business_services,small,old,False
+08139080,SANDHU'S GOLDEN FISH INN LIMITED,SANDHU HOUSE,CONSETT,DH8 7BA,47230,"Retail sale of fish, crustaceans and molluscs in specialised stores",TOTAL EXEMPTION FULL,11/07/2012,wholesale_retail,small,old,False
+08169690,LOYALTY APPS LTD,86-90 PAUL STREET,LONDON,EC2A 4NE,62090,Other information technology service activities,MICRO ENTITY,06/08/2012,business_services,micro,old,False
+08195468,SEW MUCH TO DO LTD,E-SPACE NORTH 181 WISBECH ROAD,ELY,CB6 1RA,47510,Retail sale of textiles in specialised stores,TOTAL EXEMPTION FULL,30/08/2012,wholesale_retail,small,old,False
+08201343,A WARBURTON BUILDING SERVICES LIMITED,10 CARNOUSTIE DRIVE,BURY,BL0 9QL,41100,Development of building projects,TOTAL EXEMPTION FULL,04/09/2012,construction_trades,small,old,False
+08368807,HILARY AF DOLBY LIMITED,"THE OLD MILL BLISWORTH HILL FARM, STOKE ROAD",NORTHAMPTON,NN7 3DB,70229,Management consultancy activities other than financial management,TOTAL EXEMPTION FULL,21/01/2013,business_services,small,old,False
+08582809,THE COTTON TEXTILE COMPANY LIMITED,26 TALLON ROAD,BRENTWOOD,CM13 1TJ,13990,Manufacture of other textiles n.e.c.,MICRO ENTITY,25/06/2013,manufacturing,micro,old,True
+08618394,GOLDING ACCOUNTANCY LTD,15 EASTWOOD ROAD,RAYLEIGH,SS6 7JD,69201,Accounting and auditing activities,TOTAL EXEMPTION FULL,22/07/2013,business_services,small,old,False
+08673542,THE FOREIGN & COMMONWEALTH FORUM LTD,"SUITE 67, MADDISON HOUSE",CROYDON,CR9 1DF,46900,Non-specialised wholesale trade,MICRO ENTITY,03/09/2013,wholesale_retail,micro,old,False
+08695321,RYE BAKERY LTD,WHITTOX LANE,FROME,BA11 3BY,47240,"Retail sale of bread, cakes, flour confectionery and sugar confectionery in specialised stores",TOTAL EXEMPTION FULL,18/09/2013,wholesale_retail,small,old,False
+08791927,SORT MI TAX LIMITED,55 WESTWOOD LANE,WELLING,DA16 2HJ,69203,Tax consultancy,MICRO ENTITY,27/11/2013,business_services,micro,old,False
+08811654,AUNT SALLY'S (WALSALL) LTD,34 BRIDGE STREET,WALSALL,WS1 1HR,47110,"Retail sale in non-specialised stores with food, beverages or tobacco predominating",MICRO ENTITY,12/12/2013,wholesale_retail,micro,old,False
+08811754,K2 INTERIORS (UK) LTD,5 CHURCHILL ROAD,BEDFORD,MK45 4NH,41202,Construction of domestic buildings,TOTAL EXEMPTION FULL,12/12/2013,construction_trades,small,old,False
+08832736,NADEN-BROWN LIMITED,137 HAREWOOD ROAD,ROCHDALE,OL11 5TN,62020,Information technology consultancy activities,MICRO ENTITY,06/01/2014,business_services,micro,old,False
+08877084,ODYSSEY ELECTRICAL SERVICES LTD,54D FROME ROAD,BRADFORD ON AVON,BA15 1LA,43210,Electrical installation,MICRO ENTITY,05/02/2014,construction_trades,micro,old,False
+09135354,BULLHORN CONSULTANTS LIMITED,24 TEMPLE MEAD CLOSE,STANMORE,HA7 3RG,62020,Information technology consultancy activities,TOTAL EXEMPTION FULL,17/07/2014,business_services,small,old,False
+09174733,SETARA LTD,84 KATHERINE ROAD,LONDON,E6 1EN,46900,Non-specialised wholesale trade,MICRO ENTITY,13/08/2014,wholesale_retail,micro,old,False
+09180939,ATA EXPRESS LTD,C/O SAM ACCOUNTANTS LTD,NORTH HARROW,HA2 7SR,53202,Unlicensed carrier,MICRO ENTITY,19/08/2014,transport_logistics,micro,old,False
+09184464,THE MOCKETT TRUST LIMITED,63 ESMOND ROAD,LONDON,W4 1JE,41100,Development of building projects,MICRO ENTITY,21/08/2014,construction_trades,micro,old,False
+09256187,VLMR SERVICES LTD,29 SCOTLANDS CLOSE,HASLEMERE,GU27 3AE,70229,Management consultancy activities other than financial management,MICRO ENTITY,09/10/2014,business_services,micro,old,False
+09286668,HATTON ELECTRICAL WHOLESALE (COTSWOLD) LIMITED,UNIT 20B BOURTON INDUSTRIAL PARK,CHELTENHAM,GL54 2HQ,46520,Wholesale of electronic and telecommunications equipment and parts,TOTAL EXEMPTION FULL,29/10/2014,wholesale_retail,small,old,False
+09288646,PAJO TRANSPORT LTD,5 FURNESS CLOSE,WALSALL,WS3 2UA,49410,Freight transport by road,TOTAL EXEMPTION FULL,30/10/2014,transport_logistics,small,old,False
+09308961,BIM MANAGEMENT LIMITED,320 FIRECREST COURT,WARRINGTON,WA1 1RG,82990,Other business support service activities n.e.c.,MICRO ENTITY,13/11/2014,business_services,micro,old,False
+09320154,THE ACCOUNTING XPERTS LIMITED,30 HARDENHUISH LANE,CHIPPENHAM,SN14 6HN,69201,Accounting and auditing activities,MICRO ENTITY,20/11/2014,business_services,micro,old,False
+09365765,ABLE MABEL CRAFTS LIMITED,9 STONECROP CLOSE,CHATHAM,ME4 3HA,46750,Wholesale of chemical products,TOTAL EXEMPTION FULL,23/12/2014,wholesale_retail,small,old,False
+09412758,SURPLUSDRIVESUK LTD,121 SALISBURY ROAD,HIGH BARNET,EN5 4JL,46510,"Wholesale of computers, computer peripheral equipment and software",MICRO ENTITY,29/01/2015,wholesale_retail,micro,old,False
+09428740,CLIMBATIZE LTD,39 WINDSOR STREET,HINCKLEY,LE10 2EE,82990,Other business support service activities n.e.c.,MICRO ENTITY,09/02/2015,business_services,micro,old,False
+09469066,MARK TAYLOR MARKETING LIMITED,THE STATION HOUSE,ST. IVES,PE27 5BH,73110,Advertising agencies,TOTAL EXEMPTION FULL,03/03/2015,business_services,small,old,False
+09499705,VOON CLOUD CONSULTING & SOLUTIONS LIMITED,HIGHLAND HOUSE 165 THE BROADWAY,LONDON,SW19 1NE,62020,Information technology consultancy activities,TOTAL EXEMPTION FULL,19/03/2015,business_services,small,old,True
+09571995,ACROSS 110TH LTD.,95 PRINCESS ROAD,POOLE,BH12 1BQ,70229,Management consultancy activities other than financial management,MICRO ENTITY,01/05/2015,business_services,micro,old,False
+09593632,MARIAN RATA DRIVER LTD,20 DANESMORE GARDENS,WOLVERHAMPTON,WV11 2PE,49410,Freight transport by road,MICRO ENTITY,15/05/2015,transport_logistics,micro,old,False
+09625689,ETI LOGISTICS SUPPORT LTD,151 ADDINGTON RD ADDINGTON ROAD,WELLINGBOROUGH,NN9 5UP,74909,"Other professional, scientific and technical activities n.e.c.",TOTAL EXEMPTION FULL,05/06/2015,business_services,small,old,False
+09663544,D MURPHY ACCOUNTANCY LIMITED,3 BUDDLEIA AVENUE,LICHFIELD,WS13 8LL,69201,Accounting and auditing activities,MICRO ENTITY,30/06/2015,business_services,micro,old,False
+09737788,ACCESS GROUP INDUSTRIAL SERVICES LIMITED,TUDOR HOUSE FIRST FLOOR,CARDIFF,CF11 9LJ,42990,Construction of other civil engineering projects n.e.c.,TOTAL EXEMPTION FULL,18/08/2015,construction_trades,small,old,False
+09765910,AUTOMATION CONTROL TECHNOLOGY LTD,30 OAKFIELD ROAD,MALVERN,WR14 1DT,27900,Manufacture of other electrical equipment,MICRO ENTITY,07/09/2015,manufacturing,micro,old,False
+09830681,PMI COMMERCIAL LTD,"DEVONSHIRE HOUSE, C/O SHENKERS",BOREHAMWOOD,WD6 1QQ,45200,Maintenance and repair of motor vehicles,TOTAL EXEMPTION FULL,19/10/2015,wholesale_retail,small,old,False
+09880998,POLGLASS BUILDERS LIMITED,1 LANSDOWNE GROVE,LONDON,NW10 1PL,41100,Development of building projects,MICRO ENTITY,19/11/2015,construction_trades,micro,old,False
+09992054,MY UTILITY CONNEXIONS LIMITED,16 SINGLETON AVENUE,BOLTON,BL2 6JG,42220,Construction of utility projects for electricity and telecommunications,MICRO ENTITY,08/02/2016,construction_trades,micro,mid,True
+09993193,RJ  PLUMBING AND HEATING LTD,PORTLAND HOUSE,KETTERING,NN15 7HH,43220,"Plumbing, heat and air-conditioning installation",TOTAL EXEMPTION FULL,08/02/2016,construction_trades,small,mid,False
+10065887,LUX HEALTH TECHNOLOGIES LTD,16 QUEEN ANNE'S GATE,LONDON,SW1H 9AA,72190,Other research and experimental development on natural sciences and engineering,TOTAL EXEMPTION FULL,16/03/2016,business_services,small,mid,False
+10089180,TRANZFORMIS LIMITED,43 DAWLISH AVENUE,LONDON,N13 4HP,62020,Information technology consultancy activities,TOTAL EXEMPTION FULL,29/03/2016,business_services,small,mid,True
+10154496,D & G ENGINEERING SERVICES LTD,24 LAWES WAY,BARKING,IG11 0PD,74909,"Other professional, scientific and technical activities n.e.c.",MICRO ENTITY,28/04/2016,business_services,micro,mid,False
+10319624,PLASMA METAL ART LIMITED,"UNIT 2,",LIVERPOOL,L31 8AW,25990,Manufacture of other fabricated metal products n.e.c.,TOTAL EXEMPTION FULL,09/08/2016,manufacturing,small,mid,False
+10377552,RED SKY SHEPHERDS HUTS LIMITED,FULFORD HOUSE,LEAMINGTON SPA,CV32 4EA,42990,Construction of other civil engineering projects n.e.c.,TOTAL EXEMPTION FULL,15/09/2016,construction_trades,small,mid,True
+10436528,SKINPHARMA LIMITED,26 ROYAL GEORGE DRIVE,STOCKTON-ON-TEES,TS16 0RU,74909,"Other professional, scientific and technical activities n.e.c.",MICRO ENTITY,19/10/2016,business_services,micro,mid,False
+10551165,BIRCHWOOD ENERGY ASSOCIATES LIMITED,60 HIGH FAWR AVENUE,OWESTRY,SY11 1TB,71122,Engineering related scientific and technical consulting activities,MICRO ENTITY,06/01/2017,business_services,micro,mid,False
+10553772,BESPIN RESEARCH LTD,35 LAMB HILL,BRISTOL,BS5 8JD,26400,Manufacture of consumer electronics,MICRO ENTITY,09/01/2017,manufacturing,micro,mid,False
+10626390,ARTSY LTD,38 ELKSTONE ROAD,LIVERPOOL,L11 2TD,73110,Advertising agencies,MICRO ENTITY,17/02/2017,business_services,micro,mid,False
+10643839,MAPACH LIMITED,SECOND FLOOR KENNEL CLUB HOUSE,AYLESBURY,HP19 8DB,52219,"Other service activities incidental to land transportation, n.e.c.",MICRO ENTITY,28/02/2017,transport_logistics,micro,mid,False
+10648400,STUDIO GRIFF LTD,UNIT A ST ANDREWS COURT,THAME,OX9 3WT,82990,Other business support service activities n.e.c.,UNAUDITED ABRIDGED,02/03/2017,business_services,small,mid,False
+10691545,ACE ELECTRICIANS LIMITED,51 FISHER ROAD,HARROW,HA3 7JX,43210,Electrical installation,MICRO ENTITY,27/03/2017,construction_trades,micro,mid,False
+10696533,R25R26BGP001 LIMITED,5 TANNERS COURT,CHIPPING NORTON,OX7 3RP,71129,Other engineering activities,MICRO ENTITY,29/03/2017,business_services,micro,mid,False
+10704263,ARI TRADERS LIMITED,"UNIT A UNIT A, 37 WORSLEY ROAD",MANCHESTER,M30 8PB,13923,manufacture of household textiles,MICRO ENTITY,03/04/2017,manufacturing,micro,mid,False
+10733091,RDP LIFE SCIENCES LIMITED,13 COPSE WAY,CAMBRIDGE,CB2 8BJ,72110,Research and experimental development on biotechnology,MICRO ENTITY,20/04/2017,business_services,micro,mid,True
+10856177,AD AUTOS LTD,96 CHURCH LANE,STOCKPORT,SK6 7AR,45200,Maintenance and repair of motor vehicles,MICRO ENTITY,07/07/2017,wholesale_retail,micro,mid,False
+10963269,ISLANDSHIRE LIMITED,1 FIELD HOUSE TERRACE,DURHAM,DH1 4NA,41100,Development of building projects,TOTAL EXEMPTION FULL,14/09/2017,construction_trades,small,mid,False
+11000841,LE-VAP LIMITED,2 APPLEWOOD CLOSE,LONDON,N20 9JW,46450,Wholesale of perfume and cosmetics,MICRO ENTITY,06/10/2017,wholesale_retail,micro,mid,False
+11104969,LYDIA ROSE PROMOTIONS LIMITED,1 BEAUCHAMP COURT,BARNET,EN5 5TZ,82990,Other business support service activities n.e.c.,TOTAL EXEMPTION FULL,11/12/2017,business_services,small,mid,False
+11108641,EGAR CONSULTING LTD,75 SALISBURY ROAD,MAIDSTONE,ME14 2TY,70229,Management consultancy activities other than financial management,MICRO ENTITY,12/12/2017,business_services,micro,mid,False
+11157482,MARIUSZ ZERA LTD,7 JERRISONS PLACE,BURTON-ON-TRENT,DE14 3UB,49410,Freight transport by road,MICRO ENTITY,18/01/2018,transport_logistics,micro,mid,False
+11165324,OVANCE INTERNATIONAL LTD,124 CITY ROAD,LONDON,EC1V 2NJ,78109,Other activities of employment placement agencies,TOTAL EXEMPTION FULL,23/01/2018,business_services,small,mid,False
+11173402,BROAD REACH HOSPITALITY LTD,EASTCASTLE HOUSE,LONDON,W1W 8DH,82990,Other business support service activities n.e.c.,MICRO ENTITY,29/01/2018,business_services,micro,mid,False
+11176058,JAAC HOLDINGS LTD,UNIT C3 SPELDHURST BUSINESS PARK LANGTON ROAD,TUNBRIDGE WELLS,TN3 0AQ,70229,Management consultancy activities other than financial management,TOTAL EXEMPTION FULL,29/01/2018,business_services,small,mid,False
+11220666,RJJENERGY LTD,LOTHING HOUSE,LOWESTOFT,NR32 2HD,42990,Construction of other civil engineering projects n.e.c.,TOTAL EXEMPTION FULL,22/02/2018,construction_trades,small,mid,True
+11262445,SANDPIPER GLOBAL LIMITED,85 GREAT PORTLAND STREET,LONDON,W1W 7LT,46900,Non-specialised wholesale trade,MICRO ENTITY,19/03/2018,wholesale_retail,micro,mid,False
+11271322,COOPER ENGAGEMENT AND COMMUNICATIONS LIMITED,3 THE ORCHARD,STOGUMBER,TA4 3TL,70210,Public relations and communications activities,MICRO ENTITY,22/03/2018,business_services,micro,mid,False
+11282541,MAX ASBESTOS SERVICES LIMITED,"KHAN THORNTON, 14-18 HERALDS WAY",CHELMSFORD,CM3 5TQ,71122,Engineering related scientific and technical consulting activities,MICRO ENTITY,29/03/2018,business_services,micro,mid,False
+11304135,R WATKINS PROPERTY MAINTENANCE LTD,1ST FLOOR RICHARD WHITING HOUSE,GLASTONBURY,BA6 8BS,43220,"Plumbing, heat and air-conditioning installation",MICRO ENTITY,11/04/2018,construction_trades,micro,mid,False
+11354796,CARTIERE CARRARA UK LIMITED,253 GRAY'S INN ROAD,LONDON,WC1X 8QT,46900,Non-specialised wholesale trade,FULL,10/05/2018,wholesale_retail,larger,mid,False
+11356951,MEDINA NOTTINGHAM LTD,64 CASTLE BOULEVARD,NOTTINGHAM,NG7 1FN,41100,Development of building projects,UNAUDITED ABRIDGED,11/05/2018,construction_trades,small,mid,False
+11376537,UK 3D TILES LIMITED,60 SEDCOTE ROAD,ENFIELD,EN3 4RG,43999,Other specialised construction activities n.e.c.,MICRO ENTITY,22/05/2018,construction_trades,micro,mid,True
+11378521,RUDD ELECTRICAL CONTRACTORS LTD,"TOP FLOOR, CORNER HOUSE",BRAINTREE,CM7 3HQ,43210,Electrical installation,TOTAL EXEMPTION FULL,23/05/2018,construction_trades,small,mid,False
+11439127,PELLOW ROOFING LTD,3 & 4 STATION ROAD,REDRUTH,TR15 2AB,43910,Roofing activities,TOTAL EXEMPTION FULL,28/06/2018,construction_trades,small,mid,False
+11501419,VOX CONSULTING LTD,THOMAS & ELLIS,"WILTSHIRE, BRADFORD ON AVON",BA15 1JX,62020,Information technology consultancy activities,MICRO ENTITY,06/08/2018,business_services,micro,mid,True
+11588953,CHELSEA BUILD AND DESIGN LIMITED,102 CULVERT ROAD,LONDON,SW11 5AX,43390,Other building completion and finishing,MICRO ENTITY,26/09/2018,construction_trades,micro,mid,False
+11639877,PAPERCLIP FINANCIALS LTD,227 PORTLAND CRESCENT,STANMORE,HA7 1LP,69201,Accounting and auditing activities,MICRO ENTITY,24/10/2018,business_services,micro,mid,False
+11686196,GLOW LONDON LIMITED,46 BROOKBANK CLOSE,CHELTENHAM,GL50 3NB,74909,"Other professional, scientific and technical activities n.e.c.",TOTAL EXEMPTION FULL,20/11/2018,business_services,small,mid,False
+11686197,ECORP CONSULTING LTD,MYNSHULL HOUSE,STOCKPORT,SK1 1YJ,62020,Information technology consultancy activities,MICRO ENTITY,20/11/2018,business_services,micro,mid,False
+11687753,BLACK SUNRISE LTD,321-323 HIGH ROAD 321-323 HIGH ROAD,ROMFORD,RM6 6AX,47710,Retail sale of clothing in specialised stores,MICRO ENTITY,20/11/2018,wholesale_retail,micro,mid,False
+11720151,G N R DESIGN AND BUILD LTD,25 MORNINGTON CRESCENT,HOUNSLOW,TW5 9ST,41201,Construction of commercial buildings,MICRO ENTITY,10/12/2018,construction_trades,micro,mid,True
+11730272,MOVTEK LTD,APOLLO HOUSE,WHITEHILLS BUSINESS PARK,FY4 5FS,62020,Information technology consultancy activities,MICRO ENTITY,17/12/2018,business_services,micro,mid,True
+11857668,MAKSREC LTD,23 CHIMNEY CRESCENT,WELLINGBOROUGH,NN9 5WF,47910,Retail sale via mail order houses or via Internet,MICRO ENTITY,04/03/2019,wholesale_retail,micro,mid,False
+11958694,SAMREEN TRANSPORT LTD,30 ASPEN GARDENS,ASHFORD,TW15 1ED,49410,Freight transport by road,UNAUDITED ABRIDGED,23/04/2019,transport_logistics,small,mid,False
+11974803,JDU INSPECTION SERVICES LIMITED,61 PRESTON NEW ROAD,SOUTHPORT,PR9 8PA,71122,Engineering related scientific and technical consulting activities,MICRO ENTITY,02/05/2019,business_services,micro,mid,False
+12019503,1COUNSEL LIMITED,188 WESTBOURNE PARK ROAD,LONDON,W11 1BT,70229,Management consultancy activities other than financial management,TOTAL EXEMPTION FULL,28/05/2019,business_services,small,mid,False
+12019620,COGNIS CONSULTING LTD,"SUITE 5, 5TH FLOOR CITY REACH",LONDON,E14 9NN,70229,Management consultancy activities other than financial management,MICRO ENTITY,28/05/2019,business_services,micro,mid,False
+12090937,WE DO STORAGE LTD,UNIT ONE HIGH STREET,MANCHESTER,M43 7AF,47190,Other retail sale in non-specialised stores,MICRO ENTITY,08/07/2019,wholesale_retail,micro,mid,False
+12328246,TIMEPIECE LEICESTER LTD,49 A GALLOWTREE GATE,LEICESTER,LE1 5AD,47789,Other retail sale of new goods in specialised stores (not commercial art galleries and opticians),TOTAL EXEMPTION FULL,22/11/2019,wholesale_retail,small,mid,False
+12362092,SUPREME ICT SOLUTION (UK) LTD,19 CLIFTON AVENUE,WEMBLEY,HA9 6BN,62090,Other information technology service activities,TOTAL EXEMPTION FULL,13/12/2019,business_services,small,mid,False
+12417026,JC ELECTRICAL CONTRACTORS MIDLANDS LTD,THE STABLES,DAVENTRY,NN11 4BL,43210,Electrical installation,MICRO ENTITY,21/01/2020,construction_trades,micro,mid,False
+12461087,DANIEL ANDREW CONSTRUCTION LTD,24 LADYWOOD ROAD,IPSWICH,IP4 3NH,43390,Other building completion and finishing,MICRO ENTITY,13/02/2020,construction_trades,micro,mid,False
+12480098,FULANI LTD,62 NORTHUMBERLAND PARK,LONDON,N17 0TZ,46420,Wholesale of clothing and footwear,MICRO ENTITY,24/02/2020,wholesale_retail,micro,mid,False
+12529809,ACCOUNTSDESK LTD,"OFFICE 149, 321-323 HIGH ROAD",ROMFORD,RM6 6AX,62012,Business and domestic software development,MICRO ENTITY,23/03/2020,business_services,micro,mid,False
+12543612,UNIFIED BOXING LTD,18 THE DALE,WALTHAM ABBEY,EN9 1SU,47640,"Retail sale of sports goods, fishing gear, camping goods, boats and bicycles",TOTAL EXEMPTION FULL,01/04/2020,wholesale_retail,small,mid,False
+12556510,GEORGE ROWELL LTD,"EXCHANGE CHAMBERS, 201",MANCHESTER,M3 3NW,69101,Barristers at law,TOTAL EXEMPTION FULL,15/04/2020,business_services,small,mid,False
+12651735,KN TGC LIMITED,SUITE 1 CONCEPT HOUSE,HORNCHURCH,RM11 1XP,47782,Retail sale by opticians,TOTAL EXEMPTION FULL,08/06/2020,wholesale_retail,small,mid,False
+12719562,A 2 Z AIRGUNS LTD,OAKTREE ACCOUNTANTS LTD,ANDOVER,SP10 1BW,47640,"Retail sale of sports goods, fishing gear, camping goods, boats and bicycles",MICRO ENTITY,05/07/2020,wholesale_retail,micro,mid,False
+12725311,ALESSIO-SV LTD,7A WOODCOCK HILL,HARROW,HA3 0XR,41201,Construction of commercial buildings,MICRO ENTITY,07/07/2020,construction_trades,micro,mid,False
+12746286,ADVANCED ROOF TESTING LTD,62 THE PINES,HORSHAM,RH12 4UE,43999,Other specialised construction activities n.e.c.,MICRO ENTITY,15/07/2020,construction_trades,micro,mid,False
+12758142,DBS AGILE SOLUTIONS LTD.,21 GARSTON,MILTON KEYNES,MK8 8ET,62020,Information technology consultancy activities,MICRO ENTITY,21/07/2020,business_services,micro,mid,False
+12769506,GLOBAL ITALIAN DECOR LIMITED,6 MIDLAND ROAD,LONDON,E10 6GJ,41202,Construction of domestic buildings,MICRO ENTITY,27/07/2020,construction_trades,micro,mid,False
+12776407,LACAENA DESIGN LTD,"ROOM 3, 79A",LONDON,N19 3NB,74100,specialised design activities,MICRO ENTITY,29/07/2020,business_services,micro,mid,False
+12802945,BINDFUL BOOKS LTD,71 WATERFIELD WAY,CLIPSTONE,NG21 9FD,47610,Retail sale of books in specialised stores,MICRO ENTITY,10/08/2020,wholesale_retail,micro,mid,True
+12842440,TRANSFORM AG LIMITED,C/O BEVAN BUCKLAND LLP GROUND FLOOR    CARDIGAN HOUSE,SWANSEA,SA7 9LA,74909,"Other professional, scientific and technical activities n.e.c.",TOTAL EXEMPTION FULL,27/08/2020,business_services,small,mid,False
+12853773,OXUS BUSINESS CONSULTING LIMITED,C/O SG ACCOUNTING 1 CEDAR OFFICE PARK,WIMBORNE,BH21 7SB,70229,Management consultancy activities other than financial management,MICRO ENTITY,02/09/2020,business_services,micro,mid,True
+12870277,MPL GROUNDWORK & BUILDING LIMITED,THE REGENT,PENZANCE,TR18 4AE,41100,Development of building projects,UNAUDITED ABRIDGED,10/09/2020,construction_trades,small,mid,False
+12870908,VERTEX PRECISION LTD,UNIT 16 NEALE COURTYARD,CANVEY ISLAND,SS8 0PD,25110,Manufacture of metal structures and parts of structures,TOTAL EXEMPTION FULL,10/09/2020,manufacturing,small,mid,False
+12900641,CONRAD KOSLOWSKY ARCHITECTS LTD,UNITS 2 & 3 WEST DOWN FARM,SHERBORNE,DT9 4LG,71111,Architectural activities,MICRO ENTITY,23/09/2020,business_services,micro,mid,False
+12945171,MJM 1 TRANSPORT LTD,60 ROSEBANK ROAD,LIVERPOOL,L36 3AB,49410,Freight transport by road,MICRO ENTITY,12/10/2020,transport_logistics,micro,mid,False
+12947093,C J ANTHONY BESPOKE LIMITED,AP SMART FASHION LTD (UNIT D4) NORTHSIDE HOUSE,COCKFOSTERS,EN4 9EB,46190,Agents involved in the sale of a variety of goods,MICRO ENTITY,13/10/2020,wholesale_retail,micro,mid,False
+12953681,PREMIER SPACES LIMITED,30 MONARCH PARADE,MITCHAM,CR4 3HA,43999,Other specialised construction activities n.e.c.,MICRO ENTITY,15/10/2020,construction_trades,micro,mid,False
+12976602,CV PRIME LTD,143 CONNAUGHT AVENUE,FRINTON-ON-SEA,CO13 9PS,78300,Human resources provision and management of human resources functions,TOTAL EXEMPTION FULL,27/10/2020,business_services,small,mid,False
+12977395,UK SWEET ONE LTD,5A ELLESMERE GARDENS,ILFORD,IG4 5DA,47750,Retail sale of cosmetic and toilet articles in specialised stores,MICRO ENTITY,27/10/2020,wholesale_retail,micro,mid,False
+12983899,CARCODE LIMITED,UNIT A,MILDENHALL,IP28 7DE,27900,Manufacture of other electrical equipment,TOTAL EXEMPTION FULL,29/10/2020,manufacturing,small,mid,False
+13020765,B&B AUTOS LTD,UNIT 13,WELWYN GARDEN CITY,AL7 1EP,45112,Sale of used cars and light motor vehicles,MICRO ENTITY,15/11/2020,wholesale_retail,micro,mid,False
+13028781,K20 MOTORS LIMITED,16 HOLTYE CRESCENT,MAIDSTONE,ME15 7DB,45112,Sale of used cars and light motor vehicles,TOTAL EXEMPTION FULL,18/11/2020,wholesale_retail,small,mid,False
+13035421,KOAN ADVISORY LTD,14 LANEWOOD CLOSE,AMERSHAM,HP7 9JL,62020,Information technology consultancy activities,MICRO ENTITY,20/11/2020,business_services,micro,mid,False
+13078450,ABI ADAMSON LTD,20-22 WENLOCK ROAD,LONDON,N1 7GU,70229,Management consultancy activities other than financial management,MICRO ENTITY,11/12/2020,business_services,micro,mid,False
+13193298,CHAPTER ONE DEVELOPMENTS LIMITED,16 WEST STREET,FARNHAM,GU9 7DR,41100,Development of building projects,TOTAL EXEMPTION FULL,10/02/2021,construction_trades,small,mid,True
+13200587,L.D HEATING SOLUTIONS LTD,25 ERSKINE ROAD,SUTTON,SM1 3AW,43220,"Plumbing, heat and air-conditioning installation",MICRO ENTITY,15/02/2021,construction_trades,micro,mid,False
+13226583,JOHNJASPER RESOURCING LTD,OUSEBURN GATEWAY,NEWCASTLE UPON TYNE,NE1 2BE,78200,Temporary employment agency activities,MICRO ENTITY,25/02/2021,business_services,micro,mid,False
+13229570,FARM AND EQUESTRIAN FINANCE LTD.,UNIT 2,DULVERTON,TA22 9BF,70229,Management consultancy activities other than financial management,MICRO ENTITY,26/02/2021,business_services,micro,mid,False
+13247594,M66 CAR AND COMMERCIALS LTD,16 ALL SAINTS PLACE,BURY,BL8 1ND,45200,Maintenance and repair of motor vehicles,TOTAL EXEMPTION FULL,05/03/2021,wholesale_retail,small,mid,False
+13261922,LUCY LOUS BOUTIQUE (PENWORTHAM) LTD,50 LIVERPOOL ROAD,PRESTON,PR1 0DQ,47710,Retail sale of clothing in specialised stores,MICRO ENTITY,12/03/2021,wholesale_retail,micro,mid,False
+13266786,THE CRAFTY DOG COMPANY LIMITED,8 BOURNE GATE,POOLE,BH12 1DY,47990,"Other retail sale not in stores, stalls or markets",TOTAL EXEMPTION FULL,15/03/2021,wholesale_retail,small,mid,False
+13287435,PLATINUM CHAUFFEURS UK LTD,OFFICE 29 UNIT 4200 WATERSIDE,BIRMINGHAM,B37 7YN,49390,Other passenger land transport,TOTAL EXEMPTION FULL,23/03/2021,transport_logistics,small,mid,False
+13308566,DR AND SONS LIMITED,33 WEST BOROUGH,WIMBORNE,BH21 1LT,43290,Other construction installation,TOTAL EXEMPTION FULL,01/04/2021,construction_trades,small,mid,False
+13314806,H2 HEAT LIMITED,12 MORTON LANE,KEIGHLEY,BD20 5RS,43220,"Plumbing, heat and air-conditioning installation",TOTAL EXEMPTION FULL,06/04/2021,construction_trades,small,mid,False
+13323143,HCG PROPERTY HOLDINGS LIMITED,2ND FLOOR CUMBERLAND HOUSE,CHELTENHAM,GL50 1BB,41202,Construction of domestic buildings,TOTAL EXEMPTION FULL,08/04/2021,construction_trades,small,mid,False
+13327619,D AND D CRAFTSMEN LTD,2 HICKORY DRIVE,WINCHESTER,SO22 6NJ,43220,"Plumbing, heat and air-conditioning installation",MICRO ENTITY,12/04/2021,construction_trades,micro,mid,False
+13334401,APOLLO GLOBAL RESEARCH AND CONSULTANCY LIMITED,59 UNION STREET,DUNSTABLE,LU6 1EX,70229,Management consultancy activities other than financial management,MICRO ENTITY,14/04/2021,business_services,micro,mid,False
+13352046,ENDORPHIN STUDIO LTD,FLAT 26,CROYDON,CR0 1UL,70210,Public relations and communications activities,MICRO ENTITY,22/04/2021,business_services,micro,mid,False
+13388812,SHAURI TECHNOLOGIES LIMITED,147 ALTMORE AVENUE,LONDON,E6 2BU,62020,Information technology consultancy activities,MICRO ENTITY,11/05/2021,business_services,micro,mid,False
+13422440,LOVE FLOORING ESSEX LTD.,27 OLD GLOUCESTER STREET,LONDON,WC1N 3AX,43330,Floor and wall covering,MICRO ENTITY,26/05/2021,construction_trades,micro,mid,False
+13445703,GRAVENEY PRIVATE CLIENT LIMITED,51 DORSET STREET,LONDON,W1U 7NG,69102,Solicitors,MICRO ENTITY,08/06/2021,business_services,micro,mid,False
+13446752,ABSURDIA LTD,71-75 SHELTON STREET,LONDON,WC2H 9JQ,62012,Business and domestic software development,MICRO ENTITY,09/06/2021,business_services,micro,mid,False
+13459351,PRAGGYS RECOVERY LTD,18 WAINWRIGHT,PETERBOROUGH,PE4 5AG,45200,Maintenance and repair of motor vehicles,MICRO ENTITY,16/06/2021,wholesale_retail,micro,mid,False
+13486645,EPOXY LAB LTD,71 LOUGHBOROUGH AVENUE,NOTTINGHAM,NG2 4LN,43330,Floor and wall covering,TOTAL EXEMPTION FULL,30/06/2021,construction_trades,small,mid,False
+13550532,PRESTIGE AND PERFORMANCE SPARES LTD,UNIT 1A,SHEFFIELD,S3 9EB,45320,Retail trade of motor vehicle parts and accessories,MICRO ENTITY,05/08/2021,wholesale_retail,micro,mid,False
+13554808,UTMOST COMMUNITY CARE LIMITED,FLAT 31 MANDARIN COURT,LONDON,SE8 5HL,78200,Temporary employment agency activities,TOTAL EXEMPTION FULL,09/08/2021,business_services,small,mid,False
+13589368,ECONOSTORE LTD,8 TURNERS FIELD,HIGH WYCOMBE,HP13 5YZ,46150,"Agents involved in the sale of furniture, household goods, hardware and ironmongery",MICRO ENTITY,27/08/2021,wholesale_retail,micro,mid,False
+13612673,PARAGON UMBRELLA SERVICES LTD,60 SHERINGHAM DRIVE,BARKING,IG11 9AN,78109,Other activities of employment placement agencies,MICRO ENTITY,09/09/2021,business_services,micro,mid,False
+13655692,BATHFORD JOINERY LIMITED,"BATHFORD GARDENS,THE ANNEXE AT BATHFORD GARDENS,",BATH,BA1 7LR,16230,Manufacture of other builders' carpentry and joinery,TOTAL EXEMPTION FULL,01/10/2021,manufacturing,small,mid,False
+13683479,WEBSTER LITTLE LTD,"CC409 COCOA HOUSE, THE BISCUIT FACTORY",LONDON,SE16 4DG,41100,Development of building projects,TOTAL EXEMPTION FULL,15/10/2021,construction_trades,small,mid,False
+13697238,GLMS LAW LIMITED,M.01 TOMORROW,MEDIACITYUK,M50 2AB,69102,Solicitors,TOTAL EXEMPTION FULL,22/10/2021,business_services,small,mid,False
+13717242,TANKA CONVENIENCE STORE LTD,103 MAGDALEN STREET,NORWICH,NR3 1LN,47110,"Retail sale in non-specialised stores with food, beverages or tobacco predominating",MICRO ENTITY,02/11/2021,wholesale_retail,micro,mid,False
+13727578,ASP BUILDING AND RENOVATION LTD,40 MANOR FIELDS,GODALMING,GU8 5EQ,41100,Development of building projects,MICRO ENTITY,07/11/2021,construction_trades,micro,mid,False
+13839069,CULPEPPER INVESTMENTS LIMITED,64 CHURCHILL ROAD,SLOUGH,SL3 7RB,74909,"Other professional, scientific and technical activities n.e.c.",TOTAL EXEMPTION FULL,10/01/2022,business_services,small,mid,False
+13845767,IVOLVE 2 HEAD OFFICE LIMITED,ROYAL COURT,CHESTERFIELD,S41 7SL,70100,Activities of head offices,SMALL,13/01/2022,business_services,small,mid,True
+13870242,SHIVLAKSHMI TECH LTD,18 NEALS CORNER,HOUNSLOW,TW3 3HJ,62020,Information technology consultancy activities,MICRO ENTITY,25/01/2022,business_services,micro,mid,False
+13890063,LJ PROPERTY DEVELOPMENTS NW LTD,42 THE QUILLET,NESTON,CH64 9QH,41100,Development of building projects,TOTAL EXEMPTION FULL,03/02/2022,construction_trades,small,mid,False
+13906746,LONGWOOD MAVEN LTD,29 WATNALL ROAD,NOTTINGHAM,NG15 7LD,70229,Management consultancy activities other than financial management,UNAUDITED ABRIDGED,10/02/2022,business_services,small,mid,False
+13941220,OASIA HOLDING COMPANY LIMITED,8 BENACRE CROFT,MILTON KEYNES,MK4 3FG,82990,Other business support service activities n.e.c.,MICRO ENTITY,25/02/2022,business_services,micro,mid,False
+13972629,PRO HEATING AND PLUMBING SOLUTIONS LTD,141 COOMBE WAY,PLYMOUTH,PL5 2HA,43220,"Plumbing, heat and air-conditioning installation",MICRO ENTITY,12/03/2022,construction_trades,micro,mid,False
+13974134,MUSEUM SOUND DESIGN LIMITED,15 WEST STREET,BRIGHTON,BN1 2RL,74100,specialised design activities,TOTAL EXEMPTION FULL,14/03/2022,business_services,small,mid,False
+13993209,MAYHILL STORES LIMITED,361 TOWNHILL ROAD,SWANSEA,SA1 6PA,47110,"Retail sale in non-specialised stores with food, beverages or tobacco predominating",MICRO ENTITY,21/03/2022,wholesale_retail,micro,mid,False
+14049116,INTER G CONSTRUCTION LIMITED,21 NETHER DURFORD CLOSE,OXFORD,OX3 7FE,16230,Manufacture of other builders' carpentry and joinery,TOTAL EXEMPTION FULL,14/04/2022,manufacturing,small,mid,False
+14067505,SPACE VALUE LTD,35 BISHOPS DRIVE,CREDITON,EX17 5HR,70229,Management consultancy activities other than financial management,TOTAL EXEMPTION FULL,25/04/2022,business_services,small,mid,False
+14090100,MOTION MOTOR GROUP LTD,22 HIGH STREET,KETTERING,NN14 6BQ,45112,Sale of used cars and light motor vehicles,MICRO ENTITY,06/05/2022,wholesale_retail,micro,mid,True
+14129014,C&L BUILDESIGN LTD,58 BRUNSWICK GROVE,LONDON,N11 1ED,43341,Painting,MICRO ENTITY,24/05/2022,construction_trades,micro,mid,False
+14316359,HEDIN AUTOMOTIVE LONDON LTD,MERCEDES BENZ OF BROOKLANDS,WEYBRIDGE,KT13 0SL,45111,Sale of new cars and light motor vehicles,FULL,24/08/2022,wholesale_retail,larger,mid,False
+14326106,PUBWITHTHEKIDS LTD,87 CHANDOS BUSINESS CENTRE,LEAMINGTON SPA,CV32 4RJ,62012,Business and domestic software development,MICRO ENTITY,30/08/2022,business_services,micro,mid,False
+14348910,ORLA ROSE ASSOCIATES LTD,OFFICE 206,CROXLEY GREEN,WD3 3HH,78109,Other activities of employment placement agencies,TOTAL EXEMPTION FULL,09/09/2022,business_services,small,mid,False
+14355037,EXTRA ASPIRE LTD,FLAT 3,COLINDALE,NW9 4AJ,70229,Management consultancy activities other than financial management,MICRO ENTITY,14/09/2022,business_services,micro,mid,False
+14361055,ERNST STUDIO LIMITED,20 CHALLONER STREET,LONDON,W14 9LD,74100,specialised design activities,MICRO ENTITY,16/09/2022,business_services,micro,mid,False
+14372638,DB COMPOSITES LTD,3 ANDERSON COURT,CAMBRIDGE,CB3 9EZ,29320,Manufacture of other parts and accessories for motor vehicles,MICRO ENTITY,23/09/2022,manufacturing,micro,mid,False
+14412197,KRAKEN INC LIMITED,THE FIRS STRATFORD ROAD,BIRMINGHAM,B94 5NJ,74100,specialised design activities,MICRO ENTITY,11/10/2022,business_services,micro,mid,False
+14478374,JBB CONSULTANTS LIMITED,10 DOWNS CLOSE,EASTBURY,RG17 7JW,71122,Engineering related scientific and technical consulting activities,MICRO ENTITY,11/11/2022,business_services,micro,mid,False
+14484292,SOONFOUND LTD,86-90 PAUL STREET,LONDON,EC2A 4NE,74909,"Other professional, scientific and technical activities n.e.c.",MICRO ENTITY,15/11/2022,business_services,micro,mid,False
+14493069,TEC INTERNATIONAL DEVELOPMENT LIMITED,71-75 SHELTON STREET,LONDON,WC2H 9JQ,28290,Manufacture of other general-purpose machinery n.e.c.,MICRO ENTITY,18/11/2022,manufacturing,micro,mid,False
+14580204,DANALOGUE LTD,45 CLAYTON ROAD,NEWCASTLE UPON TYNE,NE2 4RQ,73110,Advertising agencies,MICRO ENTITY,09/01/2023,business_services,micro,mid,False
+14589922,DTF ENGINEERING LTD,100 CHURCH STREET,BRIGHTON,BN1 1UJ,70229,Management consultancy activities other than financial management,TOTAL EXEMPTION FULL,13/01/2023,business_services,small,mid,False
+14683139,DEGLO CARE LTD,12 EDGE LANE,MANCHESTER,M43 6NY,78200,Temporary employment agency activities,MICRO ENTITY,22/02/2023,business_services,micro,mid,False
+14685003,SQUADIN LTD,128 CITY ROAD,LONDON,EC1V 2NX,62020,Information technology consultancy activities,MICRO ENTITY,23/02/2023,business_services,micro,mid,False
+14779700,UML MONZA LIMITED,PORTLAND HOUSE 69-71,WEMBLEY,HA9 8BU,50200,Sea and coastal freight water transport,SMALL,04/04/2023,transport_logistics,small,mid,False
+14812895,WHMOTORSERVICE LTD,"UNIT 5, HINKSEY BUSINESS CENTRE",OXFORD,OX2 0NR,45112,Sale of used cars and light motor vehicles,UNAUDITED ABRIDGED,18/04/2023,wholesale_retail,small,mid,False
+14819940,FULFILLED TALENT LIMITED,YARE HOUSE,NORWICH,NR1 1RY,78200,Temporary employment agency activities,TOTAL EXEMPTION FULL,21/04/2023,business_services,small,mid,True
+14838328,SOCIALLY LEGAL LTD,SWAN BUILDING,MANCHESTER,M4 5JW,73110,Advertising agencies,TOTAL EXEMPTION FULL,01/05/2023,business_services,small,mid,True
+14881265,I & D DECORATORS LTD,30 ACORN CLOSE,LONDON,E4 9DA,43341,Painting,MICRO ENTITY,19/05/2023,construction_trades,micro,mid,False
+14904076,JUST FIT KITCHEN LTD,C/O PRIME FINANCIAL ADVISORY LTD 4 IMPERIAL PLACE,BOREHAMWOOD,WD6 1JN,41202,Construction of domestic buildings,MICRO ENTITY,30/05/2023,construction_trades,micro,mid,False
+14911730,J&K SYSTEMS PVT LTD,11 WARMINGTON AVENUE,GRANTHAM,NG31 7NU,62020,Information technology consultancy activities,MICRO ENTITY,02/06/2023,business_services,micro,mid,False
+14919949,T&K SUPERSTORE LTD,7 HEATHER PARK PARADE,WEMBLEY,HA0 1SL,47110,"Retail sale in non-specialised stores with food, beverages or tobacco predominating",MICRO ENTITY,07/06/2023,wholesale_retail,micro,mid,False
+14922754,MOSAIC BUILDING TECHNOLOGY SPECIALIST LTD,68 THAMES ROAD,LONDON,W4 3RE,47430,Retail sale of audio and video equipment in specialised stores,MICRO ENTITY,08/06/2023,wholesale_retail,micro,mid,False
+14937778,DIY TRADE FUTURE LTD,PARK HOUSE,LEEDS,LS7 2BP,43999,Other specialised construction activities n.e.c.,TOTAL EXEMPTION FULL,15/06/2023,construction_trades,small,mid,False
+14951915,LC LOGISTICS LTD,63 BOWER MOUNT ROAD,MAIDSTONE,ME16 8AS,49410,Freight transport by road,TOTAL EXEMPTION FULL,21/06/2023,transport_logistics,small,mid,False
+14957664,BTCS LTD,61 LOWER ICKNIELD WAY,CHINNOR,OX39 4EA,62020,Information technology consultancy activities,TOTAL EXEMPTION FULL,24/06/2023,business_services,small,mid,False
+15019225,M. A. M MAINTENANCE SERVICE LIMITED,UPPER FLAT,HARROW,HA1 3AJ,43341,Painting,MICRO ENTITY,21/07/2023,construction_trades,micro,mid,False
+15033608,FRIENDS JUNCTION LTD,354 GREENFORD AVENUE,LONDON,W7 3DA,47110,"Retail sale in non-specialised stores with food, beverages or tobacco predominating",MICRO ENTITY,27/07/2023,wholesale_retail,micro,mid,True
+15089645,DRALIONS LIMITED,71-75 SHELTON STREET,LONDON,WC2H 9JQ,47910,Retail sale via mail order houses or via Internet,MICRO ENTITY,22/08/2023,wholesale_retail,micro,mid,False
+15094517,DST CONTRACTING LTD,79 QUEENSWAY,WELLINGBOROUGH,NN8 3RF,43999,Other specialised construction activities n.e.c.,TOTAL EXEMPTION FULL,24/08/2023,construction_trades,small,mid,False
+15094740,LIC WORLDWIDE LTD,71-75 SHELTON STREET,LONDON,WC2H 9JQ,74100,specialised design activities,MICRO ENTITY,24/08/2023,business_services,micro,mid,False
+15099106,WEB INT LIMITED,128 CITY ROAD,LONDON,EC1V 2NX,62020,Information technology consultancy activities,MICRO ENTITY,28/08/2023,business_services,micro,mid,False
+15103204,THE CREATIVE VIRTUAL ASSISTANT LIMITED,WEST FARM PADDOCK WEST FARM PADDOCK,SEAHAM,SR7 8RL,82990,Other business support service activities n.e.c.,MICRO ENTITY,29/08/2023,business_services,micro,mid,True
+15130493,CHERRY VINTAGE LTD,41 SOUTH STREET,CHICHESTER,PO19 1EL,47710,Retail sale of clothing in specialised stores,MICRO ENTITY,11/09/2023,wholesale_retail,micro,mid,False
+15148030,PEH-LEH UK LTD,46 ST. AUGUSTINE STREET,BOLTON,BL1 3JG,47910,Retail sale via mail order houses or via Internet,TOTAL EXEMPTION FULL,19/09/2023,wholesale_retail,small,mid,False
+15150153,HANLAIM LTD,"29745 OFFICE SUITE 29A, 3/F",LONDON,SE8 3GG,47910,Retail sale via mail order houses or via Internet,MICRO ENTITY,20/09/2023,wholesale_retail,micro,mid,False
+15209820,NRIA LIMITED,"NRIA SUITE, COLLEGE HOUSE",BARROW-IN-FURNESS,LA14 1NB,70229,Management consultancy activities other than financial management,MICRO ENTITY,13/10/2023,business_services,micro,mid,False
+15232208,BESPOKE ADL LTD,128 CITY ROAD,LONDON,EC1V 2NX,82990,Other business support service activities n.e.c.,TOTAL EXEMPTION FULL,24/10/2023,business_services,small,mid,False
+15240274,EM FABRICATIONS LTD,TUTTLE FARM LOCK ROAD,GRIMSBY,DN36 5UP,25990,Manufacture of other fabricated metal products n.e.c.,MICRO ENTITY,27/10/2023,manufacturing,micro,mid,False
+15240724,UPSURGE STUDIO LTD,PERA BUSINESS PARK M03 TOWER BUILDING,MELTON MOWBRAY,LE13 0PB,70229,Management consultancy activities other than financial management,MICRO ENTITY,27/10/2023,business_services,micro,mid,False
+15272351,SUSHI POINT TWICKENHAM LTD,7 LONDON ROAD,TWICKENHAM,TW1 3SX,47230,"Retail sale of fish, crustaceans and molluscs in specialised stores",TOTAL EXEMPTION FULL,09/11/2023,wholesale_retail,small,mid,False
+15330507,YOCYCLE LIMITED,"3RD FLOOR, 86-90",LONDON,EC2A 4NE,47640,"Retail sale of sports goods, fishing gear, camping goods, boats and bicycles",MICRO ENTITY,05/12/2023,wholesale_retail,micro,mid,False
+15338408,CARDOSO SERVICES LIMITED,27 OLD GLOUCESTER STREET,LONDON,WC1N 3AX,62020,Information technology consultancy activities,MICRO ENTITY,09/12/2023,business_services,micro,mid,False
+15396982,DID TEACH LIMITED,30 EAST BOROUGH,WIMBORNE,BH21 1PL,78109,Other activities of employment placement agencies,MICRO ENTITY,08/01/2024,business_services,micro,young,False
+15482306,IFAC SERVICES UK LTD,2 OLD BATH ROAD,NEWBURY,RG14 1QL,69201,Accounting and auditing activities,TOTAL EXEMPTION FULL,11/02/2024,business_services,small,young,False
+15488054,KAEDE & ARCA LTD,2 GUINEA HALL CLOSE BANKS SOUTHPORT,SOUTHPORT,PR9 8RG,47722,Retail sale of leather goods in specialised stores,MICRO ENTITY,14/02/2024,wholesale_retail,micro,young,False
+15494248,BOSS SHOP LTD,6 BUSHY CLOSE,OXFORD,OX2 9SH,46170,"Agents involved in the sale of food, beverages and tobacco",MICRO ENTITY,16/02/2024,wholesale_retail,micro,young,False
+15496809,MERA CONSULTANCY LTD,"3RD FLOOR, 86-90",LONDON,EC2A 4NE,70229,Management consultancy activities other than financial management,MICRO ENTITY,17/02/2024,business_services,micro,young,False
+15516196,TIMMY LOVES COMPANY LIMITED,C/O BWBCA LIMITED OFFICE 44,OKEHAMPTON,EX20 1BG,74100,specialised design activities,TOTAL EXEMPTION FULL,23/02/2024,business_services,small,young,False
+15532140,TERRASTRUCT LTD,82A JAMES CARTER ROAD,BURY SAINT EDMUNDS,IP28 7DE,71122,Engineering related scientific and technical consulting activities,MICRO ENTITY,29/02/2024,business_services,micro,young,False
+15537604,FORBES-SPACE LTD,124 CITY  ROAD,LONDON,EC1V 2NX,70229,Management consultancy activities other than financial management,MICRO ENTITY,03/03/2024,business_services,micro,young,False
+15551299,COOKMECH LTD,20 LOTHIAN CRESCENT,CARDIFF,CF23 9HY,43220,"Plumbing, heat and air-conditioning installation",MICRO ENTITY,09/03/2024,construction_trades,micro,young,False
+15567784,F M CREATIVE DECORS LIMITED,128 CITY ROAD,LONDON,EC1V 2NX,43341,Painting,TOTAL EXEMPTION FULL,16/03/2024,construction_trades,small,young,False
+15653464,MK PROPERTY DEVELOPMENT DERBY LIMITED,73 HIGHFIELD LANE,DERBY,DE21 6PJ,41100,Development of building projects,MICRO ENTITY,16/04/2024,construction_trades,micro,young,False
+15686175,PAPER RIGHT LTD,20 AIREVILLE AVENUE,BRADFORD,BD9 4ER,46190,Agents involved in the sale of a variety of goods,UNAUDITED ABRIDGED,27/04/2024,wholesale_retail,small,young,False
+15700649,REAL SURREY CONTRACTOR LTD,"37 FARM DRIVE,",LONDON,CR0 8HX,41201,Construction of commercial buildings,NO ACCOUNTS FILED,02/05/2024,construction_trades,unknown,young,False
+15744498,NEXARA GROUP LTD,68 CHURCH STREET,BARNSLEY,S72 9JG,70229,Management consultancy activities other than financial management,MICRO ENTITY,27/05/2024,business_services,micro,young,False
+15744625,DTM SURVEY LTD,7 CHESHIRE WALK,BASILDON,SS14 3TW,43120,Site preparation,MICRO ENTITY,27/05/2024,construction_trades,micro,young,False
+15760555,A TO Z TRANSPORT OXFORD LIMITED,WYCHWOOD HOUSE HANBOROUGH BUSINESS PARK,WITNEY,OX29 8LH,52290,Other transportation support activities,MICRO ENTITY,04/06/2024,transport_logistics,micro,young,True
+15786546,OUTCOME STRIDE LTD,"FLAT 107, MAURER COURT",LONDON,SE10 0SZ,70229,Management consultancy activities other than financial management,MICRO ENTITY,18/06/2024,business_services,micro,young,False
+15801064,SOLENT VIEW LOGISTICS LTD,45 BRIGHSTONE ROAD,PORTSMOUTH,PO6 3HP,45190,Sale of other motor vehicles,TOTAL EXEMPTION FULL,25/06/2024,wholesale_retail,small,young,False
+15815497,BS DRIVEWAYS & CONSTRUCTION LTD,33 DEWCHURCH DRIVE,DERBY,DE23 1XP,41100,Development of building projects,TOTAL EXEMPTION FULL,02/07/2024,construction_trades,small,young,False
+15822311,PASSION COURIER LTD,16 EDGMOND CLOSE,REDDITCH,B98 0JG,53201,Licensed carriers,MICRO ENTITY,05/07/2024,transport_logistics,micro,young,False
+15849177,ATWA DISTRIBUTION LTD,142 PARKVILLE ROAD,MANCHESTER,M20 4TY,47910,Retail sale via mail order houses or via Internet,MICRO ENTITY,19/07/2024,wholesale_retail,micro,young,False
+15868691,EBERTEQ LIMITED,MYRTLE HOUSE,HENFIELD,BN5 9DA,70229,Management consultancy activities other than financial management,TOTAL EXEMPTION FULL,31/07/2024,business_services,small,young,False
+15869026,HSPLUS LTD,33 GOLF VIEW,PRESTON,PR2 7EJ,49410,Freight transport by road,TOTAL EXEMPTION FULL,31/07/2024,transport_logistics,small,young,True
+15887473,SOUTH YORKSHIRE BUILDERS LTD,4 BOLAND ROAD,SHEFFIELD,S8 7HX,43390,Other building completion and finishing,NO ACCOUNTS FILED,09/08/2024,construction_trades,unknown,young,False
+15915240,THE BOHEMIAN BESPOKE OUTFITTERS LTD,5 ALBERT ROAD,SOUTHSEA,PO5 2SE,14131,Manufacture of other men's outerwear,MICRO ENTITY,23/08/2024,manufacturing,micro,young,False
+15958641,HELLO RAW LIMITED,KILPECK COURT KILPECK,HEREFORD,HR2 9DN,47760,"Retail sale of flowers, plants, seeds, fertilizers, pet animals and pet food in specialised stores",MICRO ENTITY,16/09/2024,wholesale_retail,micro,young,False
+15981577,ADVANCED DRILLING LTD,UNIT 12 LEES HALL FARM,WEST YORKSHIRE,WF12 9EQ,43999,Other specialised construction activities n.e.c.,MICRO ENTITY,26/09/2024,construction_trades,micro,young,False
+15986634,XV PROPERTY LTD,22-26 KING STREET,KING'S LYNN,PE30 1HJ,41100,Development of building projects,TOTAL EXEMPTION FULL,30/09/2024,construction_trades,small,young,True
+15988640,CSC PLUMBING HEATING LTD,107 PASTON RIDINGS,PETERBOROUGH,PE4 7UX,43220,"Plumbing, heat and air-conditioning installation",MICRO ENTITY,01/10/2024,construction_trades,micro,young,False
+15991362,S I R RETAIL LTD,BLUEBELL BARN WOOD FARM LANE,SWADLINCOTE,DE11 7JY,47890,Retail sale via stalls and markets of other goods,NO ACCOUNTS FILED,01/10/2024,wholesale_retail,unknown,young,False
+15996001,QDM PET COMPANY LTD,C/O THE LOCAL ACCOUNTANT,CHEDDAR,BS27 3AA,47789,Other retail sale of new goods in specialised stores (not commercial art galleries and opticians),MICRO ENTITY,03/10/2024,wholesale_retail,micro,young,False
+16000136,SAFOURWAY LTD,53 HOOKE CLOSE,POOLE,BH17 8BA,47910,Retail sale via mail order houses or via Internet,MICRO ENTITY,06/10/2024,wholesale_retail,micro,young,False
+16007314,PRAPORROM WJ LTD,39 LOWSHOE LANE,ROMFORD,RM5 2AA,31020,Manufacture of kitchen furniture,MICRO ENTITY,09/10/2024,manufacturing,micro,young,False
+16035554,ZOYA’S COLLECTION LTD,UNIT 8 WOODBOURN BUSINESS CENTRE,SHEFFIELD,S9 3HY,46420,Wholesale of clothing and footwear,NO ACCOUNTS FILED,22/10/2024,wholesale_retail,unknown,young,False
+16040451,THE LAW CLUB LTD,14 MILTON CRESCENT,CHEADLE,SK8 1NU,78300,Human resources provision and management of human resources functions,MICRO ENTITY,25/10/2024,business_services,micro,young,False
+16065415,COSEC CHAMP LIMITED,"UNIT 4, THE COTTAGES DEVA CENTRE",MANCHESTER,M3 7BE,82990,Other business support service activities n.e.c.,TOTAL EXEMPTION FULL,07/11/2024,business_services,small,young,False
+16085049,STRYGER INVESTMENTS LTD.,12 LAPSTONE GARDENS,HARROW,HA3 0ED,47190,Other retail sale in non-specialised stores,MICRO ENTITY,18/11/2024,wholesale_retail,micro,young,False
+16116657,BUILDING & JOINERY CONSTRUCTION LTD,"FLAT 11 BRAEMAR HOUSE,",LONDON,W9 1UT,41202,Construction of domestic buildings,NO ACCOUNTS FILED,03/12/2024,construction_trades,unknown,young,False
+16121582,MILNE SOLUTIONS LTD,139 CALDERBROOK ROAD,LITTLEBOROUGH,OL15 9JW,70229,Management consultancy activities other than financial management,NO ACCOUNTS FILED,05/12/2024,business_services,unknown,young,False
+16130305,HIGHPOINT OFFICES LTD,HERON HOUSE,LONDON,E6 2JG,82990,Other business support service activities n.e.c.,NO ACCOUNTS FILED,11/12/2024,business_services,unknown,young,False
+16169213,KG DRIVEWAYS AND LANDSCAPING LIMITED,101 DIXONS GREEN ROAD,DUDLEY,DY2 7DJ,42990,Construction of other civil engineering projects n.e.c.,NO ACCOUNTS FILED,07/01/2025,construction_trades,unknown,young,True
+16207825,CAMDAN GROUP LTD,64 NILE STREET,LONDON,N1 7SR,47430,Retail sale of audio and video equipment in specialised stores,NO ACCOUNTS FILED,25/01/2025,wholesale_retail,unknown,young,False
+16210386,BARANSU4H LTD,FLAT 7 APEX HOUSE,ORPINGTON,BR5 3FL,46900,Non-specialised wholesale trade,NO ACCOUNTS FILED,27/01/2025,wholesale_retail,unknown,young,False
+16217858,HARRIS & SON’S ELECTRICAL LTD,131 FELPHAM WAY,BOGNOR REGIS,PO22 8QJ,43210,Electrical installation,NO ACCOUNTS FILED,29/01/2025,construction_trades,unknown,young,False
+16219136,NEXTGEN DATA SOLUTIONS LTD,35 KATHERINE DRIVE,NOTTINGHAM,NG9 6JB,62020,Information technology consultancy activities,NO ACCOUNTS FILED,30/01/2025,business_services,unknown,young,False
+16258325,GET-INCLUSIVE LTD,10 GREENACRES,TADWORTH,KT20 7EL,82990,Other business support service activities n.e.c.,NO ACCOUNTS FILED,17/02/2025,business_services,unknown,young,False
+16259486,JK MEDIA AGENCY LTD,FLAT 5 REDBOURNE,CROMER,NR27 0AZ,62030,Computer facilities management activities,NO ACCOUNTS FILED,18/02/2025,business_services,unknown,young,False
+16276926,BURAKTURAN SOLUTIONS LTD,8 BIRCH CLOSE,BROUGH,HU15 2YF,47910,Retail sale via mail order houses or via Internet,NO ACCOUNTS FILED,26/02/2025,wholesale_retail,unknown,young,False
+16289138,FRAME LABS LIMITED,UNTIL,LONDON,EC2M 4RB,46420,Wholesale of clothing and footwear,NO ACCOUNTS FILED,03/03/2025,wholesale_retail,unknown,young,False
+16290126,ENDICAN CONSULTING LTD,ENDICAN BARN 1 ENDICAN LANE,NORTHALLERTON,DL7 9FB,70229,Management consultancy activities other than financial management,NO ACCOUNTS FILED,04/03/2025,business_services,unknown,young,True
+16302283,TIMGLOBAL LTD,118 SHALFORD ROAD,SOLIHULL,B92 7NF,62020,Information technology consultancy activities,TOTAL EXEMPTION FULL,08/03/2025,business_services,small,young,False
+16331646,UNINHIBITED DEVELOPMENT SOLUTIONS LTD,120 BENNETTS CLOSE,MITCHAM,CR4 1NS,62012,Business and domestic software development,NO ACCOUNTS FILED,20/03/2025,business_services,unknown,young,False
+16351070,RKS HEALTH CONSULTING LTD,71-75 SHELTON STREET,LONDON,WC2H 9JQ,62020,Information technology consultancy activities,NO ACCOUNTS FILED,28/03/2025,business_services,unknown,young,False
+16355852,SDC SURVEYORS LIMITED,71-75 SHELTON STREET,LONDON,WC2H 9JQ,74909,"Other professional, scientific and technical activities n.e.c.",NO ACCOUNTS FILED,01/04/2025,business_services,unknown,young,False
+16386166,A2B HOME MARKETS LTD,98 LLANOVER ROAD,WEMBLEY,HA9 7LT,46499,Wholesale of household goods (other than musical instruments) n.e.c.,NO ACCOUNTS FILED,14/04/2025,wholesale_retail,unknown,young,False
+16402004,"GUANGZHOU TINE TECHNOLOGYCO., LTD",275 NEW N RD PMB 3225 LONDON N1 7AA,LONDON,N1 7AA,30920,Manufacture of bicycles and invalid carriages,NO ACCOUNTS FILED,23/04/2025,manufacturing,unknown,young,False
+16410618,CHATTAK LTD,4 ETON PARK 4 ETON PARK,PRESTON,PR2 9NL,62090,Other information technology service activities,NO ACCOUNTS FILED,26/04/2025,business_services,unknown,young,False
+16423961,MAPH & SPARK LTD,1 SOUTHACRE AVENUE,BIRMINGHAM,B5 7DF,43220,"Plumbing, heat and air-conditioning installation",NO ACCOUNTS FILED,01/05/2025,construction_trades,unknown,young,False
+16437163,EVENTS BY ABBIE MELISSA LTD,11 FOUNTAINS ROAD,LIVERPOOL,L4 1QH,47190,Other retail sale in non-specialised stores,NO ACCOUNTS FILED,08/05/2025,wholesale_retail,unknown,young,False
+16441069,QUAY MUSIC LTD,48 KINGS ROAD,MANCHESTER,M25 0LN,46491,Wholesale of musical instruments,NO ACCOUNTS FILED,09/05/2025,wholesale_retail,unknown,young,True
+16448254,EVM REMOVALS LTD,28A BESSBOROUGH ROAD,HARROW,HA1 3DL,49420,Removal services,NO ACCOUNTS FILED,13/05/2025,transport_logistics,unknown,young,False
+16450434,LARISA RECORDS LIMITED,UNIT 501 LEROY HOUSE,LONDON,N1 3QP,73110,Advertising agencies,NO ACCOUNTS FILED,14/05/2025,business_services,unknown,young,False
+16476197,SUNSOUTH LTD,OFFICE 12,MANCHESTER,M40 8WN,47190,Other retail sale in non-specialised stores,NO ACCOUNTS FILED,27/05/2025,wholesale_retail,unknown,young,False
+16479983,EXCLUSIVE BRANDING EDGE ACADEMY LTD,"3RD FLOOR, 86-90",LONDON,EC2A 4NE,73110,Advertising agencies,NO ACCOUNTS FILED,28/05/2025,business_services,unknown,young,False
+16480402,YOVKO LTD,200-204 CAULDON ROAD,STOKE-ON-TRENT,ST4 2BS,49410,Freight transport by road,NO ACCOUNTS FILED,28/05/2025,transport_logistics,unknown,young,False
+16496471,WESTERN TIMBERNEST LIMITED,11 IMPERIAL WALK,TIPTON,DY4 8EY,47599,"Retail of furniture, lighting, and similar (not musical instruments or scores) in specialised store",NO ACCOUNTS FILED,04/06/2025,wholesale_retail,unknown,young,False
+16497873,HOT GIRL SWAPS LTD,4 ELM AVENUE,LUTTERWORTH,LE17 4SU,47910,Retail sale via mail order houses or via Internet,NO ACCOUNTS FILED,05/06/2025,wholesale_retail,unknown,young,False
+16509422,GATWICK DIRECT AEROPORT LTD,44 MANOR CLOSE,HORLEY,RH6 8SA,49320,Taxi operation,NO ACCOUNTS FILED,10/06/2025,transport_logistics,unknown,young,False
+16515773,AKP DESIGN STUDIO LTD,47 BRAZLEY AVENUE,BOLTON,BL6 6LF,71111,Architectural activities,NO ACCOUNTS FILED,13/06/2025,business_services,unknown,young,True
+16529548,SHR JUICES LTD,24 PENNINGTON WAY,COVENTRY,CV6 5TJ,10320,Manufacture of fruit and vegetable juice,NO ACCOUNTS FILED,19/06/2025,manufacturing,unknown,young,False
+16544694,LEEN VALLEY PLANTS LTD,16 QUEEN STREET,ILKESTON,DE7 5GT,47760,"Retail sale of flowers, plants, seeds, fertilizers, pet animals and pet food in specialised stores",TOTAL EXEMPTION FULL,26/06/2025,wholesale_retail,small,young,False
+16553819,AFRICAN HERITAGE FOOD SOLUTIONS LIMITED,36 CHESTER ROAD,LICHFIELD,WS14 9TF,47290,Other retail sale of food in specialised stores,NO ACCOUNTS FILED,01/07/2025,wholesale_retail,unknown,young,True
+16554624,FIRST CLASS GAS LTD,174 PENNY LANE,ST. HELENS,WA11 0QU,46719,Wholesale of other fuels and related products,NO ACCOUNTS FILED,01/07/2025,wholesale_retail,unknown,young,False
+16555568,SAURAV KUMAR LTD,71-75 SHELTON STREET,LONDON,WC2H 9JQ,47910,Retail sale via mail order houses or via Internet,NO ACCOUNTS FILED,02/07/2025,wholesale_retail,unknown,young,False
+16562797,THEFLOORWORLD LTD,76 COUNTY PARK AVENUE,HALESOWEN,B62 8SX,47530,"Retail sale of carpets, rugs, wall and floor coverings in specialised stores",NO ACCOUNTS FILED,07/07/2025,wholesale_retail,unknown,young,True
+16566976,DEX EMPIRE LTD,23 EAST KENT AVENUE,GRAVESEND,DA11 9HU,32300,Manufacture of sports goods,NO ACCOUNTS FILED,08/07/2025,manufacturing,unknown,young,False
+16567700,PREMIER POWDER COATING SYSTEMS LIMITED,28 DROME ROAD,DEESIDE,CH5 2NY,25610,Treatment and coating of metals,NO ACCOUNTS FILED,08/07/2025,manufacturing,unknown,young,False
+16582568,BHARAT MART LIMITED,FLAT NO 53 THE QUATERS,MANCHESTER,M1 1AU,46900,Non-specialised wholesale trade,NO ACCOUNTS FILED,15/07/2025,wholesale_retail,unknown,young,False
+16587200,GVS UTILITIES LIMITED,"LEVEL ONE, BASECAMP LIVERPOOL 49",LIVERPOOL,L1 0AH,73110,Advertising agencies,NO ACCOUNTS FILED,16/07/2025,business_services,unknown,young,False
+16587411,ATLAR TECHNOLOGY LTD,7 STRATFORD PLACE,LONDON,W1C 1AY,82990,Other business support service activities n.e.c.,NO ACCOUNTS FILED,16/07/2025,business_services,unknown,young,False
+16597212,GHANI HALAL MEAT LTD,746 STRATFORD ROAD,BIRMINGHAM,B11 4BP,46320,Wholesale of meat and meat products,NO ACCOUNTS FILED,21/07/2025,wholesale_retail,unknown,young,False
+16613148,ALTUROS CONSULTING LTD,53 BUSHEY ROAD,UXBRIDGE,UB10 8JX,70229,Management consultancy activities other than financial management,NO ACCOUNTS FILED,29/07/2025,business_services,unknown,young,False
+16613826,KSJ SELECT LIMITED,13 FIRTHLAND WAY,ST HELENS,WA9 3RQ,47990,"Other retail sale not in stores, stalls or markets",NO ACCOUNTS FILED,29/07/2025,wholesale_retail,unknown,young,True
+16615045,GRAND ROYALE EVENTS LTD,AUCTION HOUSE,LUTON,LU2 0AH,82301,Activities of exhibition and fair organisers,NO ACCOUNTS FILED,30/07/2025,business_services,unknown,young,False
+16622755,ELITE RESEARCH & DEVELOPMENT LTD,16 - 18 WOODFORD ROAD,LONDON,E7 0HA,62020,Information technology consultancy activities,NO ACCOUNTS FILED,01/08/2025,business_services,unknown,young,False
+16640652,ASSURED BUILDING AND GROUND WORKS NW LTD,12 GWEL Y MYNYDD,BUCKLEY,CH7 2GY,41202,Construction of domestic buildings,NO ACCOUNTS FILED,11/08/2025,construction_trades,unknown,young,False
+16669831,FLN SERVICES LTD,23 MAPLE AVENUE,MANCHESTER,M30 8JU,41202,Construction of domestic buildings,NO ACCOUNTS FILED,25/08/2025,construction_trades,unknown,young,False
+16687827,PULSE DIGITAL MARKETING SOLUTION LIMITED,3 BEAUFORT GARDENS,LONDON,SW16 3BP,73110,Advertising agencies,NO ACCOUNTS FILED,02/09/2025,business_services,unknown,young,False
+16695101,DIESEL LOGIC LTD,"GROUND FLOOR, WOODLAND HOUSE WOODLAND PARK",CLECKHEATON,BD19 6BW,33170,Repair and maintenance of other transport equipment n.e.c.,NO ACCOUNTS FILED,04/09/2025,manufacturing,unknown,young,False
+16696519,GENTSROOM GROUP LTD,ROTOR TECHNICAL SERVICES NEW WORKS ROAD,BRADFORD,BD12 0QP,47910,Retail sale via mail order houses or via Internet,NO ACCOUNTS FILED,05/09/2025,wholesale_retail,unknown,young,False
+16703902,S & M HOUSE MAINTENANCE LTD,C/O MATINE & CO ACCOUNTANTS 5A,LONDON,NW2 3NB,41202,Construction of domestic buildings,NO ACCOUNTS FILED,09/09/2025,construction_trades,unknown,young,False
+16735571,TRAVEL RECORDS LTD,38 ASH HILL ROAD,TORQUAY,TQ1 3JD,46110,"Agents selling agricultural raw materials, livestock, textile raw materials and semi-finished goods",NO ACCOUNTS FILED,22/09/2025,wholesale_retail,unknown,young,False
+16737735,PENDEFORD PARK LIMITED,4 BIRCHLEY ESTATE,OLDBURY,B69 1DT,41100,Development of building projects,NO ACCOUNTS FILED,23/09/2025,construction_trades,unknown,young,False
+16740799,AURA & AROMA LTD,92 WOODCROFT,HARLOW,CM18 6YA,47910,Retail sale via mail order houses or via Internet,NO ACCOUNTS FILED,24/09/2025,wholesale_retail,unknown,young,False
+16764179,SUGEON LTD,FLAT C5,SHEFFIELD,S1 4NP,47910,Retail sale via mail order houses or via Internet,NO ACCOUNTS FILED,06/10/2025,wholesale_retail,unknown,young,False
+16773338,PLACEMENT VAULT LTD,1 HOLLY AVENUE,RIPLEY,DE5 3PP,78109,Other activities of employment placement agencies,NO ACCOUNTS FILED,08/10/2025,business_services,unknown,young,False
+16782290,B.LFLORISTRY LTD,98 ST. PAUL STREET,LONDON,N1 7DF,47760,"Retail sale of flowers, plants, seeds, fertilizers, pet animals and pet food in specialised stores",NO ACCOUNTS FILED,13/10/2025,wholesale_retail,unknown,young,False
+16785948,THAMES VALLEY STORAGE LTD,12 TRINITY CLOSE,HOUNSLOW,TW4 7BE,52101,Operation of warehousing and storage facilities for water transport activities,NO ACCOUNTS FILED,15/10/2025,transport_logistics,unknown,young,False
+16786308,SBA-SPI LIMITED,2 CLARIDGE COURT,BERKHAMSTED,HP4 2AF,70229,Management consultancy activities other than financial management,NO ACCOUNTS FILED,15/10/2025,business_services,unknown,young,False
+16791557,GOLDENMARK GIFTS LIMITED,16 MEADOWSWEET ROAD,NORTHAMPTON,NN5 4AS,47910,Retail sale via mail order houses or via Internet,NO ACCOUNTS FILED,17/10/2025,wholesale_retail,unknown,young,False
+16802691,MEDIREC LTD,128 CITY ROAD,LONDON,EC1V 2NX,78109,Other activities of employment placement agencies,NO ACCOUNTS FILED,22/10/2025,business_services,unknown,young,False
+16804815,PRIVAPAY LTD,71-75 SHELTON STREET,LONDON,WC2H 9JQ,62012,Business and domestic software development,NO ACCOUNTS FILED,23/10/2025,business_services,unknown,young,True
+16806518,RIGHTLY MANAGED LIMITED,"FLAT 2, 5",LOUGHBOROUGH,LE11 2AE,70229,Management consultancy activities other than financial management,NO ACCOUNTS FILED,23/10/2025,business_services,unknown,young,False
+16816197,LBC TRADING LTD,77 MEON CRESCENT,EASTLEIGH,SO53 2PA,47910,Retail sale via mail order houses or via Internet,NO ACCOUNTS FILED,28/10/2025,wholesale_retail,unknown,young,False
+16818429,BIGSELLE LIMITED,27 RECREATION CRESCENT,LEEDS,LS11 0AJ,52243,Cargo handling for land transport activities,NO ACCOUNTS FILED,29/10/2025,transport_logistics,unknown,young,False
+16827881,FENIXXA IMPACT CONSULTING LTD,5 BRAYFORD SQUARE,LONDON,E1 0SG,70221,Financial management,NO ACCOUNTS FILED,03/11/2025,business_services,unknown,young,False
+16832983,VELANTIS LTD,17 GREEN LANES,LONDON,N16 9BS,46900,Non-specialised wholesale trade,NO ACCOUNTS FILED,05/11/2025,wholesale_retail,unknown,young,False
+16844439,ABSATOP CONSULTING LTD,"UNIT 3, OFFICE A,1ST FLOOR",LONDON,EC3R 8EE,47910,Retail sale via mail order houses or via Internet,NO ACCOUNTS FILED,10/11/2025,wholesale_retail,unknown,young,False
+16846314,KEOINNOVATIONS LTD,12 ARNE CLOSE,CASNEWYDD,NP19 9NF,47290,Other retail sale of food in specialised stores,NO ACCOUNTS FILED,11/11/2025,wholesale_retail,unknown,young,False
+16854706,NOVA NEURON LTD,23A LAUD STREET,CROYDON,CR0 1SW,62020,Information technology consultancy activities,NO ACCOUNTS FILED,13/11/2025,business_services,unknown,young,False
+16856027,MARK SMITH ELECTRICAL LIMITED,8 MARSDEN PARK JAMES NICOLSON LINK,YORK,YO30 4WX,43210,Electrical installation,NO ACCOUNTS FILED,14/11/2025,construction_trades,unknown,young,False
+16861105,VADMALL LIMITED,FFT REEDHAM HOUSE,MANCHESTER,M3 2PJ,70229,Management consultancy activities other than financial management,NO ACCOUNTS FILED,17/11/2025,business_services,unknown,young,False
+16861861,ICONIQ RENEWABLES LIMITED,25 GROSVENOR ROAD,WREXHAM,LL11 1BT,41100,Development of building projects,NO ACCOUNTS FILED,17/11/2025,construction_trades,unknown,young,False
+16864677,SANCTUARY GARDEN ROOMS LIMITED,6 PARKSIDE COURT,LICHFIELD,WS13 7FE,41202,Construction of domestic buildings,NO ACCOUNTS FILED,19/11/2025,construction_trades,unknown,young,False
+16879015,YASH TEXTILES LTD,87A WALSALL STREET,WILLENHALL,WV13 2EU,13923,manufacture of household textiles,NO ACCOUNTS FILED,27/11/2025,manufacturing,unknown,young,False
+16891136,HWHJ CONSULTING LIMITED,CORNER OAK,SOLIHULL,B91 3QG,70221,Financial management,NO ACCOUNTS FILED,04/12/2025,business_services,unknown,young,False
+16898885,ROCKBOURNE PROPERTIES LIMITED,SCOTS HOUSE,SALISBURY,SP1 3TR,41100,Development of building projects,NO ACCOUNTS FILED,09/12/2025,construction_trades,unknown,young,False
+16903065,LAGARTO LTD,72 TOWN GATE,BRADFORD,BD12 9JB,47910,Retail sale via mail order houses or via Internet,NO ACCOUNTS FILED,10/12/2025,wholesale_retail,unknown,young,False
+16919726,TNG OPTICAL LIMITED,30 DRAYTON COURT,LONDON,SW10 9RH,47782,Retail sale by opticians,NO ACCOUNTS FILED,18/12/2025,wholesale_retail,unknown,young,False
+16926805,"DATA CREST GROUP CO., LTD",61 BRIDGE STREET,KINGTON,HR5 3DJ,47910,Retail sale via mail order houses or via Internet,NO ACCOUNTS FILED,22/12/2025,wholesale_retail,unknown,young,False
+16935084,BROTHERS CONSULTANCY LIMITED,271 HIGHSTREET,BERKHAMSTED,HP4 1AA,70229,Management consultancy activities other than financial management,NO ACCOUNTS FILED,30/12/2025,business_services,unknown,young,False
+16941180,TRANISS GROUP LTD,89 PYM COURT,CAMBRIDGE,CB1 3FB,46900,Non-specialised wholesale trade,NO ACCOUNTS FILED,04/01/2026,wholesale_retail,unknown,young,False
+16965217,LMC20 LIMITED,143 CHESTER ROAD,WATFORD,WD18 0RE,41201,Construction of commercial buildings,NO ACCOUNTS FILED,15/01/2026,construction_trades,unknown,young,False
+16977120,GMC EVENTS LTD,71-75 SHELTON STREET,LONDON,WC2H 9JQ,82302,Activities of conference organisers,NO ACCOUNTS FILED,21/01/2026,business_services,unknown,young,False
+16983135,MRC BUILDING & REFURBISHMENT LTD,30 CONNAUGHT AVENUE,KIDDERMINSTER,DY11 6LT,41100,Development of building projects,NO ACCOUNTS FILED,23/01/2026,construction_trades,unknown,young,False
+16987355,ARISTO CAPITAL LTD,"40, CHEETHAM HILL SHOPPING CENTRE, UNIT 18",MANCHESTER,M8 5EL,45112,Sale of used cars and light motor vehicles,NO ACCOUNTS FILED,26/01/2026,wholesale_retail,unknown,young,False
+16990003,ATEAM WARDOBES LTD,HADFIELD HOUSE,STOCKPORT,SK4 1RR,41202,Construction of domestic buildings,NO ACCOUNTS FILED,27/01/2026,construction_trades,unknown,young,False
+17015298,MEKYNS COLLECTION LTD,3A STAFFORD ROAD STAFFORD ROAD,TELFORD,TF2 6JH,47910,Retail sale via mail order houses or via Internet,NO ACCOUNTS FILED,05/02/2026,wholesale_retail,unknown,young,False
+17024925,GEARSUM LTD,843 UXBRIDGE ROAD,HAYES,UB4 8HZ,47910,Retail sale via mail order houses or via Internet,NO ACCOUNTS FILED,10/02/2026,wholesale_retail,unknown,young,False
+17030245,BORSUK CONSULTING LIMITED,11 NEW CHAPEL ROAD,PENISTONE,S36 9AG,74909,"Other professional, scientific and technical activities n.e.c.",NO ACCOUNTS FILED,12/02/2026,business_services,unknown,young,True
+17030956,A&F TRAINING AND CONSULTING LTD,28 WOODLAND DRIVE,HOVE,BN3 6DL,70229,Management consultancy activities other than financial management,NO ACCOUNTS FILED,12/02/2026,business_services,unknown,young,False
+17036146,MRE ELECTRICAL CONTRACTORS LTD,11 FLAG WALK,WATERLOOVILLE,PO8 8LE,43210,Electrical installation,NO ACCOUNTS FILED,16/02/2026,construction_trades,unknown,young,True
+17049959,NIGHTWIND AI LTD,71-75 SHELTON STREET,LONDON,WC2H 9JQ,62012,Business and domestic software development,NO ACCOUNTS FILED,24/02/2026,business_services,unknown,young,True
+17061522,UNIVANTAGE LIMITED,149 BURGESS ROAD,SOUTHAMPTON,SO16 7AA,62020,Information technology consultancy activities,NO ACCOUNTS FILED,01/03/2026,business_services,unknown,young,False
+17075633,DB TALENT LTD,FLAT 157 MILLBROOK STUDIOS,HARLOW,CM20 2UN,70229,Management consultancy activities other than financial management,NO ACCOUNTS FILED,06/03/2026,business_services,unknown,young,False
+17080812,EAST LINDSEY FLOORING LTD,14 LINCOLN ROAD,SKEGNESS,PE25 2RZ,47530,"Retail sale of carpets, rugs, wall and floor coverings in specialised stores",NO ACCOUNTS FILED,09/03/2026,wholesale_retail,unknown,young,False
+17106998,BIRCHDALE CYBER CONSULTING LTD,5 BIRCHDALE BARNS WATERLOO LANE,FRODSHAM,WA6 6JH,62020,Information technology consultancy activities,NO ACCOUNTS FILED,20/03/2026,business_services,unknown,young,False
+17120315,PROSPECT ONE LTD,248 BENHAM HILL,THATCHAM,RG18 3AH,82990,Other business support service activities n.e.c.,NO ACCOUNTS FILED,27/03/2026,business_services,unknown,young,False
+17122743,UPS BATTERY INSTALLATION AND MAINTENANCE LTD,3 PRINCESS AVENUE,ROCHDALE,OL12 9HT,43210,Electrical installation,NO ACCOUNTS FILED,27/03/2026,construction_trades,unknown,young,False
+17122854,W RICHARDS BRICKWORK LTD,114 ALMA ROAD,SHEERNESS,ME12 2PE,41202,Construction of domestic buildings,NO ACCOUNTS FILED,28/03/2026,construction_trades,unknown,young,False
+17130546,LUKASWAY LTD,MERCER HOUSE 780A,OLDBURY,B68 0PJ,49410,Freight transport by road,NO ACCOUNTS FILED,01/04/2026,transport_logistics,unknown,young,False
+17152253,MEIVA’S LIMITED,29 AFRICA DRIVE,SOUTHAMPTON,SO40 4UF,49410,Freight transport by road,NO ACCOUNTS FILED,12/04/2026,transport_logistics,unknown,young,False
+17157446,BELTESHAZZAR LTD,35 CARLTON ROAD,SALFORD,M6 7EW,78200,Temporary employment agency activities,NO ACCOUNTS FILED,14/04/2026,business_services,unknown,young,False
+17161766,TAYDUL LTD,71-75 SHELTON STREET,LONDON,WC2H 9JQ,47910,Retail sale via mail order houses or via Internet,NO ACCOUNTS FILED,16/04/2026,wholesale_retail,unknown,young,False
+17170278,PRIMO DIRECT LIMITED,5 PASADENA INDUSTRIAL ESTATE,HARLOW,CM20 2SL,47910,Retail sale via mail order houses or via Internet,NO ACCOUNTS FILED,20/04/2026,wholesale_retail,unknown,young,False
+17172450,VIP ROAD SERVICES LTD,23 GRAFTON ROAD,DAGENHAM,RM8 3EP,49390,Other passenger land transport,NO ACCOUNTS FILED,21/04/2026,transport_logistics,unknown,young,True
+17175178,THE TRADERS YARD LTD,6 KINGSBRIDGE END,HOOK,RG27 9QQ,47910,Retail sale via mail order houses or via Internet,NO ACCOUNTS FILED,22/04/2026,wholesale_retail,unknown,young,False
+17189660,PHARMETRIC LTD,66 PAUL STREET,LONDON,EC2A 4NA,62090,Other information technology service activities,NO ACCOUNTS FILED,29/04/2026,business_services,unknown,young,False
+17212690,GARETH DAVIES INTERIORS LTD,HIGHMEAD,BRIDGEND,CF31 4AZ,74100,specialised design activities,NO ACCOUNTS FILED,12/05/2026,business_services,unknown,young,False
+17217366,GO FRESH TRANSPORT LTD,ONE NORTH PORTWAY,NORTHAMPTON,NN3 8RD,49410,Freight transport by road,NO ACCOUNTS FILED,13/05/2026,transport_logistics,unknown,young,False
+17240384,THE FUTURE VIBE LTD,71-75 SHELTON STREET,LONDON,WC2H 9JQ,47910,Retail sale via mail order houses or via Internet,NO ACCOUNTS FILED,25/05/2026,wholesale_retail,unknown,young,True
+17250681,INDELIBLE FINE ART LTD,9-10 JEW STREET,BRIGHTON,BN1 1UT,47781,Retail sale in commercial art galleries,NO ACCOUNTS FILED,29/05/2026,wholesale_retail,unknown,young,False
+17252896,IDEA NOVA LTD,SULLIVAN COURT WESSEX WAY,WINCHESTER,SO21 1WP,22290,Manufacture of other plastic products,NO ACCOUNTS FILED,01/06/2026,manufacturing,unknown,young,False
+17269138,ANGELICARE LIMITED,64 ALASTAIR ROAD,STOKE-ON-TRENT,ST4 5BH,78200,Temporary employment agency activities,NO ACCOUNTS FILED,08/06/2026,business_services,unknown,young,False
+17270729,FATHIMA GLOBAL LIMITED,620A-620B ROMFORD ROAD,LONDON,E12 5AQ,47910,Retail sale via mail order houses or via Internet,NO ACCOUNTS FILED,09/06/2026,wholesale_retail,unknown,young,False
+17274097,FOXCARS LTD,12 LEASIDE,DUNSTABLE,LU5 5RF,45112,Sale of used cars and light motor vehicles,NO ACCOUNTS FILED,10/06/2026,wholesale_retail,unknown,young,False
+17281056,A P M DRY LINING LTD,13 HANLON CLOSE,BOURNEMOUTH,BH11 8EG,41201,Construction of commercial buildings,NO ACCOUNTS FILED,18/06/2026,construction_trades,unknown,young,False
+17288906,TAMOURA LIMITED,UNIT 8 EVITA HOUSE,LEICESTER,LE5 3BF,10822,Manufacture of sugar confectionery,NO ACCOUNTS FILED,19/06/2026,manufacturing,unknown,young,True
+17291019,SARRJ MART ENTERPRISE LTD,6 WRENBURY DRIVE,BILSTON,WV14 7BS,47910,Retail sale via mail order houses or via Internet,NO ACCOUNTS FILED,20/06/2026,wholesale_retail,unknown,young,False
+17307623,NEW TECHNOLOGY UK LIVESTOCK AND FEED LTD,10 PARK PLACE,MANCHESTER,M4 4EY,46110,"Agents selling agricultural raw materials, livestock, textile raw materials and semi-finished goods",NO ACCOUNTS FILED,29/06/2026,wholesale_retail,unknown,young,False
+17308348,EXPERTS FORGE GROUP LTD,37 EVERGREENS CLOSE,SWINDON,SN3 4HN,62012,Business and domestic software development,NO ACCOUNTS FILED,30/06/2026,business_services,unknown,young,False
+17310068,HECHT MONTGOMERY LIMITED,FOX COURT 14 GRAY'S INN ROAD,LONDON,WC1X 8HN,69102,Solicitors,NO ACCOUNTS FILED,30/06/2026,business_services,unknown,young,False
+17313877,AJE TECH LTD,5 OTTAWA HOUSE,HAYES,UB4 9HJ,62012,Business and domestic software development,NO ACCOUNTS FILED,01/07/2026,business_services,unknown,young,False
+17329689,GRH GROUP SERVICES UK LTD,104 GLENFIELDS NORTH,PETERBOROUGH,PE7 1GG,78200,Temporary employment agency activities,NO ACCOUNTS FILED,09/07/2026,business_services,unknown,young,False
+17338692,SDP CONSULTANT LTD,69 CASTLETON ROAD,RUISLIP,HA4 9QH,62020,Information technology consultancy activities,NO ACCOUNTS FILED,14/07/2026,business_services,unknown,young,False
+17344136,ALNA SYSTEMS LTD,356 WESTMINSTER ROAD,LIVERPOOL,L4 3TF,41201,Construction of commercial buildings,NO ACCOUNTS FILED,16/07/2026,construction_trades,unknown,young,False
+17348613,MAJO GLOBAL GROUP LTD,71-75 SHELTON STREET,LONDON,WC2H 9JQ,46900,Non-specialised wholesale trade,NO ACCOUNTS FILED,20/07/2026,wholesale_retail,unknown,young,False
+17355101,KAT ROSE LIMITED,FLAT 2,LONDON,SE19 2HJ,62020,Information technology consultancy activities,NO ACCOUNTS FILED,22/07/2026,business_services,unknown,young,False
+17359846,THE LEMONADE PROJECT CIC,9 DAGMAR ROAD,LONDON,N22 7RT,62090,Other information technology service activities,NO ACCOUNTS FILED,24/07/2026,business_services,unknown,young,False
+17365881,THE SOCIAL DEPT. LIMITED,36 ANCASTER AVENUE,GRIMSBY,DN33 3LL,73110,Advertising agencies,NO ACCOUNTS FILED,28/07/2026,business_services,unknown,young,False
+NI015405,NORTHERN CANDLES LIMITED,10 CARRICKROVADY ROAD,NEWRY,BT34 1SN,32990,Other manufacturing n.e.c.,TOTAL EXEMPTION FULL,09/02/1982,manufacturing,small,old,False
+NI047173,KANE GROUP BUILDING SERVICES LTD,UNIT 18 - 19 SCARVA INDUSTRIAL ESTATE,BANBRIDGE,BT32 3QD,43220,"Plumbing, heat and air-conditioning installation",FULL,07/07/2003,construction_trades,larger,old,False
+NI054945,ROUTE 26 LIMITED,C/O LIMEPARK,ARMOY,BT53 8XJ,47110,"Retail sale in non-specialised stores with food, beverages or tobacco predominating",TOTAL EXEMPTION FULL,27/04/2005,wholesale_retail,small,old,False
+NI056692,BOA HOMES LTD,51 CROSSAN ROAD,,BT78 3TP,41202,Construction of domestic buildings,TOTAL EXEMPTION FULL,04/10/2005,construction_trades,small,old,False
+NI603750,JGTF ENTERPRISES LTD,101A SPENCER ROAD,LONDONDERRY,BT47 6AE,70229,Management consultancy activities other than financial management,MICRO ENTITY,08/07/2010,business_services,micro,old,False
+NI618460,GM WALLTRACKING BANBRIDGE LTD,2 SCARVA STREET,BANBRIDGE,BT32 3DA,43999,Other specialised construction activities n.e.c.,TOTAL EXEMPTION FULL,17/05/2013,construction_trades,small,old,False
+NI653020,SKG HAULAGE LTD,1 CORRY PLACE,BELFAST,BT3 9AH,49410,Freight transport by road,MICRO ENTITY,15/05/2018,transport_logistics,micro,mid,False
+NI686219,WRAY ENGINEERING (LISBURN) LTD,103 RAVARNETTE ROAD,LISBURN,BT27 5NF,25110,Manufacture of metal structures and parts of structures,TOTAL EXEMPTION FULL,01/03/2022,manufacturing,small,mid,False
+NI732325,CAMPSIE AUTOSALVAGE LTD,8 WHITETHORN DRIVE,LONDONDERRY,BT47 3DJ,45112,Sale of used cars and light motor vehicles,NO ACCOUNTS FILED,13/08/2025,wholesale_retail,unknown,young,False
+SC189746,RYBOND LIMITED,1ST FLOOR,JOHNSTONE,PA5 8AN,82990,Other business support service activities n.e.c.,TOTAL EXEMPTION FULL,28/09/1998,business_services,small,old,False
+SC350372,GC ENGINEERING SERVICES LIMITED,22E SOUTH CHESTERS GARDENS,BONNYRIGG,EH19 3GF,71122,Engineering related scientific and technical consulting activities,MICRO ENTITY,24/10/2008,business_services,micro,old,False
+SC383081,SPENCER DIXON LIMITED,20 VERT COURT,HADDINGTON,EH41 3PX,49320,Taxi operation,MICRO ENTITY,03/08/2010,transport_logistics,micro,old,False
+SC384457,AD DESIGN LIMITED,3 ST. ERCHARD GARDENS,ABOYNE,AB34 5DG,71121,Engineering design activities for industrial process and production,MICRO ENTITY,31/08/2010,business_services,micro,old,False
+SC410951,DTA & COMPANY LTD,54A COW WYND,FALKIRK,FK1 1PU,69201,Accounting and auditing activities,MICRO ENTITY,09/11/2011,business_services,micro,old,False
+SC459114,THOMSON PETTIE LIMITED,WHITESHAW,CARLUKE,ML8 5EJ,25990,Manufacture of other fabricated metal products n.e.c.,MEDIUM,13/09/2013,manufacturing,larger,old,False
+SC500389,INCREDIBLE DETAIL LIMITED,"UNIT 5B, BLOCK 8 FOURTH ROAD",GLASGOW,G72 0AD,45200,Maintenance and repair of motor vehicles,MICRO ENTITY,13/03/2015,wholesale_retail,micro,old,False
+SC530705,AILSA MACKIE LTD,10 KINGSBURGH CRESCENT,EDINBURGH,EH5 1JF,74100,specialised design activities,TOTAL EXEMPTION FULL,24/03/2016,business_services,small,mid,False
+SC606420,GAS GLASGOW LIMITED,WESTERTON BUSINESS CENTRE 110A MAXWELL AVENUE,GLASGOW,G61 1HU,43220,"Plumbing, heat and air-conditioning installation",MICRO ENTITY,28/08/2018,construction_trades,micro,mid,True
+SC691178,TRASH MUSIC PROJECTS LTD,THE MUGSHACK 4 ALLANDER WALK,CUMBERNAULD,G67 1DW,32200,Manufacture of musical instruments,TOTAL EXEMPTION FULL,04/03/2021,manufacturing,small,mid,False
+SC771007,HI-Q (EDINBURGH) LTD,69 GLENCOE,BATHGATE,EH47 8AS,43390,Other building completion and finishing,MICRO ENTITY,30/05/2023,construction_trades,micro,mid,False
+SC787605,ISLE OF HARRIS BREWERY LIMITED,6 BORRISDALE,ISLE OF HARRIS,HS5 3UE,11050,Manufacture of beer,TOTAL EXEMPTION FULL,30/10/2023,manufacturing,small,mid,False
+SC801153,PLUG-IN FINANCE LTD,8 BRENNAN CRESCENT,AIRDRIE,ML6 9HU,70221,Financial management,MICRO ENTITY,29/02/2024,business_services,micro,young,False
+SC816015,SAVER MART LIMITED,22A ECCLESMACHAN ROAD,BROXBURN,EH52 6DB,47990,"Other retail sale not in stores, stalls or markets",MICRO ENTITY,10/07/2024,wholesale_retail,micro,young,False
+SC816622,G20 EDIN LTD,OFFICE 1,EDINBURGH,EH9 1AD,41100,Development of building projects,TOTAL EXEMPTION FULL,16/07/2024,construction_trades,small,young,False
+SC854993,AURORA SYNAPSE THERAPEUTICS LIMITED,19B ORCHARD STREET,RENFREW,PA4 8RJ,20420,Manufacture of perfumes and toilet preparations,NO ACCOUNTS FILED,08/07/2025,manufacturing,unknown,young,False
+SC889018,BAX FAO LTD,1/1 1937 MARYHILL ROAD,GLASGOW,G20 0BX,46499,Wholesale of household goods (other than musical instruments) n.e.c.,NO ACCOUNTS FILED,08/05/2026,wholesale_retail,unknown,young,False

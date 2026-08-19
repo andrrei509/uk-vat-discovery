@@ -77,6 +77,28 @@ it too. Reproduce with:
 python -c "import sys,csv; sys.path.insert(0,'src'); from checksum import validate; rows=[r['vrn'] for r in csv.DictReader(open('data/reference/hmrc_sandbox_test_vrns.csv'))]; print(sum(1 for r in rows if validate(r)), '/', len(rows))"
 ```
 
+### Observed responses (measured, not from the docs)
+
+Same VRN, `220430231`, sandbox, two request modes:
+
+| Request | HTTP | Body | Raw file |
+|---|---|---|---|
+| no bearer token | `401` | `{"code": "MISSING_CREDENTIALS", "message": "Authentication information is not provided"}` | `data/raw/hmrc/sandbox/220430231.noauth.single.json` |
+| valid bearer token | `404` | `{"code": "NOT_FOUND", "message": "targetVrn does not match a registered company"}` | `data/raw/hmrc/sandbox/220430231.json` |
+
+The 401 was captured 19 Aug 2026 with:
+
+```bash
+python src/hmrc_client.py 220430231 --no-consultation --no-auth
+```
+
+It replays from the committed file on a clean clone with no credentials, so the
+application-restricted claim is checkable by anyone. The response body names the
+reason rather than leaving it to be inferred from the status code.
+
+The 404 requires credentials, and confirms the sandbox holds stub data only —
+`220430231` is a real VRN and the sandbox does not know it.
+
 ### Observed on the application dashboard
 
 The Developer Hub application page shows **"Last API call"** per application,

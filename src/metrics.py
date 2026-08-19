@@ -94,9 +94,18 @@ def load_sheet(path: Path) -> list[dict]:
 
 
 def load_column(path: Path, *names: str) -> list[str]:
-    """First matching column from a CSV, as a list of stripped strings."""
+    """
+    First matching column from a CSV, as a list of stripped strings.
+
+    Leading `#` lines are skipped. Both `data/sample/sample.csv` and
+    `audit/manual_audit.csv` carry a provenance header block, and without this
+    the first comment line would be parsed as the header row — giving a
+    "column not present" error on a file that plainly contains the column.
+    """
     with path.open(encoding="utf-8-sig", newline="") as fh:
-        rows = [dict(r) for r in csv.DictReader(fh)]
+        lines = [ln for ln in fh.read().splitlines(keepends=True)
+                 if not ln.lstrip().startswith("#")]
+        rows = [dict(r) for r in csv.DictReader(lines)]
     if not rows:
         return []
     for n in names:

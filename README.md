@@ -103,6 +103,10 @@ this table is what already stands up.
 | HTTP `404` from the sandbox VAT checker for a real VRN | `python src/hmrc_client.py 220430231 --no-consultation` **with credentials in `.env`** | `data/raw/hmrc/sandbox/220430231.json` |
 | Wilson 95% CI, e.g. `47/50 → [0.837829, 0.979385]` | `python src/metrics.py --self-test` | stdout (cross-checked against an independent derivation) |
 | coverage / precision / rejection breakdown | `python src/metrics.py --sheet audit/manual_audit.csv --sample <sample.csv> --candidates <raw.csv>` | stdout |
+| frame size `2,362,322`, and rows removed by each exclusion | `python src/sample.py --dry-run` | stdout, and `notes/sample_design_output.txt` on a real run |
+| the frozen sample of `500`, `50` held out, 20 strata | `python src/sample.py` | `data/sample/sample.csv` (seed and snapshot SHA256 in its header block) |
+| the sample is byte-reproducible from its seed | `python src/sample.py --check-determinism` | stdout |
+| parquet is `9.6x` faster than the CSV (`2.42s` vs `23.31s`) | `python src/companies_house.py --profile` then `--profile --no-parquet` | stdout |
 | the manual audit sheet itself | `python src/audit_worklist.py --candidates <candidates.csv>` | `audit/manual_audit.csv` |
 
 **What runs on a clean clone, and what does not.**

@@ -1,0 +1,53 @@
+=== frame construction ===========================================
+  snapshot: BasicCompanyDataAsOneFile-2026-08-01.zip
+  sha256  : dd625ad9b37c023c3cd8d942467d0a8348608bee15c13a4a9db1927e7ff23c21
+
+  step                                    removed    remaining
+  all rows in snapshot                          -    5,695,465
+  CompanyStatus = 'Active'                505,001    5,190,464
+  SIC present                             216,285    4,974,179
+  SIC not 99999 / 74990                   137,480    4,836,699
+  accounts not DORMANT                    476,051    4,360,648
+  SIC division is supplier-like         1,998,326    2,362,322
+
+  FRAME SIZE: 2,362,322
+  (waterfall: each 'removed' is of what survived the rules above it,
+   because the exclusions overlap and independent counts would double-count)
+
+=== marginal: by sector ==========================================
+  manufacturing          frame    189,569  ( 8.02%)   drawn   39
+  construction_trades    frame    470,769  (19.93%)   drawn  100
+  wholesale_retail       frame    599,104  (25.36%)   drawn  128
+  transport_logistics    frame    122,827  ( 5.20%)   drawn   26
+  business_services      frame    980,053  (41.49%)   drawn  207
+
+=== marginal: by size band =======================================
+  micro                  frame    905,999  (38.35%)   drawn  192
+  small                  frame    741,343  (31.38%)   drawn  156
+  larger                 frame     63,635  ( 2.69%)   drawn   14
+  unknown                frame    651,345  (27.57%)   drawn  138
+
+=== marginal: by age band (recorded, NOT stratified on) ==========
+  young                  drawn  176
+  mid                    drawn  173
+  old                    drawn  151
+
+=== 5 x 4 cells: frame count / allocated =========================
+  sector                             micro             small            larger           unknown     total
+  manufacturing                63,197/13         71,905/15         11,392/2          43,075/9           39
+  construction_trades         182,298/39        174,868/37          7,408/2         106,195/22         100
+  wholesale_retail            200,973/43        156,131/33         11,919/3         230,081/49         128
+  transport_logistics          44,616/9          35,039/7           2,975/1          40,197/9           26
+  business_services           414,915/88        303,400/64         29,941/6         231,797/49         207
+  total                                192               156                14               138       500
+
+=== cells that got zero ==========================================
+  none - all 20 cells received at least one row
+
+=== draw ========================================================
+  seed          : 20260820
+  requested n   : 500
+  rows drawn    : 500
+  holdout rows  : 50
+  distinct co no: 500
+  numpy         : 2.4.4  (Generator/PCG64 stream)

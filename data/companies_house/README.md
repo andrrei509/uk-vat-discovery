@@ -14,5 +14,7 @@ That is enough for someone to reproduce the run without the bulk file.
 
 Then:
 
-    python src/companies_house.py --to-parquet    # once; ~10x faster afterwards
+    python src/companies_house.py --to-parquet    # once; measured 9.6x faster
+                                                  # (2.42s vs 23.31s on --profile;
+                                                  #  compare with --no-parquet)
     python src/companies_house.py --profile

@@ -8,7 +8,7 @@ Claims that **do** have a command are in the traceability table in `README.md`
 under *How to reproduce*. Every one was re-run during the audit and reproduced
 its stated value exactly.
 
-**Status: 6 of the original 11 findings are fixed. What remains is below.**
+**Status: 8 of the original 11 findings are fixed. What remains is below.**
 
 ---
 
@@ -23,23 +23,19 @@ its stated value exactly.
 | B1 | repo claimed a 401 response it did not have | the cache key is now `(vrn, env, auth-mode, endpoint-variant)`, a `--no-auth` flag captures the 401 deliberately, and the real body is committed at `data/raw/hmrc/sandbox/220430231.noauth.single.json` |
 | E | `47/50` readable as a result | `README.md` marks it explicitly as a format example to be replaced |
 
-On B1, the root cause is worth keeping written down: `_cache_path()` keyed on the
-VRN alone, so two genuinely different responses for the same number shared one
-filename and the later authenticated 404 overwrote the earlier unauthenticated
-401. The fix also has a compatibility path for old `{vrn}.json` files, which
-infers their mode from their status code (401 implies no token was sent) rather
-than serving them for any mode — serving them unconditionally reintroduced the
-same class of bug from the other direction, which happened once during the fix
-and is why the check exists.
+B1 has its own note: **`notes/cache_key_bug.md`** — the original collision, the
+fix, the second collision the fix introduced via the legacy-fallback path, and
+the response body now on disk (`MISSING_CREDENTIALS` / "Authentication
+information is not provided").
 
 ---
 
 ## STILL OPEN
 
-### B2. "6 days away"
+### ~~B2. "6 days away"~~ — RESOLVED 20 Aug
 
-`CLAUDE.md` — date arithmetic from 18 Aug to the 24 Aug deadline. No command, and
-it goes stale daily. Either make it an absolute date or drop it.
+Replaced in `CLAUDE.md` with the two absolute dates it was derived from:
+application created 18 Aug 2026, deadline 24 Aug 2026. Nothing to keep stale.
 
 ### C. Externally sourced — cited, but not reproducible from this repo
 
@@ -67,15 +63,21 @@ command" is arguably the wrong test for it. Listed for completeness.
 | `~470 MB` zip | `data/companies_house/README.md:3` | Measured 493,049,031 bytes = 0.49 GB decimal / 0.46 GiB, so "~470 MB" holds only if MB means MiB. `src/companies_house.py` now states the exact bytes; this file still rounds. |
 | `~1 in 49` | `CLAUDE.md`, `src/checksum.py` | Derived from the measured 2.0345%; no command prints the reciprocal. |
 
-### F. Unmeasured performance claim
+### ~~F. Unmeasured performance claim~~ — RESOLVED 20 Aug
 
-| Claim | Where |
-|---|---|
-| parquet is `~10x faster` than the CSV | `data/companies_house/README.md:17`, `src/companies_house.py` |
+The `~10x faster` parquet claim was never benchmarked. It has now been measured
+and it was about right: `--profile` takes **2.42 s** on the parquet and
+**23.31 s** on the CSV, best of two runs each, so **9.6x**. Both figures and the
+reproducing command are stated in `src/companies_house.py` and
+`data/companies_house/README.md`.
 
-No benchmark is committed. Observed but not recorded by any script: 15s for
-`--to-parquet`, 2.8s for `--profile` against the parquet. No CSV-path timing was
-taken, so the 10x is unsupported in either direction.
+The comparison is rerunnable because `--no-parquet` was added to force the CSV
+path even when a parquet exists:
+
+```bash
+python src/companies_house.py --profile
+python src/companies_house.py --profile --no-parquet
+```
 
 ### G. Illustrative, not claims
 
