@@ -5,7 +5,13 @@ Design notes you should be able to defend in the technical call
 ---------------------------------------------------------------
 1. Every raw response is written to disk before anything parses it.
    If a number in your writeup cannot be traced back to a file on disk, it is
-   not a number you can defend. `data/raw/hmrc/<vrn>.json` is that trail.
+   not a number you can defend. That trail is
+
+     data/raw/hmrc/<env>/<vrn>.<auth|noauth>.<single|consult>.json
+
+   keyed on the whole request, not just the VRN — see `_cache_path`. Keying on
+   the VRN alone let an authenticated 404 overwrite an unauthenticated 401 for
+   the same number, destroying the more interesting of the two.
 
 2. The client caches on disk and never repeats a lookup.
    HMRC rate-limits. Re-running the pipeline must not cost fresh quota.
@@ -48,6 +54,7 @@ publishing this repo.
 
 Usage:
     python src/hmrc_client.py 220430231
+    python src/hmrc_client.py 220430231 --no-auth   # capture the 401, no token sent
     python src/hmrc_client.py --file data/results/candidates.csv --column vat
 """
 
@@ -131,6 +138,7 @@ class HmrcClient:
         min_interval: float = 0.6,
         max_retries: int = 5,
         raw_dir: Path = RAW_DIR,
+        no_auth: bool = False,
     ):
         self.env = env or os.environ.get("HMRC_ENV", "sandbox")
         if self.env not in BASE_URLS:
@@ -139,6 +147,10 @@ class HmrcClient:
         self.client_id = client_id or os.environ.get("HMRC_CLIENT_ID")
         self.client_secret = client_secret or os.environ.get("HMRC_CLIENT_SECRET")
         self.requester_vrn = requester_vrn or os.environ.get("HMRC_REQUESTER_VRN")
+        # Deliberately send no bearer token, even when credentials exist. This is
+        # how the 401 that proves the endpoint is application-restricted gets
+        # captured on demand instead of only by accident before setup.
+        self.no_auth = no_auth
 
         self.min_interval = min_interval  # seconds between calls; be polite
         self.max_retries = max_retries
@@ -164,8 +176,20 @@ class HmrcClient:
 
     # ---------------------------------------------------------------- auth
 
+    def auth_mode(self) -> str:
+        """
+        "auth" or "noauth" — decided from configuration, with no network call,
+        because the cache path has to be known before we decide whether to make
+        a request at all.
+        """
+        if self.no_auth:
+            return "noauth"
+        return "auth" if (self.client_id and self.client_secret) else "noauth"
+
     def _bearer(self) -> Optional[str]:
         """Return a valid access token, or None if running without credentials."""
+        if self.no_auth:
+            return None
         if not (self.client_id and self.client_secret):
             return None
         if self._token and time.time() < self._token_expiry - 60:
@@ -190,8 +214,62 @@ class HmrcClient:
 
     # --------------------------------------------------------------- cache
 
-    def _cache_path(self, vrn: str) -> Path:
+    def _cache_path(self, vrn: str, auth_mode: str, variant: str) -> Path:
+        """
+        One file per *distinct request*, not one file per VRN.
+
+        This used to be `{vrn}.json`, and that was a real bug rather than an
+        untidiness: the same VRN queried in two different modes returns two
+        genuinely different responses, and the second silently overwrote the
+        first. Concretely, an unauthenticated call to 220430231 returned 401
+        (proving the endpoint is application-restricted) and a later
+        authenticated call to the same VRN returned 404 — which erased the 401,
+        the more interesting of the two, leaving a claim in CLAUDE.md that the
+        repo could no longer support.
+
+        The key is therefore (vrn, env, auth mode, endpoint variant):
+        env stays the directory, the rest go in the filename.
+
+            data/raw/hmrc/sandbox/220430231.noauth.single.json   -> 401
+            data/raw/hmrc/sandbox/220430231.auth.single.json     -> 404
+
+        `variant` distinguishes the one-VRN endpoint from the two-VRN form that
+        returns a consultationNumber, because those differ in response shape too.
+        """
+        return self.raw_dir / f"{vrn}.{auth_mode}.{variant}.json"
+
+    def _legacy_cache_path(self, vrn: str) -> Path:
+        """
+        The pre-fix `{vrn}.json` layout. Still read, never written, so an
+        existing cache (or a checkout carrying the original evidence file) keeps
+        working instead of silently triggering a fresh live call.
+        """
         return self.raw_dir / f"{vrn}.json"
+
+    def _legacy_usable(self, path: Path, mode: str, variant: str) -> bool:
+        """
+        Whether a legacy `{vrn}.json` file may answer *this* request.
+
+        It must not answer unconditionally. A legacy file carries no auth mode,
+        so serving it for any mode reintroduces the bug from the other side:
+        asking for the unauthenticated response and being handed the
+        authenticated one, silently, from a filename that cannot distinguish
+        them. That is exactly what happened on the first run of this fix.
+
+        A legacy file's mode is inferred from its own status code, which for
+        this endpoint is unambiguous: 401 means no usable token was sent,
+        anything else means one was.
+        """
+        if variant != "single":
+            return False
+        try:
+            envelope = json.loads(path.read_text())
+        except (OSError, ValueError):
+            return False
+        if "auth_mode" in envelope:
+            return envelope["auth_mode"] == mode
+        implied = "noauth" if envelope.get("http_status") == 401 else "auth"
+        return implied == mode
 
     # -------------------------------------------------------------- lookup
 
@@ -205,13 +283,22 @@ class HmrcClient:
         if vrn.startswith("GB"):
             vrn = vrn[2:]
 
-        cache = self._cache_path(vrn)
+        if use_consultation is None:
+            use_consultation = bool(self.requester_vrn) and not self.no_auth
+
+        # Both parts of the key are known before any request is made.
+        variant = "consult" if use_consultation else "single"
+        mode = self.auth_mode()
+
+        cache = self._cache_path(vrn, mode, variant)
+        if not cache.exists():
+            legacy = self._legacy_cache_path(vrn)
+            if legacy.exists() and self._legacy_usable(legacy, mode, variant):
+                cache = legacy
         if cache.exists():
             self.stats["cache_hits"] += 1
-            return self._parse(vrn, json.loads(cache.read_text()), from_cache=True)
-
-        if use_consultation is None:
-            use_consultation = bool(self.requester_vrn)
+            return self._parse(vrn, json.loads(cache.read_text()),
+                               from_cache=True, cache_path=cache)
 
         path = f"/organisations/vat/check-vat-number/lookup/{vrn}"
         if use_consultation:
@@ -224,11 +311,14 @@ class HmrcClient:
         if token:
             headers["Authorization"] = f"Bearer {token}"
 
-        envelope = self._request_with_backoff(path, headers, vrn)
+        envelope = self._request_with_backoff(path, headers, vrn, mode, variant,
+                                              authenticated=bool(token))
+        cache = self._cache_path(vrn, mode, variant)
         cache.write_text(json.dumps(envelope, indent=2, sort_keys=True))
-        return self._parse(vrn, envelope, from_cache=False)
+        return self._parse(vrn, envelope, from_cache=False, cache_path=cache)
 
-    def _request_with_backoff(self, path: str, headers: dict, vrn: str) -> dict:
+    def _request_with_backoff(self, path: str, headers: dict, vrn: str,
+                              mode: str, variant: str, authenticated: bool) -> dict:
         url = self.base_url + path
         delay = 1.0
         for attempt in range(self.max_retries):
@@ -248,6 +338,11 @@ class HmrcClient:
                 "http_status": resp.status_code,
                 "attempt": attempt + 1,
                 "env": self.env,
+                # Recorded in the envelope so the evidence file is
+                # self-describing and does not rely on its own filename.
+                "auth_mode": mode,
+                "authenticated": authenticated,
+                "endpoint_variant": variant,
             }
             try:
                 envelope["body"] = resp.json()
@@ -282,17 +377,21 @@ class HmrcClient:
                 json.dumps(
                     {
                         k: envelope[k]
-                        for k in ("vrn", "requested_at", "http_status", "attempt", "env")
+                        for k in ("vrn", "requested_at", "http_status", "attempt",
+                                  "env", "auth_mode", "endpoint_variant")
                         if k in envelope
                     }
                 )
                 + "\n"
             )
 
-    def _parse(self, vrn: str, envelope: dict, from_cache: bool) -> LookupResult:
+    def _parse(self, vrn: str, envelope: dict, from_cache: bool,
+               cache_path: Path) -> LookupResult:
         http_status = envelope.get("http_status")
         body = envelope.get("body") or {}
-        raw_path = str(self._cache_path(vrn).relative_to(REPO_ROOT))
+        # Passed in rather than recomputed: the path depends on auth mode and
+        # endpoint variant, and recomputing it here would guess at both.
+        raw_path = str(cache_path.relative_to(REPO_ROOT))
 
         if http_status == 200:
             target = body.get("target", body)
@@ -333,6 +432,9 @@ def main() -> int:
     ap.add_argument("--column", default="vat", help="column holding the VAT number")
     ap.add_argument("--env", choices=list(BASE_URLS), default=None)
     ap.add_argument("--no-consultation", action="store_true")
+    ap.add_argument("--no-auth", action="store_true",
+                    help="send no bearer token, even if credentials are configured; "
+                         "this is how the 401 evidence is reproduced")
     args = ap.parse_args()
 
     vrns = list(args.vrn)
@@ -345,8 +447,8 @@ def main() -> int:
     if not vrns:
         ap.error("give at least one VRN or --file")
 
-    client = HmrcClient(env=args.env)
-    print(f"env={client.env}  authenticated={bool(client.client_id)}  n={len(vrns)}\n")
+    client = HmrcClient(env=args.env, no_auth=args.no_auth)
+    print(f"env={client.env}  auth_mode={client.auth_mode()}  n={len(vrns)}\n")
 
     for vrn in vrns:
         r = client.lookup(vrn, use_consultation=False if args.no_consultation else None)
@@ -358,6 +460,7 @@ def main() -> int:
                 print(f"          consultation: {r.consultation_number}")
         else:
             print(f"[{tag}] {r.vrn}  {r.status:12}  (HTTP {r.http_status})")
+        print(f"          raw: {r.raw_path}")
 
     print(f"\n{client.report()}")
     print(f"raw responses -> {client.raw_dir}")

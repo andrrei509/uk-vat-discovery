@@ -66,7 +66,11 @@ Parts 1 and 3 are stated to be "at least as important as Part 2".
   tidy them away — they are the deliverable.
 - **Never commit `.env`.** The repo will be public. `.gitignore` covers it.
 - **Raw responses before parsing.** Every HMRC call writes
-  `data/raw/hmrc/<env>/<vrn>.json` before anything interprets it.
+  `data/raw/hmrc/<env>/<vrn>.<auth|noauth>.<single|consult>.json` before
+  anything interprets it. The key is the whole request, not just the VRN:
+  keying on the VRN alone let an authenticated 404 overwrite an
+  unauthenticated 401 and silently destroyed evidence this repo claimed to
+  have.
 
 ## Current state (as of 18 Aug 2026, Day 1)
 

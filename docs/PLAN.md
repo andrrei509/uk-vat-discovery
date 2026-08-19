@@ -12,18 +12,30 @@ probably wrong. The wrong ones are the valuable ones — they are Part 1.
 
 We need a function `company → VAT number`. What exists is:
 
-- **A registry with no VAT numbers.** Companies House free snapshot: ~5.4M
-  companies (~4.2M live); name, number, registered address, SIC, incorporation
-  date, accounts category. **No websites. No VAT numbers.**
+- **A registry with no VAT numbers.** Companies House free snapshot; name,
+  number, registered address, SIC, incorporation date, accounts category.
+  **No websites. No VAT numbers.**
+
+  Sizes as written here on 17 Aug were ~5.4M companies / ~4.2M live. **Measured
+  on the 2026-08-01 snapshot: 5,695,465 rows, all live, of which 5,190,464 are
+  `CompanyStatus = 'Active'`** (`python src/companies_house.py --hash` and
+  `--profile`). The ~4.2M is *the assignment brief's* figure, not a measurement
+  of this snapshot; both are kept above so the gap is visible.
 - **A verifier that only runs backwards.** HMRC takes a VAT number and returns
   the registered name + address. It cannot take a company and return its number.
 - **No ground truth.** No list of (company, VAT) pairs to score against.
 
 ### 1.1 Three asymmetries that define the task
 
-**(a) The denominator is unknown.** ~4.2M live companies vs ~2.18M VAT
-registrations *including sole traders and partnerships that aren't companies at
-all*. So the number of **companies** with a VAT number is materially below 2.18M.
+**(a) The denominator is unknown.** The brief's figures: ~4.2M live companies vs
+~2.18M VAT registrations *including sole traders and partnerships that aren't
+companies at all*. So the number of **companies** with a VAT number is
+materially below 2.18M.
+
+Neither figure is measured here. The snapshot's own count is **5,695,465 live /
+5,190,464 Active**, which is ~1.5M above the brief's 4.2M — so a ratio built on
+4.2M is not a ratio about this snapshot. Which denominator to use is the open
+question, not a settled number.
 
 Consequence: **coverage is meaningless without a denominator.** "I found 18% of
 my sample" is a bad number. "I found 18% of my sample, and I estimate X% of that
@@ -194,7 +206,8 @@ again.** Any company added later is contamination.
 - Start from the Companies House snapshot, live companies only.
 - Filter to something resembling the customer: a mid-sized manufacturer's UK
   supplier base — trades, business services, logistics, wholesale, manufacturing.
-  Not a random draw from 4.2M. Say so and encode it.
+  Not a random draw from the whole register (the brief says ~4.2M; measured
+  5,695,465). Say so and encode it.
 - **Stratify** on the axes that plausibly drive VAT-registration probability and
   web presence: SIC sector, accounts category (size proxy), company age, region.
 - Seeded random draw within strata. `n ≈ 300–500`. Bigger n buys nothing; a
@@ -213,7 +226,8 @@ cheapest credibility win available.
 **Day 1 (Sun 17) — Recon & unblock.** ✅ mostly done, see `CLAUDE.md`.
 HMRC developer account; one successful lookup saved as raw JSON; Companies House
 snapshot downloaded and queryable; repo + `DECISIONS.md` started.
-*Exit: can verify a VRN programmatically; 5.4M companies in a queryable file.*
+*Exit: can verify a VRN programmatically; the full register in a queryable file
+(measured: 5,695,465 rows).*
 
 **Day 2 (Mon 18) — Denominator + sample.**
 Estimate how many UK companies plausibly hold a VAT number — reason from the £90k

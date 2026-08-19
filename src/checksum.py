@@ -4,14 +4,24 @@ UK VAT registration number (VRN) format + check-digit validation.
 Why this module exists
 ----------------------
 Every candidate VAT number we scrape off a web page costs an HMRC API call to
-verify. HMRC rate-limits us. The check digit is a free filter: a random
-9-digit string passes it roughly 1 time in 97, so validating locally throws
-away ~99% of garbage before we spend a single request.
+verify. HMRC rate-limits us. The check digit is a free filter.
 
-That ratio is worth stating in the writeup, and it is also the whole answer to
-debate topic #1 (enumeration): the checksum is not much of a filter when you
-are *generating* numbers, because 1-in-97 of 10^7 bases is still ~10^5... work
-that out yourself, don't take my word for it.
+Two different rates, and mixing them up is easy:
+
+  - **~1 in 97** for a *single* allocation scheme. That is the arithmetic rate
+    of one mod-97 check digit.
+  - **~1 in 49** in practice, because this module accepts *both* the mod-97 and
+    mod-9755 schemes and cannot tell from the number alone which one applies.
+    Accepting either roughly doubles the pass rate.
+
+The second is the one that matters here, and it is measured rather than assumed:
+`python src/checksum.py` reports **4069/200000 = 2.0345%** on a seeded sample of
+random 9-digit strings. That is the number to quote, and the gap between the two
+is a real precision cost paid to avoid dropping valid numbers.
+
+Both rates feed debate topic #1 (enumeration): the checksum is not much of a
+filter when you are *generating* numbers, because even 1-in-97 of 10^7 bases is
+still ~10^5 survivors — work it out yourself, don't take my word for it.
 
 The algorithm
 -------------

@@ -1,0 +1,15 @@
+{
+  "attempt": 1,
+  "auth_mode": "noauth",
+  "authenticated": false,
+  "body": {
+    "code": "MISSING_CREDENTIALS",
+    "message": "Authentication information is not provided"
+  },
+  "endpoint_variant": "single",
+  "env": "sandbox",
+  "http_status": 401,
+  "requested_at": "2026-08-19T21:30:31.767393+00:00",
+  "url": "https://test-api.service.hmrc.gov.uk/organisations/vat/check-vat-number/lookup/220430231",
+  "vrn": "220430231"
+}

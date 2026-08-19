@@ -5,7 +5,11 @@ will be drawn from.
 Get the file
 ------------
     https://download.companieshouse.gov.uk/en_output.html
-    -> "BasicCompanyDataAsOneFile-YYYY-MM-01.zip"  (~470 MB zipped, ~2.5 GB CSV)
+    -> "BasicCompanyDataAsOneFile-YYYY-MM-01.zip"
+
+Measured for the 2026-08-01 snapshot this project used: 493,049,031 bytes
+zipped (0.49 GB / 0.46 GiB), 2,803,365,091 bytes extracted (2.80 GB / 2.61 GiB).
+Reproduce with `--hash`.
 
 Put it in `data/companies_house/`. Do NOT commit it (see .gitignore); record
 its filename, SHA256 and row count in DECISIONS.md instead so the run is
@@ -13,8 +17,10 @@ reproducible without the bulk.
 
 Why DuckDB
 ----------
-The CSV is ~5.4M rows and ~55 columns. pandas will read it, but it will eat
-several GB of RAM and every exploratory question costs a full re-scan. DuckDB
+The CSV is 5,695,465 rows and 55 columns (measured on the 2026-08-01 snapshot
+via `--hash`; earlier notes in this repo said ~5.4M, which the snapshot does not
+support). pandas will read it, but it will eat several GB of RAM and every
+exploratory question costs a full re-scan. DuckDB
 queries the CSV (or a Parquet copy of it) directly, out of core, in SQL. That
 is a tool choice you should be able to justify — the assignment explicitly
 grades "are tools used to support the solution, or is the solution shaped
@@ -23,7 +29,7 @@ around the tool".
     python src/companies_house.py --profile
     python src/companies_house.py --to-parquet      # do this once, it's ~10x faster after
 
-Columns that matter for this project (there are ~55; most are filing dates):
+Columns that matter for this project (of the 55; most are filing dates):
     CompanyName                     the string the customer is matching on
     CompanyNumber                   the join key
     CompanyStatus                   Active / Dissolved / Liquidation / ...
@@ -105,7 +111,7 @@ def csv_header(path: Path) -> list[str]:
     """
     The header line, exactly as Companies House wrote it — raw bytes, not
     duckdb's cleaned-up version of it. `--header` prints this so the claim
-    "CH ships 15 headers with a leading space" is checkable rather than folklore.
+    "CH ships 14 headers with a leading space" is checkable rather than folklore.
     """
     import csv
 
