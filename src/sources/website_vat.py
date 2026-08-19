@@ -134,12 +134,25 @@ class PoliteFetcher:
         host = urlparse(base).netloc
         if host not in self._robots:
             rp = urllib.robotparser.RobotFileParser()
-            rp.set_url(urljoin(base, "/robots.txt"))
+            url = urljoin(base, "/robots.txt")
+            rp.set_url(url)
             try:
-                rp.read()
+                # Fetched through the session rather than via rp.read(), which
+                # calls urllib with NO timeout and will hang indefinitely on a
+                # host that accepts the connection and then stalls. Harmless
+                # against a handful of known domains; a guaranteed hang when
+                # pointed at hundreds of speculative ones (see
+                # src/domain_discovery.py).
+                resp = self.session.get(url, timeout=self.timeout,
+                                        allow_redirects=True)
+                if resp.status_code == 200:
+                    rp.parse(resp.text.splitlines())
+                else:
+                    # 404 / 403 / anything else: no usable rules.
+                    rp = None
             except Exception:
-                # No robots.txt, or unreachable. Convention is that this means
-                # "allowed" — but record it, don't silently assume.
+                # Unreachable. Convention is that this means "allowed" — but
+                # record it, don't silently assume.
                 rp = None
             self._robots[host] = rp
         return self._robots[host]

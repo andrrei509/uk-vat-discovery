@@ -1,0 +1,184 @@
+=== domain discovery: outcome of 500 companies ======================
+  outcome        count     share
+  strong            39      7.8%
+  weak             125     25.0%
+  none              41      8.2%
+  no_domain        295     59.0%
+  TOTAL            500
+
+  'none' resolved but matched nothing, so it counts as NOT FOUND.
+  Usable = strong only. weak is near-circular: the distinctive word is
+  what generated the domain, so any unrelated firm sharing it scores weak.
+
+=== by size band ===========================================
+                            strong      weak      none no_domain   total  strong%
+  micro                         18        47        16       111     192     9.4%
+  small                         14        42        15        85     156     9.0%
+  unknown                        6        35        10        87     138     4.3%
+  larger                         1         1         0        12      14     7.1%
+
+=== by sector group ========================================
+                            strong      weak      none no_domain   total  strong%
+  business_services             22        55        23       107     207    10.6%
+  wholesale_retail               5        37        11        75     128     3.9%
+  construction_trades            6        16         4        74     100     6.0%
+  manufacturing                  5        10         3        21      39    12.8%
+  transport_logistics            1         7         0        18      26     3.8%
+
+=== 20 rows for hand-checking (seed 20260820) ====================
+  Spread across every outcome present, not proportional, so the rare
+  outcomes get looked at too. Verify each by hand and count the wrong ones:
+  that count over these rows is the method's own error rate.
+
+  [ 1] STRONG  04121793  PHSC PLC
+       domain    : phsc.co.uk   http: 200
+       matched_on: full_registered_name
+       CH addr   : THE OLD CHURCH, AYLESFORD ME20 7PR
+       sector/size: business_services / larger
+       notes     : possible placeholder page (coming soon)
+
+  [ 2] STRONG  05050419  BSN (LONDON) LIMITED
+       domain    : bsnlondon.com   http: 200
+       matched_on: full_registered_name
+       CH addr   : 55 LOUDOUN ROAD, LONDON NW8 0DL
+       sector/size: business_services / small
+
+  [ 3] STRONG  09625689  ETI LOGISTICS SUPPORT LTD
+       domain    : etilogisticssupport.co.uk   http: 200
+       matched_on: name_plus_legal_form:limited
+       CH addr   : 151 ADDINGTON RD ADDINGTON ROAD, WELLINGBOROUGH NN9 5UP
+       sector/size: business_services / small
+
+  [ 4] STRONG  15887473  SOUTH YORKSHIRE BUILDERS LTD
+       domain    : southyorkshirebuilders.com   http: 200
+       matched_on: company_number:15887473
+       CH addr   : 4 BOLAND ROAD, SHEFFIELD S8 7HX
+       sector/size: construction_trades / unknown
+
+  [ 5] STRONG  16302283  TIMGLOBAL LTD
+       domain    : timglobal.uk   http: 200
+       matched_on: full_registered_name
+       CH addr   : 118 SHALFORD ROAD, SOLIHULL B92 7NF
+       sector/size: business_services / small
+       notes     : 1 other candidate(s) also served a page
+
+  [ 6] WEAK  04818845  SURIYA JEWELS LIMITED
+       domain    : suriyajewels.com   http: 200
+       matched_on: distinctive_name_only
+       CH addr   : 292 HIGH STREET NORTH, LONDON E12 6SA
+       sector/size: wholesale_retail / small
+       notes     : possible placeholder page (coming soon)
+
+  [ 7] WEAK  05482648  FISH! RESTAURANTS LTD
+       domain    : fishrestaurants.com   http: 200
+       matched_on: distinctive_name_only
+       CH addr   : FIFTH FLOOR, CLAREVILLE HOUSE 26-27 OXENDON STREET, LONDON SW1Y 4EL
+       sector/size: wholesale_retail / small
+
+  [ 8] WEAK  10643839  MAPACH LIMITED
+       domain    : mapach.com   http: 200
+       matched_on: distinctive_name_only
+       CH addr   : SECOND FLOOR KENNEL CLUB HOUSE, AYLESBURY HP19 8DB
+       sector/size: transport_logistics / micro
+       notes     : redirected to www.hugedomains.com; possible placeholder page (this domain is for sale)
+
+  [ 9] WEAK  12746286  ADVANCED ROOF TESTING LTD
+       domain    : advancedrooftesting.co.uk   http: 200
+       matched_on: distinctive_name_only
+       CH addr   : 62 THE PINES, HORSHAM RH12 4UE
+       sector/size: construction_trades / micro
+
+  [10] WEAK  16331646  UNINHIBITED DEVELOPMENT SOLUTIONS LTD
+       domain    : uninhibiteddevelopmentsolutions.co.uk   http: 200
+       matched_on: distinctive_name_only
+       CH addr   : 120 BENNETTS CLOSE, MITCHAM CR4 1NS
+       sector/size: business_services / unknown
+       notes     : possible placeholder page (under construction)
+
+  [11] NONE  04647066  PTERO-BYTE LIMITED
+       domain    : pterobyte.com   http: 200
+       matched_on: -
+       CH addr   : FINSBURY HOUSE, CHIPPING NORTON OX7 5LL
+       sector/size: business_services / micro
+
+  [12] NONE  04660630  OUR WORLD OUR SAY
+       domain    : ourworldoursay.com   http: 200
+       matched_on: -
+       CH addr   : COASTWISE HOUSE, WORTHING BN11 1SU
+       sector/size: business_services / small
+
+  [13] NONE  12019503  1COUNSEL LIMITED
+       domain    : 1counsel.com   http: 200
+       matched_on: -
+       CH addr   : 188 WESTBOURNE PARK ROAD, LONDON W11 1BT
+       sector/size: business_services / small
+
+  [14] NONE  14478374  JBB CONSULTANTS LIMITED
+       domain    : jbbconsultants.com   http: 200
+       matched_on: -
+       CH addr   : 10 DOWNS CLOSE, EASTBURY RG17 7JW
+       sector/size: business_services / micro
+
+  [15] NONE  15396982  DID TEACH LIMITED
+       domain    : didteach.com   http: 200
+       matched_on: -
+       CH addr   : 30 EAST BOROUGH, WIMBORNE BH21 1PL
+       sector/size: business_services / micro
+       notes     : redirected to www.thosewhocan.org
+
+  [16] NO_DOMAIN  08877084  ODYSSEY ELECTRICAL SERVICES LTD
+       domain    : (none resolved)   http: 
+       matched_on: -
+       CH addr   : 54D FROME ROAD, BRADFORD ON AVON BA15 1LA
+       sector/size: construction_trades / micro
+       notes     : 6 candidate(s) tried, none served an HTML page; statuses: DNSFailure
+
+  [17] NO_DOMAIN  10691545  ACE ELECTRICIANS LIMITED
+       domain    : (none resolved)   http: 
+       matched_on: -
+       CH addr   : 51 FISHER ROAD, HARROW HA3 7JX
+       sector/size: construction_trades / micro
+       notes     : 6 candidate(s) tried, none served an HTML page; statuses: ConnectTimeout,DNSFailure
+
+  [18] NO_DOMAIN  12870277  MPL GROUNDWORK & BUILDING LIMITED
+       domain    : (none resolved)   http: 
+       matched_on: -
+       CH addr   : THE REGENT, PENZANCE TR18 4AE
+       sector/size: construction_trades / small
+       notes     : 6 candidate(s) tried, none served an HTML page; statuses: DNSFailure
+
+  [19] NO_DOMAIN  16786308  SBA-SPI LIMITED
+       domain    : (none resolved)   http: 
+       matched_on: -
+       CH addr   : 2 CLARIDGE COURT, BERKHAMSTED HP4 2AF
+       sector/size: business_services / unknown
+       notes     : 6 candidate(s) tried, none served an HTML page; statuses: DNSFailure
+
+  [20] NO_DOMAIN  17313877  AJE TECH LTD
+       domain    : (none resolved)   http: 
+       matched_on: -
+       CH addr   : 5 OTTAWA HOUSE, HAYES UB4 9HJ
+       sector/size: business_services / unknown
+       notes     : 6 candidate(s) tried, none served an HTML page; statuses: 403,DNSFailure
+
+=== every candidate attempt, by outcome ==========================
+  2661 attempt(s) across 500 companies (5.3 candidate domains each)
+
+  DNSFailure                 2233    83.9%
+  200                         285    10.7%
+  SSLError                     55     2.1%
+  ConnectTimeout               30     1.1%
+  ConnectionError              21     0.8%
+  403                          14     0.5%
+  404                           7     0.3%
+  robots_blocked                5     0.2%
+  ReadTimeout                   3     0.1%
+  500                           2     0.1%
+  406                           2     0.1%
+  999                           1     0.0%
+  503                           1     0.0%
+  521                           1     0.0%
+  525                           1     0.0%
+
+  Only the HTTP statuses involved a request to a company's server.
+  DNSFailure rows were resolved and dropped without any connection.

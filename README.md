@@ -107,6 +107,8 @@ this table is what already stands up.
 | the frozen sample of `500`, `50` held out, 20 strata | `python src/sample.py` | `data/sample/sample.csv` (seed and snapshot SHA256 in its header block) |
 | the sample is byte-reproducible from its seed | `python src/sample.py --check-determinism` | stdout |
 | parquet is `9.6x` faster than the CSV (`2.42s` vs `23.31s`) | `python src/companies_house.py --profile` then `--profile --no-parquet` | stdout |
+| name-to-domain match rates (strong / weak / none / no_domain), split by size band and sector | `python src/domain_discovery.py` | `data/results/sample_domains.csv` and `notes/domain_discovery_output.txt`; every attempt logged to `data/raw/domain_attempts.jsonl` |
+| the 20 rows drawn for hand-checking the domain method | `python src/domain_discovery.py --report-only` (seeded, no fetching) | `notes/domain_discovery_output.txt` |
 | the manual audit sheet itself | `python src/audit_worklist.py --candidates <candidates.csv>` | `audit/manual_audit.csv` |
 
 **What runs on a clean clone, and what does not.**

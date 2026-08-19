@@ -187,4 +187,7 @@ python src\sample.py --dry-run                            # frame + strata count
 python src\sample.py                                      # draw and FREEZE the sample
 python src\sample.py --check-determinism                  # same seed -> byte-identical file
 python src\metrics.py --self-test                         # Wilson interval cross-check
+python src\domain_discovery.py --limit 20                 # name->domain, small live test
+python src\domain_discovery.py                            # full sample; resumable
+python src\domain_discovery.py --report-only              # re-print from the attempt cache
 ```

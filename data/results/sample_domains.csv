@@ -1,0 +1,501 @@
+﻿company_number,company_name,candidate_domain,http_status,match_strength,matched_on,page_sha256,notes
+00393793,DAISY TUFTS LIMITED,daisytufts.co.uk,200,none,,6dc9c7fc93bb488bb0520a6c780a8d3c0fb5486a4711aca49b4c53fac7393023,2 other candidate(s) also served a page
+00741597,ARGENTA PRIVATE CAPITAL LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+00927976,RUNG HEATING SUPPLIES LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+01003695,AMPLIVOX LIMITED,amplivox.co.uk,200,weak,distinctive_name_only,10c34c35b7af5364c1ac72e7ae69ad3c3a177d7ecb714f5aec1f66f40c628291,redirected to amplivox.com; 2 other candidate(s) also served a page
+01262251,MCKENNA (PLASTERERS) LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: 403,DNSFailure"
+01407765,MOUNTNEY LIMITED,,,no_domain,,,"3 candidate(s) tried, none served an HTML page; statuses: ConnectionError,SSLError"
+01472159,T. SPENCER BUILDING AND JOINERY LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+01589528,APPLIED RELATIONAL TECHNOLOGY LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+01937849,ROY FLEETWOOD LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+02134862,THE OPEN GROUP LIMITED,open-group.com,200,weak,distinctive_name_only,8d5bb12158a906a705c180c92fda1ca861cee62c3077a11ff2ab6f75cf9ee17a,2 other candidate(s) also served a page
+02231034,O.R.C.A. (PORTSMOUTH) LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+02823490,DURAVAC PRODUCTS LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+02898715,HIGH PERFORM LIMITED,highperform.co.uk,200,weak,distinctive_name_only,db224c2d642dffaf34f6446876cc88e6445f604d6acc828f61f4ffa40c76b610,
+02976791,INTERNET SECURITIES LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+03006401,CAMBRIA ESTATES LIMITED,cambriaestates.com,200,weak,distinctive_name_only,fafec6ff01ebb89ddfbb43bccc1c571c59aceb911bcd751cdf1b8abdf86beb02,
+03090204,LEA CONSULTANCY SERVICES LIMITED,leaconsultancyservices.co.uk,200,strong,name_plus_legal_form:ltd,5acd104bb055e40f1c8972c9298b9fe3fd2a507bd96721ee243a1d25cb3d3f03,
+03117037,TJK DEVELOPMENTS LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+03400701,JAYLEC ELECTRICAL CONTRACTORS LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+03671068,SYKES CHEMISTS LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+03737368,ANNOG CYF,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+03771876,ELITE WORLDWIDE LIMITED,eliteworldwide.com,200,weak,distinctive_name_only,eaa09fb8ccd255ce228b218a5aa0e88911830863159665a2091570f3bc8f3834,1 other candidate(s) also served a page
+03859134,WILLINGHAM INVESTMENTS LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+03918357,HASEMORE LIMITED,,,no_domain,,,"3 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+03925108,BW TECHNOLOGIES LIMITED,bwtechnologies.com,200,none,,60f66e6ae2ea2237b1987702fb15e0039126ed7ab3b11515088238b1225dcbb6,redirected to purehydration.com; possible placeholder page (coming soon)
+04037750,JAMES MANSFIELD TIMBER LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure,SSLError"
+04116177,BP CORPORATE HOLDINGS LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+04121793,PHSC PLC,phsc.co.uk,200,strong,full_registered_name,2e50bcaf974b5c77992df1bf21097ecffe8d63bae6d81dbda98f62702534fd47,possible placeholder page (coming soon)
+04241663,T.I.S.S. LIMITED,tiss.co.uk,200,weak,distinctive_name_only,ef445ce605c414c2389b0409abf8fc5ebca5e7790a0e7a7a04b3ebb133c53749,1 other candidate(s) also served a page
+04283420,AMBER-TECH ELECTRICAL SERVICES LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+04403769,MICKLETON ENGINEERING LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure,SSLError"
+04417292,THINK-LAB LIMITED,thinklab.co.uk,200,weak,distinctive_name_only,7b82d6cedb12c38ba79904f7f5a11c902ac9f778975659933954960b8fb7e9b2,1 other candidate(s) also served a page
+04421657,CONDOR UK HOLDINGS LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+04452147,JEREMY LEWISON LIMITED,jeremylewison.co.uk,200,strong,full_registered_name,86be8ed191cfbcb75c993cee288fb3b2df24a46d6b2bb60d31c68dbffa0e0bb4,
+04476908,PORTLAND JOINERY LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure,SSLError"
+04576779,MELODI LIMITED,melodi.co.uk,200,none,,6dc9c7fc93bb488bb0520a6c780a8d3c0fb5486a4711aca49b4c53fac7393023,1 other candidate(s) also served a page
+04647066,PTERO-BYTE LIMITED,pterobyte.com,200,none,,6dc9c7fc93bb488bb0520a6c780a8d3c0fb5486a4711aca49b4c53fac7393023,
+04660630,OUR WORLD OUR SAY,ourworldoursay.com,200,none,,6dc9c7fc93bb488bb0520a6c780a8d3c0fb5486a4711aca49b4c53fac7393023,
+04677276,ALLSERVE HEATING AND PLUMBING LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: ConnectionError,DNSFailure"
+04697898,ROTHERHAM HEALTHCARE HOLDINGS LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+04708345,TOP LINE MANAGEMENT UK LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+04743793,A1 MACHINE TOOLS LIMITED,a1machinetools.com,200,weak,distinctive_name_only,a33b48313b6bc3e6d6a6987ba579899e45b025fbbb4f128ca69b6498a841371d,
+04749703,NETDALE LIMITED,netdale.com,200,none,,6dc9c7fc93bb488bb0520a6c780a8d3c0fb5486a4711aca49b4c53fac7393023,
+04782202,TSC ENGINEERING LIMITED,tscengineering.com,200,weak,distinctive_name_only,e0d92e4dd59291fb5da02fd3c6c3b972ae7484194239e6a50796ea9a41570204,1 other candidate(s) also served a page
+04818845,SURIYA JEWELS LIMITED,suriyajewels.com,200,weak,distinctive_name_only,e1f24c07a4375189acf985348b26f892d3419fc91cb445916af91d78c2fb03a0,possible placeholder page (coming soon)
+04911799,PEMBROKE CASTLE SHOP LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+04938443,SHANE ANDREW (BUILDING) LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+04951755,PYRAMID PROPERTY DEVELOPMENT LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+04951981,IPCA LABORATORIES UK LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+05050419,BSN (LONDON) LIMITED,bsnlondon.com,200,strong,full_registered_name,4c098e5b3db0c155243c2919c8e2da6c9dbe2bf087fcc9f9cc3882351dec0e72,
+05062973,CAPITAL HOMES & CONSTRUCTION LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+05089080,VENTING LIMITED,venting.co.uk,200,weak,distinctive_name_only,e383cb9366f9e3ebba69da231be4e058611790136e4fc8711a817df15ca88e6f,1 other candidate(s) also served a page
+05131762,LOVE WATER LIMITED,lovewater.com,200,strong,full_registered_name,3e209883537b8885441d43cd14425e14027b23f778973c89a42ede7d3ccf052b,
+05141783,WE ARE FACILITY LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: ConnectTimeout,DNSFailure,SSLError"
+05178694,ENDEAVOURS (UK) LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+05198353,RESOURCE PRINT MANAGEMENT LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+05294390,CLEAR INVESTMENTS (UK) LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+05426775,THE LAKELAND WINDOW COMPANY LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+05477996,G R STONE LIMITED,grstone.com,200,none,,6dc9c7fc93bb488bb0520a6c780a8d3c0fb5486a4711aca49b4c53fac7393023,
+05482648,FISH! RESTAURANTS LTD,fishrestaurants.com,200,weak,distinctive_name_only,3f71cffc401e52f65847a721430e96cb36aaf0e10315b47afd84f37f0e9869d8,
+05506012,INTELLETECH LIMITED,intelletech.co.uk,200,strong,name_plus_legal_form:ltd,a0200e4a4bddad33329731072e08ed6983af12f150f6879fd89cd2b6971de65a,
+05547333,BELLA CARS LIMITED,bellacars.com,200,none,,cf657299a55c3f6de7562819bb319c5c10b7a9239baeb5e3b8a43ae740fca767,
+05638730,DOUGLAS WILLIS LIMITED,douglaswillis.co.uk,200,strong,full_registered_name,d921fda5b0477aa7f6543183c693ceb0aa52ebed1e2a75279bc4b3ae49ab09da,
+06100322,BC PROJECTS LIMITED,bcprojects.com,200,weak,distinctive_name_only,7c0db6551c501391b9977cce426f0511e0c90d822ca3ab042ded1783a1f6303c,redirected to www.hugedomains.com; possible placeholder page (this domain is for sale); 1 other candidate(s) also served a page
+06124143,EXEGY UK LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+06293394,STEVE METCALFE SERVICES LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+06296862,KND CONSTRUCTION LIMITED,kndconstruction.com,200,weak,distinctive_name_only,fa6a104d51a35ecf86b25be5aed4da957111f5051baefded4e468216191177df,redirected to www.hugedomains.com; possible placeholder page (this domain is for sale)
+06393834,MATLEGA CONSTRUCTION LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+06416356,ALPHA CLADDING SYSTEMS LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+06452852,DAVE BARNETT MOTORS LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+06648143,GOOSEDALE BANQUETING LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+06753925,NUMBER CRUNCHER BUSINESS SERVICES LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+06759982,ONBIKE LIMITED,onbike.co.uk,200,strong,company_number_unpadded_labelled:6759982,554df3bd103a86c462a82ab19344e86a0a18ae874cd038f06cf3490494118340,
+06789108,MI CONSULTING UK LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+06827853,LUCIAN CAMP CONSULTING LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: 999,ConnectTimeout,DNSFailure"
+06875003,KDM FORCE LTD,kdmforce.com,200,weak,distinctive_name_only,b09d8a809294a4487f2cd240ded2ed111e868b2ec9e0069a91b6dbdf28e8abd0,
+06967109,TGI TAVERNS LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+06989729,AXIOM MEDICAL LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure,ReadTimeout,SSLError"
+07087811,VGAAS UK LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+07130437,M. YOUDE CONSULTANCY LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+07145959,DIAMOND FACILITIES SUPPORT LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+07263810,BLACKPOOL FOOD & BEVERAGES LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+07291471,EZ MANAGEMENT LIMITED,ezmanagement.com,200,strong,name_plus_legal_form:ltd,18c7b53558d7ac5a9f12ac4cc7beee26c3e7bd7f77d8a9ea7f91727871de1e36,
+07343111,ABBEY SCIENTIFIC LIMITED,abbeyscientific.co.uk,200,none,,6dc9c7fc93bb488bb0520a6c780a8d3c0fb5486a4711aca49b4c53fac7393023,
+07352081,HPPA LIMITED,,,no_domain,,,"3 candidate(s) tried, none served an HTML page; statuses: ConnectionError,DNSFailure,SSLError"
+07395444,FUNMISTIC UK LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+07405306,COUVRE-FEU FIRE CONSULTING LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+07503252,ASSOCIATE PLANET LIMITED,associateplanet.co.uk,200,weak,distinctive_name_only,36c40dacb0335987080c99d1a7a7b2046a2e87b87fbee10e2c68c433924ed290,redirected to associate-planet.com; 3 other candidate(s) also served a page
+07506175,PERSONAL BEST CONSULTING LTD,personalbestconsulting.co.uk,200,none,,6dc9c7fc93bb488bb0520a6c780a8d3c0fb5486a4711aca49b4c53fac7393023,
+07588214,OVERBURY INTERIORS LIMITED,overburyinteriors.co.uk,200,weak,distinctive_name_only,a2ad898e276c0b74901456af0e7d111f6643980654f93a1c63f73a07dc351399,
+07660695,KINGSTON LABS LTD,kingstonlabs.co.uk,200,weak,distinctive_name_only,be2d8e843c1d6a57339c0a651e7de263ffceb854b8c8f36fdca985efb6e95ec0,redirected to www.kingstonlabs.com; 1 other candidate(s) also served a page
+07661280,VANTAGE FUNDRAISING LTD,vantagefundraising.co.uk,200,weak,distinctive_name_only,3fcc5addefc0f627abb2c4fea141e4eae74d2dab8d8b2af269c0b649f427e028,1 other candidate(s) also served a page
+07853618,ASET CONSULTING LIMITED,aset-consulting.com,200,weak,distinctive_name_only,6ca44606d905add54f4231e4deadd13e37d6c902a875018b59302747304eee26,redirected to www.aset-consulting.fr
+07871599,LYBURN CONSTRUCTION LTD,lyburnconstruction.co.uk,200,strong,company_number_unpadded_labelled:7871599,23892613de80bdbb12f57914a96dd8b391c26113968684bfa6345bd3f6d89818,
+07871717,STUART ARMSTRONG & CO (SCUNTHORPE) LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+07930424,MY SPARE TIME LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure,SSLError"
+07948940,KJZH CONSULTING LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+07958670,MAIKE GRUNA INTERIORS LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+07972006,1ST CHOICE STAFF RECRUITMENT LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+07986475,BRISTOL AVON RIVERS TRUST,bristolavonriverstrust.com,200,none,,6dc9c7fc93bb488bb0520a6c780a8d3c0fb5486a4711aca49b4c53fac7393023,
+07992976,SAM WILKINSON SOLID FUELS LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+08029705,ANFIELD E-COMMERCE LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+08109951,SHOWCASE INDUSTRIES LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+08139080,SANDHU'S GOLDEN FISH INN LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+08169690,LOYALTY APPS LTD,loyaltyapps.com,200,weak,distinctive_name_only,ae935f1c48488aba686858f3221b2d96d38cb7f5ad4fa8bf32c651cdb8864dbe,redirected to www.hugedomains.com; possible placeholder page (this domain is for sale); 1 other candidate(s) also served a page
+08195468,SEW MUCH TO DO LTD,sewmuchtodo.co.uk,200,weak,distinctive_name_only,6d6457e0b50aa4d7bd7267d0be01da32ff8af82ced51be9e3035bbbf99c0cac4,
+08201343,A WARBURTON BUILDING SERVICES LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: 403,DNSFailure,SSLError"
+08368807,HILARY AF DOLBY LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+08582809,THE COTTON TEXTILE COMPANY LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+08618394,GOLDING ACCOUNTANCY LTD,goldingaccountancy.co.uk,200,weak,distinctive_name_only,941010457a72b15c7617d1886074e849e5b3a1a041891a0d029b29c1e660dfac,redirected to wearegolding.com
+08673542,THE FOREIGN & COMMONWEALTH FORUM LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+08695321,RYE BAKERY LTD,ryebakery.com,200,weak,distinctive_name_only,b310d66c4540632bc3c26f59094233e6c68a1acb85bc57c9c4df77a45b7df74c,redirected to www.hugedomains.com; possible placeholder page (this domain is for sale); 1 other candidate(s) also served a page
+08791927,SORT MI TAX LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+08811654,AUNT SALLY'S (WALSALL) LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+08811754,K2 INTERIORS (UK) LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+08832736,NADEN-BROWN LIMITED,naden-brown.co.uk,200,none,,4ff6a2277b482ebb05d5bea1bb578a88494b125bb6f0e47c271aef1570cbd927,possible placeholder page (under construction)
+08877084,ODYSSEY ELECTRICAL SERVICES LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+09135354,BULLHORN CONSULTANTS LIMITED,bullhornconsultants.com,200,weak,distinctive_name_only,9bcae4c8dce1a00fdec4e6098a5eabe53ed6afc1af388f0e21bcbd30543d5cf6,1 other candidate(s) also served a page
+09174733,SETARA LTD,setara.co.uk,200,weak,distinctive_name_only,82f84ad9ea5bdd7b74a335b18548ed7278c06d3aaee510c1fc6e450033fca2e2,
+09180939,ATA EXPRESS LTD,ata-express.com,200,weak,distinctive_name_only,c7fc826e6766c9d9f72332c2d943be927b7eb87a3899af30de2aa63c1c9456c5,1 other candidate(s) also served a page
+09184464,THE MOCKETT TRUST LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+09256187,VLMR SERVICES LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+09286668,HATTON ELECTRICAL WHOLESALE (COTSWOLD) LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+09288646,PAJO TRANSPORT LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+09308961,BIM MANAGEMENT LIMITED,bimmanagement.com,200,weak,distinctive_name_only,e9a4207bf8567e523dc40c2ec6a7b8b52db13a7230cb4ece773496b4bb4e828d,redirected to www.hugedomains.com; possible placeholder page (this domain is for sale)
+09320154,THE ACCOUNTING XPERTS LIMITED,accountingxperts.com,200,none,,6dc9c7fc93bb488bb0520a6c780a8d3c0fb5486a4711aca49b4c53fac7393023,
+09365765,ABLE MABEL CRAFTS LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+09412758,SURPLUSDRIVESUK LTD,surplusdrivesuk.co.uk,200,strong,company_number:09412758,5bf46f1d5b2b2b27de275a272b14f1099e7cafc094229d69f05730707d962ba3,
+09428740,CLIMBATIZE LTD,,,no_domain,,,"3 candidate(s) tried, none served an HTML page; statuses: DNSFailure,ReadTimeout"
+09469066,MARK TAYLOR MARKETING LIMITED,marktaylormarketing.co.uk,200,none,,7e9a00b0380a00933aab50fd0bfb04e140e2f7cdf5f343362ce5d07a1c88e307,
+09499705,VOON CLOUD CONSULTING & SOLUTIONS LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+09571995,ACROSS 110TH LTD.,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+09593632,MARIAN RATA DRIVER LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+09625689,ETI LOGISTICS SUPPORT LTD,etilogisticssupport.co.uk,200,strong,name_plus_legal_form:limited,40b4808f590256a4018c43f7423427fe15f5808e4a748d6bfcdee753d0b35c5b,
+09663544,D MURPHY ACCOUNTANCY LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+09737788,ACCESS GROUP INDUSTRIAL SERVICES LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+09765910,AUTOMATION CONTROL TECHNOLOGY LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure,SSLError"
+09830681,PMI COMMERCIAL LTD,pmicommercial.com,200,weak,distinctive_name_only,b2966b73d262b43085a361386a2a0fb52469eee5ed2b530a3600079055287a2f,2 other candidate(s) also served a page
+09880998,POLGLASS BUILDERS LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+09992054,MY UTILITY CONNEXIONS LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure,SSLError"
+09993193,RJ  PLUMBING AND HEATING LTD,rjplumbingandheating.co.uk,200,none,,2c0731a6f35cce2db499128ffd6eeb88e45d3c5d0acfccf597bb05079e098654,1 other candidate(s) also served a page
+10065887,LUX HEALTH TECHNOLOGIES LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+10089180,TRANZFORMIS LIMITED,,,no_domain,,,"3 candidate(s) tried, none served an HTML page; statuses: DNSFailure,SSLError"
+10154496,D & G ENGINEERING SERVICES LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+10319624,PLASMA METAL ART LIMITED,plasmametalart.com,200,weak,distinctive_name_only,4b4f188cd2c8f7b975971684c5000492b9bc0ce1b61602bda981631ed5506a13,
+10377552,RED SKY SHEPHERDS HUTS LIMITED,redskyshepherdshuts.co.uk,200,weak,distinctive_name_only,d810f47281561e221afe68969e496c9195d82096fe93030826c014022532d1be,1 other candidate(s) also served a page
+10436528,SKINPHARMA LIMITED,skinpharma.co.uk,200,strong,company_number:10436528,7c5b1b0596f288e491cd65d46d22a29b2e4d5d5519056da8d65fba4ef48898ef,
+10551165,BIRCHWOOD ENERGY ASSOCIATES LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+10553772,BESPIN RESEARCH LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure,SSLError"
+10626390,ARTSY LTD,artsy.co.uk,200,weak,distinctive_name_only,3aeb892028c088f35f65b702dedd33a91b729e2bcf7b6d7e93eaf36253386840,possible placeholder page (domain parking)
+10643839,MAPACH LIMITED,mapach.com,200,weak,distinctive_name_only,fce9f8bddd5340182236c3710fbc8991b559bcc2e0108206b49c2db721c100e0,redirected to www.hugedomains.com; possible placeholder page (this domain is for sale)
+10648400,STUDIO GRIFF LTD,studiogriff.co.uk,200,weak,distinctive_name_only,119791306204726688e4d70cfc0731531ecdf254b6d3191a0e5fde222e3f7235,
+10691545,ACE ELECTRICIANS LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: ConnectTimeout,DNSFailure"
+10696533,R25R26BGP001 LIMITED,,,no_domain,,,"3 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+10704263,ARI TRADERS LIMITED,aritraders.co.uk,200,strong,company_number:10704263,e88260012ed410fadf560b7acb6225786b6dbcf460041c46441aa08951e8295b,
+10733091,RDP LIFE SCIENCES LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+10856177,AD AUTOS LTD,adautos.co.uk,200,weak,distinctive_name_only,bddc5d673546b652ad46b5416fc9a51d9af017112c0dbb3fa678869141dc276c,1 other candidate(s) also served a page
+10963269,ISLANDSHIRE LIMITED,islandshire.com,200,weak,distinctive_name_only,99cd0b2af8f051b5519ad0f332adaa39ebb2c2ed170711632673b3ce73849e63,
+11000841,LE-VAP LIMITED,le-vap.com,200,weak,distinctive_name_only,c9d75a9349ccda96bc8135728a32ea77e5b2eae70bf67362c57ca2decc3a5b17,1 other candidate(s) also served a page
+11104969,LYDIA ROSE PROMOTIONS LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+11108641,EGAR CONSULTING LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+11157482,MARIUSZ ZERA LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+11165324,OVANCE INTERNATIONAL LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+11173402,BROAD REACH HOSPITALITY LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+11176058,JAAC HOLDINGS LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+11220666,RJJENERGY LTD,,,no_domain,,,"3 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+11262445,SANDPIPER GLOBAL LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: 403,DNSFailure"
+11271322,COOPER ENGAGEMENT AND COMMUNICATIONS LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+11282541,MAX ASBESTOS SERVICES LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+11304135,R WATKINS PROPERTY MAINTENANCE LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+11354796,CARTIERE CARRARA UK LIMITED,cartierecarrarauk.com,200,weak,distinctive_name_only,1618c00dc3106e7e291f040d3a193a44709ccc19ea3a7b58ae9ff581e3daf59e,
+11356951,MEDINA NOTTINGHAM LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+11376537,UK 3D TILES LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+11378521,RUDD ELECTRICAL CONTRACTORS LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+11439127,PELLOW ROOFING LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure,SSLError"
+11501419,VOX CONSULTING LTD,vox-consulting.com,200,weak,distinctive_name_only,0ef96cbc9c9b32ef1d75a66a4b759469a1e773acca9a347299dffee56e2f6053,
+11588953,CHELSEA BUILD AND DESIGN LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: 404,DNSFailure"
+11639877,PAPERCLIP FINANCIALS LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+11686196,GLOW LONDON LIMITED,glowlondon.com,200,weak,distinctive_name_only,2c2a0c3fe42bf72d5309c6b4b1ec40c6742cd6c7f5c308e113fa0bc693ed9525,redirected to www.hugedomains.com; possible placeholder page (this domain is for sale); 1 other candidate(s) also served a page
+11686197,ECORP CONSULTING LTD,ecorpconsulting.co.uk,200,strong,full_registered_name,f69e8de48a9c106093a080ff6e22724e7510d39bc0b4df6ff4698cf9167f0f8f,
+11687753,BLACK SUNRISE LTD,black-sunrise.co.uk,200,weak,distinctive_name_only,380dcd625827acd8e198a5092821ecaea8dcccc5f12e00bdd6672b31df314839,
+11720151,G N R DESIGN AND BUILD LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+11730272,MOVTEK LTD,movtek.com,200,weak,distinctive_name_only,143d397a0f59ce88d6d762ce8c97f461b8b1b55696fd9674ec0b48b6b9b3771a,possible placeholder page (coming soon)
+11857668,MAKSREC LTD,,,no_domain,,,"3 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+11958694,SAMREEN TRANSPORT LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+11974803,JDU INSPECTION SERVICES LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+12019503,1COUNSEL LIMITED,1counsel.com,200,none,,6dc9c7fc93bb488bb0520a6c780a8d3c0fb5486a4711aca49b4c53fac7393023,
+12019620,COGNIS CONSULTING LTD,cognisconsulting.co.uk,200,strong,full_registered_name,3990f33bb5e649f4453057c472b0392890c1eca39aff5ce6ec78fc801d9815e8,redirected to cognis.consulting
+12090937,WE DO STORAGE LTD,wedostorage.co.uk,200,weak,distinctive_name_only,bc36c53f262e6204d140464ffcfaaf1afcc5e3d3e536e51fe13621c235d79f0b,
+12328246,TIMEPIECE LEICESTER LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+12362092,SUPREME ICT SOLUTION (UK) LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+12417026,JC ELECTRICAL CONTRACTORS MIDLANDS LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+12461087,DANIEL ANDREW CONSTRUCTION LTD,danielandrewconstruction.co.uk,200,weak,distinctive_name_only,e9864363da6221e0c5ced3431d4a49ab930d2b79123c4d60dc7e3802e9f4ef7b,
+12480098,FULANI LTD,,,no_domain,,,"3 candidate(s) tried, none served an HTML page; statuses: DNSFailure,SSLError"
+12529809,ACCOUNTSDESK LTD,accountsdesk.co.uk,200,weak,distinctive_name_only,c7dc764059886015e0f2fe0876ed9870f293e000e66cbf4969be521998551875,
+12543612,UNIFIED BOXING LTD,unifiedboxing.co.uk,200,weak,distinctive_name_only,400876e3e691415665089502e91c3acf8de6ebbc7995810240f91be3d81b6f87,redirected to unifiedboxing.com; 1 other candidate(s) also served a page
+12556510,GEORGE ROWELL LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+12651735,KN TGC LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+12719562,A 2 Z AIRGUNS LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+12725311,ALESSIO-SV LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+12746286,ADVANCED ROOF TESTING LTD,advancedrooftesting.co.uk,200,weak,distinctive_name_only,af70d5f06addbf7bc0d8605a8384400a93b76acdcb83730b4d0d0d53f61d1943,
+12758142,DBS AGILE SOLUTIONS LTD.,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+12769506,GLOBAL ITALIAN DECOR LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+12776407,LACAENA DESIGN LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+12802945,BINDFUL BOOKS LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+12842440,TRANSFORM AG LIMITED,transformag.com,200,none,,a11892a48ca88a4a4975d5c906e99441bb88764e70b8c5a59733da6ed5842f0d,redirected to equibt.com
+12853773,OXUS BUSINESS CONSULTING LIMITED,oxusbusinessconsulting.com,200,weak,distinctive_name_only,67abd39d0cffa065bc47421631550dad0a196368db11db91b9b2f86fc1365da1,
+12870277,MPL GROUNDWORK & BUILDING LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+12870908,VERTEX PRECISION LTD,vertexprecision.uk,200,strong,full_registered_name,146e537287d25f3f131a7b716d93af986024dc4df9721e3221585285de1c93ba,2 other candidate(s) also served a page
+12900641,CONRAD KOSLOWSKY ARCHITECTS LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+12945171,MJM 1 TRANSPORT LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+12947093,C J ANTHONY BESPOKE LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+12953681,PREMIER SPACES LIMITED,premier-spaces.com,200,weak,distinctive_name_only,4dd14fa37496e94f0b3b8837e7bc976cd4924a2da63070d88c0904e974f399bf,1 other candidate(s) also served a page
+12976602,CV PRIME LTD,cvprime.co.uk,200,weak,distinctive_name_only,5e55c28a07dde7e5f9eaad42cea1cb6540a3c0c58adb6c8d27cd64005144bdb4,1 other candidate(s) also served a page
+12977395,UK SWEET ONE LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+12983899,CARCODE LIMITED,carcode.uk,200,strong,full_registered_name,a3153593718303eb85e19e073b02eb4fda480c819fb2a7329daf48c5e7e8c947,1 other candidate(s) also served a page
+13020765,B&B AUTOS LTD,bbautos.com,200,weak,distinctive_name_only,b06805390ac3de3154e8c0e2dabc1f7e1ed08333c76c8985fbb2ee6836a44333,
+13028781,K20 MOTORS LIMITED,k20motors.co.uk,200,weak,distinctive_name_only,af3c8738412a2e69fb2b554ea990a09646d6ed2c46a27d30c45f28f1d9652d5f,
+13035421,KOAN ADVISORY LTD,koanadvisory.com,200,weak,distinctive_name_only,27c0cdd0e473da6d4b0bb01aff32781147df5722c8b4b0359bc36d7e3e39ea7f,
+13078450,ABI ADAMSON LTD,abiadamson.com,200,weak,distinctive_name_only,8e1ae704a11bfd811a157609cd84dc089bb8afa81ef1d2fe9b627beb7ae21f01,
+13193298,CHAPTER ONE DEVELOPMENTS LIMITED,chapteronedevelopments.co.uk,200,weak,distinctive_name_only,13722c0852b7c872b5e471c582f973c758e4f187c3a7fc6fff571c0fcc8e363f,
+13200587,L.D HEATING SOLUTIONS LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+13226583,JOHNJASPER RESOURCING LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+13229570,FARM AND EQUESTRIAN FINANCE LTD.,farmandequestrianfinance.com,200,none,,6dc9c7fc93bb488bb0520a6c780a8d3c0fb5486a4711aca49b4c53fac7393023,1 other candidate(s) also served a page
+13247594,M66 CAR AND COMMERCIALS LTD,m66carandcommercials.com,200,none,,6dc9c7fc93bb488bb0520a6c780a8d3c0fb5486a4711aca49b4c53fac7393023,
+13261922,LUCY LOUS BOUTIQUE (PENWORTHAM) LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+13266786,THE CRAFTY DOG COMPANY LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+13287435,PLATINUM CHAUFFEURS UK LTD,platinumchauffeursuk.co.uk,200,strong,company_number:13287435,4847a27a7228b46f6c780ec440077d08183edc70cbd48dfd59baa10c68ff2ec4,
+13308566,DR AND SONS LIMITED,drandsons.com,200,weak,distinctive_name_only,3297c60377084010edc0e97133d3b38273eafd442cda714eb62f33c21176c400,
+13314806,H2 HEAT LIMITED,h2heat.co.uk,200,none,,6dc9c7fc93bb488bb0520a6c780a8d3c0fb5486a4711aca49b4c53fac7393023,2 other candidate(s) also served a page
+13323143,HCG PROPERTY HOLDINGS LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+13327619,D AND D CRAFTSMEN LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+13334401,APOLLO GLOBAL RESEARCH AND CONSULTANCY LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+13352046,ENDORPHIN STUDIO LTD,endorphin-studio.com,200,weak,distinctive_name_only,1e8f5375093f20ccef415c19dab3b07094c50eb6dd27575aa82a2437e02a5c3e,1 other candidate(s) also served a page
+13388812,SHAURI TECHNOLOGIES LIMITED,shauritechnologies.com,200,strong,full_registered_name,b6f23c476e128e7b3477c2229abf5275eab0685c8db95f747a4858dd9d645d9e,
+13422440,LOVE FLOORING ESSEX LTD.,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+13445703,GRAVENEY PRIVATE CLIENT LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+13446752,ABSURDIA LTD,absurdia.com,200,weak,distinctive_name_only,ddb7deec2e8f5d604f3fd383afe5a8b0f94b351b8b74a04d1ae9324209223894,
+13459351,PRAGGYS RECOVERY LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+13486645,EPOXY LAB LTD,epoxylab.co.uk,200,weak,distinctive_name_only,1f2ffb0d17b25980bdc71cd01509e0b63eff2d7606ea6f76f6ee9b7b6bdcfcf5,possible placeholder page (domain for sale); 2 other candidate(s) also served a page
+13550532,PRESTIGE AND PERFORMANCE SPARES LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+13554808,UTMOST COMMUNITY CARE LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+13589368,ECONOSTORE LTD,econostore.co.uk,200,strong,company_number:13589368,5daaa47ba7ea5fc06624e1b28e61fc35c4b87c79186db4b0aea492430839f5a3,
+13612673,PARAGON UMBRELLA SERVICES LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+13655692,BATHFORD JOINERY LIMITED,bathfordjoinery.co.uk,200,strong,name_plus_legal_form:ltd,139daaeb5ed12e4e908fedecad3c2228acfa57248daadc4e2b5c9f9b94eb36ed,
+13683479,WEBSTER LITTLE LTD,websterlittle.com,200,weak,distinctive_name_only,fb52bacae8da754c7c8b3509debd8ea421565816b0332431162cdc99ef5d6505,
+13697238,GLMS LAW LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+13717242,TANKA CONVENIENCE STORE LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+13727578,ASP BUILDING AND RENOVATION LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+13839069,CULPEPPER INVESTMENTS LIMITED,culpepperinvestments.com,200,weak,distinctive_name_only,5624e7d1037b2bb47e3780f76321a1cd3da165cfb456e07b7ab8dede53cf35ec,possible placeholder page (under construction)
+13845767,IVOLVE 2 HEAD OFFICE LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+13870242,SHIVLAKSHMI TECH LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+13890063,LJ PROPERTY DEVELOPMENTS NW LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+13906746,LONGWOOD MAVEN LTD,longwoodmaven.co.uk,200,weak,distinctive_name_only,912b1e9e1d1ce2a7bd9ceab99da7d80f48541c697c108cf3a4b8831798b46e78,redirected to www.dharveymedia.com; 1 other candidate(s) also served a page
+13941220,OASIA HOLDING COMPANY LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+13972629,PRO HEATING AND PLUMBING SOLUTIONS LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+13974134,MUSEUM SOUND DESIGN LIMITED,museumsounddesign.com,200,strong,company_number:13974134,f64e68ab6d4093693605defb627e75fcc2306a0a0df418b92af201ce1bbf3a55,
+13993209,MAYHILL STORES LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+14049116,INTER G CONSTRUCTION LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+14067505,SPACE VALUE LTD,space-value.com,200,weak,distinctive_name_only,c5687a2b4ddba5999e421557765782ee85b415e481a10a5ecf02633c4570e88a,
+14090100,MOTION MOTOR GROUP LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: 403,ConnectionError,DNSFailure"
+14129014,C&L BUILDESIGN LTD,clbuildesign.co.uk,200,strong,full_registered_name,15b69b6372fdfc686de04e9c3f4490be1de839652aae944d3557c9bef59411ae,
+14316359,HEDIN AUTOMOTIVE LONDON LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+14326106,PUBWITHTHEKIDS LTD,pubwiththekids.co.uk,200,none,,93b57bec45314d3f493c56685e8c4c704cf7d174b502f9cac6a43be441810127,redirected to www.pubwith.co.uk; possible placeholder page (coming soon)
+14348910,ORLA ROSE ASSOCIATES LTD,orlaroseassociates.co.uk,200,strong,company_number:14348910,620cf52d36e0e2bf6405fe9e42f815f08ae79a659d054223dc3a628febc13110,
+14355037,EXTRA ASPIRE LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+14361055,ERNST STUDIO LIMITED,ernst-studio.com,200,weak,distinctive_name_only,e647b86f659eb8ea69a8db8a626ed5f5e240151abaeb8b4c6a7b70880d203404,1 other candidate(s) also served a page
+14372638,DB COMPOSITES LTD,dbcomposites.com,200,weak,distinctive_name_only,008fff1c038cb5e79c6145422e68669b9c1fa4bcc17c3726155678a3e277d421,1 other candidate(s) also served a page
+14412197,KRAKEN INC LIMITED,kraken.com,200,weak,distinctive_name_only,a1980786182a0be9c0c872d41155913339eef1c34270d364ca706b8e7d3783d7,
+14478374,JBB CONSULTANTS LIMITED,jbbconsultants.com,200,none,,6dc9c7fc93bb488bb0520a6c780a8d3c0fb5486a4711aca49b4c53fac7393023,
+14484292,SOONFOUND LTD,soonfound.co.uk,200,strong,full_registered_name,0ea5555770bdbfb4c46ad90f61b2d67bbbb5215092e8ee8ae9e0926caa10fbdc,
+14493069,TEC INTERNATIONAL DEVELOPMENT LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+14580204,DANALOGUE LTD,danalogue.com,200,none,,6dc9c7fc93bb488bb0520a6c780a8d3c0fb5486a4711aca49b4c53fac7393023,
+14589922,DTF ENGINEERING LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: 500,DNSFailure,SSLError"
+14683139,DEGLO CARE LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+14685003,SQUADIN LTD,squadin.com,200,weak,distinctive_name_only,93b20492db1500c5f03db984f025c6a9c684296668f87d43f2f5e01f229d7a4c,
+14779700,UML MONZA LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+14812895,WHMOTORSERVICE LTD,,,no_domain,,,"3 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+14819940,FULFILLED TALENT LIMITED,fulfilledtalent.com,200,weak,distinctive_name_only,c8fc69a5af9ac6373e101fded2d0b91156b691acc5df1ba7119c019004016c8a,3 other candidate(s) also served a page
+14838328,SOCIALLY LEGAL LTD,sociallylegal.com,200,weak,distinctive_name_only,9d599a74a4cefe9242d126f13eadbf2e08ed2e98e034a61c1fa0346c91737e92,redirected to www.hugedomains.com; possible placeholder page (this domain is for sale)
+14881265,I & D DECORATORS LTD,iddecorators.co.uk,200,weak,distinctive_name_only,9ea69ce61ce423b515730a1347d3e32b3d2c1da88a59328330def0ac7a5e102b,
+14904076,JUST FIT KITCHEN LTD,justfitkitchen.com,200,weak,distinctive_name_only,79f38174a499882dc98415f582c3f874fbe784b75b22818a42523415af81bb5c,
+14911730,J&K SYSTEMS PVT LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+14919949,T&K SUPERSTORE LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+14922754,MOSAIC BUILDING TECHNOLOGY SPECIALIST LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+14937778,DIY TRADE FUTURE LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+14951915,LC LOGISTICS LTD,lclogistics.com,200,weak,distinctive_name_only,16f6c457eb2f6049539e26d22591ac315ffe1e3f9f27c3f1fd75c1794f398665,redirected to www.hugedomains.com; possible placeholder page (this domain is for sale)
+14957664,BTCS LTD,btcs.co.uk,200,weak,distinctive_name_only,42c5b086c3858158396424b429ca7c29da24b3703cdeb6d17eda7a67ed96c7d4,redirected to www.btcs.com; 2 other candidate(s) also served a page
+15019225,M. A. M MAINTENANCE SERVICE LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+15033608,FRIENDS JUNCTION LTD,friendsjunction.com,200,weak,distinctive_name_only,46c9f5abf77065069aaf6aeff3fa877f3039240df5e0928f94e49202546741d3,1 other candidate(s) also served a page
+15089645,DRALIONS LIMITED,,,no_domain,,,"3 candidate(s) tried, none served an HTML page; statuses: 521,DNSFailure"
+15094517,DST CONTRACTING LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+15094740,LIC WORLDWIDE LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+15099106,WEB INT LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: 404,ConnectTimeout,DNSFailure"
+15103204,THE CREATIVE VIRTUAL ASSISTANT LIMITED,creativevirtualassistant.com,200,none,,6dc9c7fc93bb488bb0520a6c780a8d3c0fb5486a4711aca49b4c53fac7393023,
+15130493,CHERRY VINTAGE LTD,cherryvintage.co.uk,200,weak,distinctive_name_only,c5dedbcea2bbee002472763a7cefe00e803fbfd23b9d535ea39522cd1f6d2fba,1 other candidate(s) also served a page
+15148030,PEH-LEH UK LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+15150153,HANLAIM LTD,,,no_domain,,,"3 candidate(s) tried, none served an HTML page; statuses: ConnectionError,DNSFailure"
+15209820,NRIA LIMITED,nria.co.uk,200,strong,full_registered_name,355352d9a9f68d01eea52a6e693487769485cb0ed02e9ea8cc95d2cd33311e51,
+15232208,BESPOKE ADL LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+15240274,EM FABRICATIONS LTD,emfabrications.com,200,weak,distinctive_name_only,67084c604d5790178dd03c29b3e8e1d057c5a347da93fbb95fb5492835bee0b4,
+15240724,UPSURGE STUDIO LTD,upsurgestudio.com,200,strong,company_number:15240724,00ee21d00769cc988dca3f9b6e50e88673c780f8a81953b1d57fd23919efc564,
+15272351,SUSHI POINT TWICKENHAM LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+15330507,YOCYCLE LIMITED,yocycle.co.uk,200,strong,full_registered_name,9bc302260ac9b5839c45352a0e2decf8a1e24233f0c1262f39485d052c93fd81,
+15338408,CARDOSO SERVICES LIMITED,cardososervices.com,200,weak,distinctive_name_only,c301b8e019d34387e2ab9044e02ee04199184badddd66f9e0b80ea7bed7469a3,
+15396982,DID TEACH LIMITED,didteach.com,200,none,,2453b53ca4b0f6776531773680c735a068effef79b019a7a5c5239aa639262fc,redirected to www.thosewhocan.org
+15482306,IFAC SERVICES UK LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+15488054,KAEDE & ARCA LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+15494248,BOSS SHOP LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure,SSLError"
+15496809,MERA CONSULTANCY LTD,meraconsultancy.com,200,weak,distinctive_name_only,4bd05a4b288f79d44e83867d3c8b6ac7b7d4f75787f0d2a0fa420c2e85f45775,
+15516196,TIMMY LOVES COMPANY LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+15532140,TERRASTRUCT LTD,terrastruct.co.uk,200,strong,company_number:15532140,6a1259297f6440682eb2dc7156824be4493aa1e894a8f5256c0ce56a360815fb,
+15537604,FORBES-SPACE LTD,forbes-space.com,200,weak,distinctive_name_only,9ca0a6db4fa3adb2ae1e0b1fe7585095d700e51e9eb5498f4461aa3a3a19368e,
+15551299,COOKMECH LTD,,,no_domain,,,"3 candidate(s) tried, none served an HTML page; statuses: ConnectTimeout,DNSFailure"
+15567784,F M CREATIVE DECORS LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure,SSLError"
+15653464,MK PROPERTY DEVELOPMENT DERBY LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+15686175,PAPER RIGHT LTD,paperright.co.uk,200,weak,distinctive_name_only,4554724e84dd143d8f92884761bb3a8b8220f4f8df5a92b77607fa5e63e0e751,
+15700649,REAL SURREY CONTRACTOR LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+15744498,NEXARA GROUP LTD,nexaragroup.com,200,weak,distinctive_name_only,6072263c18e957d1f1196773bf04d1b2af9c2f1f85b2812c4c519e7c0c4d58ea,
+15744625,DTM SURVEY LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+15760555,A TO Z TRANSPORT OXFORD LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+15786546,OUTCOME STRIDE LTD,outcomestride.com,200,strong,company_number:15786546,41cb627f3042365714683001357f38806b324d3991e958f604a579ea3ea57daf,
+15801064,SOLENT VIEW LOGISTICS LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+15815497,BS DRIVEWAYS & CONSTRUCTION LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+15822311,PASSION COURIER LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+15849177,ATWA DISTRIBUTION LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+15868691,EBERTEQ LIMITED,eberteq.com,200,none,,6dc9c7fc93bb488bb0520a6c780a8d3c0fb5486a4711aca49b4c53fac7393023,
+15869026,HSPLUS LTD,hsplus.co.uk,200,weak,distinctive_name_only,9d19cd3da5c61c766bff0c23a0e12a53fa1b63fa53fed06355f43958764a5565,1 other candidate(s) also served a page
+15887473,SOUTH YORKSHIRE BUILDERS LTD,southyorkshirebuilders.com,200,strong,company_number:15887473,54508759268bf54d795439e381aa0e33ebb51884294505365fcd9a29595fbe7f,
+15915240,THE BOHEMIAN BESPOKE OUTFITTERS LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+15958641,HELLO RAW LIMITED,helloraw.co.uk,200,weak,distinctive_name_only,e3b7c8b4d83870ead98dba2f2eeb5778db8222d476aaadc65c78dd23fc2c91d1,1 other candidate(s) also served a page
+15981577,ADVANCED DRILLING LTD,advanceddrilling.com,200,none,,6dc9c7fc93bb488bb0520a6c780a8d3c0fb5486a4711aca49b4c53fac7393023,
+15986634,XV PROPERTY LTD,xvproperty.co.uk,200,none,,6dc9c7fc93bb488bb0520a6c780a8d3c0fb5486a4711aca49b4c53fac7393023,
+15988640,CSC PLUMBING HEATING LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+15991362,S I R RETAIL LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+15996001,QDM PET COMPANY LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16000136,SAFOURWAY LTD,,,no_domain,,,"3 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16007314,PRAPORROM WJ LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16035554,ZOYA’S COLLECTION LTD,zoyascollection.co.uk,200,weak,distinctive_name_only,08beb951cca5fd12a01ebe3c89a0ca0217bb09a888b0165d8a7791260c132b5b,1 other candidate(s) also served a page
+16040451,THE LAW CLUB LTD,lawclub.com,200,none,,da505e156b969c416ea68680c31eca726368ac4fbdf3e78a601c6af9a57f643a,redirected to www.karlinlaw.com
+16065415,COSEC CHAMP LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: ConnectionError,robots_blocked"
+16085049,STRYGER INVESTMENTS LTD.,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16116657,BUILDING & JOINERY CONSTRUCTION LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16121582,MILNE SOLUTIONS LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: 404,DNSFailure"
+16130305,HIGHPOINT OFFICES LTD,highpointoffices.co.uk,200,strong,full_registered_name,686df0adb298296151fa29b7f0df203acbc4f6269bf8004fe5af5bee7aded900,
+16169213,KG DRIVEWAYS AND LANDSCAPING LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16207825,CAMDAN GROUP LTD,camdangroup.com,200,weak,distinctive_name_only,89f9b0ef76700398bb899af905095d06e4a4210eb7b1871dd13529f15dcd6660,
+16210386,BARANSU4H LTD,,,no_domain,,,"3 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16217858,HARRIS & SON’S ELECTRICAL LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16219136,NEXTGEN DATA SOLUTIONS LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16258325,GET-INCLUSIVE LTD,get-inclusive.com,200,strong,full_registered_name,7d327e5807d3486e9a1b6898715d8f1c4b087aaf9c64babbdaa336bd0e5b87d3,2 other candidate(s) also served a page
+16259486,JK MEDIA AGENCY LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16276926,BURAKTURAN SOLUTIONS LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16289138,FRAME LABS LIMITED,framelabs.co.uk,200,weak,distinctive_name_only,e2178b5e345c63335a8e254cb334280459bfe619e89a02881ee77d4134c4cdff,1 other candidate(s) also served a page
+16290126,ENDICAN CONSULTING LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: ConnectTimeout,DNSFailure"
+16302283,TIMGLOBAL LTD,timglobal.uk,200,strong,full_registered_name,b6955e02785329db9d9066dde2b10f10b5ad0edb4fcebb3ccb42f9e2d5d50d8b,1 other candidate(s) also served a page
+16331646,UNINHIBITED DEVELOPMENT SOLUTIONS LTD,uninhibiteddevelopmentsolutions.co.uk,200,weak,distinctive_name_only,ca12afa343d079d2ff1b089f6f9c645dde4ef8b243cbc028658d2a814bd5c5ee,possible placeholder page (under construction)
+16351070,RKS HEALTH CONSULTING LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure,SSLError"
+16355852,SDC SURVEYORS LIMITED,sdcsurveyors.com,200,none,,9b1e11aa8ae7994a20d52bc255f62aca06f27c7602efa8f57bd40404251b40d6,
+16386166,A2B HOME MARKETS LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16402004,"GUANGZHOU TINE TECHNOLOGYCO., LTD",,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16410618,CHATTAK LTD,chattak.com,200,weak,distinctive_name_only,b1644e3eb11489d49f65f1704b497f2ae7171e04c6ef52011f25adab3262b86c,
+16423961,MAPH & SPARK LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16437163,EVENTS BY ABBIE MELISSA LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16441069,QUAY MUSIC LTD,quaymusic.com,200,none,,6dc9c7fc93bb488bb0520a6c780a8d3c0fb5486a4711aca49b4c53fac7393023,
+16448254,EVM REMOVALS LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16450434,LARISA RECORDS LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16476197,SUNSOUTH LTD,sunsouth.co.uk,200,weak,distinctive_name_only,f640f070050ea373a1ec4afff625c5759a9abbab2a847738574ba2821ee47f79,1 other candidate(s) also served a page
+16479983,EXCLUSIVE BRANDING EDGE ACADEMY LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16480402,YOVKO LTD,yovko.com,200,weak,distinctive_name_only,844f913f9c5b527bacc9d383f42f27bfb0d40cea9e2ae5db651408afb1882376,
+16496471,WESTERN TIMBERNEST LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16497873,HOT GIRL SWAPS LTD,hotgirlswaps.com,200,weak,distinctive_name_only,0d65c82cc6715a310d0ee46456d9e5857ccaf1a92171f2903a1169d3ee2046d2,possible placeholder page (under construction)
+16509422,GATWICK DIRECT AEROPORT LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16515773,AKP DESIGN STUDIO LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16529548,SHR JUICES LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16544694,LEEN VALLEY PLANTS LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16553819,AFRICAN HERITAGE FOOD SOLUTIONS LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16554624,FIRST CLASS GAS LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16555568,SAURAV KUMAR LTD,sauravkumar.com,200,weak,distinctive_name_only,f4f1563f781a83d7fad8b737878c0e7a4a52fa47336f3e36c9a889eb43965044,
+16562797,THEFLOORWORLD LTD,thefloorworld.com,200,weak,distinctive_name_only,fbe807ed48bdb9201398d2ff5f87da83670d92ce31368d67bc6c5499319d672a,1 other candidate(s) also served a page
+16566976,DEX EMPIRE LTD,dexempire.com,200,none,,6dc9c7fc93bb488bb0520a6c780a8d3c0fb5486a4711aca49b4c53fac7393023,
+16567700,PREMIER POWDER COATING SYSTEMS LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16582568,BHARAT MART LIMITED,bharatmart.uk,200,strong,company_number:16582568,990f217cb2d3e1e8691c18d3f4c6c1f94488aea8a4fb6723b4032bcb615fbeb4,1 other candidate(s) also served a page
+16587200,GVS UTILITIES LIMITED,gvsutilities.co.uk,200,strong,full_registered_name,d98e33cb7ea8725a9adc78ae2123e8ee9e68da8e004940e6be7da55000204113,
+16587411,ATLAR TECHNOLOGY LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16597212,GHANI HALAL MEAT LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16613148,ALTUROS CONSULTING LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16613826,KSJ SELECT LIMITED,ksjselect.co.uk,200,none,,6dc9c7fc93bb488bb0520a6c780a8d3c0fb5486a4711aca49b4c53fac7393023,1 other candidate(s) also served a page
+16615045,GRAND ROYALE EVENTS LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: 406,DNSFailure"
+16622755,ELITE RESEARCH & DEVELOPMENT LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16640652,ASSURED BUILDING AND GROUND WORKS NW LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16669831,FLN SERVICES LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16687827,PULSE DIGITAL MARKETING SOLUTION LIMITED,pulsedigitalmarketingsolution.uk,200,none,,6d013f5181d0a9db45807a6dc55b23eacd4f3f7e1fe66d136381a17904b215c2,
+16695101,DIESEL LOGIC LTD,diesellogic.co.uk,200,weak,distinctive_name_only,7a33fac2b9f587903c294e823a873c72ff780e596f3e170e96f47e92f8afc680,
+16696519,GENTSROOM GROUP LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16703902,S & M HOUSE MAINTENANCE LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16735571,TRAVEL RECORDS LTD,travelrecords.com,200,none,,6dc9c7fc93bb488bb0520a6c780a8d3c0fb5486a4711aca49b4c53fac7393023,1 other candidate(s) also served a page
+16737735,PENDEFORD PARK LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16740799,AURA & AROMA LTD,auraaroma.com,200,none,,6dc9c7fc93bb488bb0520a6c780a8d3c0fb5486a4711aca49b4c53fac7393023,
+16764179,SUGEON LTD,,,no_domain,,,"3 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16773338,PLACEMENT VAULT LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure,SSLError"
+16782290,B.LFLORISTRY LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16785948,THAMES VALLEY STORAGE LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure,SSLError"
+16786308,SBA-SPI LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16791557,GOLDENMARK GIFTS LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16802691,MEDIREC LTD,medirec.co.uk,200,weak,distinctive_name_only,f33121a905e4796460c66bab6cfec376637c77b2950b3e1d1fdba6004c8e8c5c,
+16804815,PRIVAPAY LTD,privapay.com,200,weak,distinctive_name_only,adad6d5780dd7dd24ef03c2020c4b4f4f4e90edeac0f6112b8f7a247ffbdefb1,redirected to brandsly.com
+16806518,RIGHTLY MANAGED LIMITED,rightlymanaged.co.uk,200,weak,distinctive_name_only,dd2f742d74c4253445a180af40ac1e8b89d4a9c0f85a9c1b62f5cf45cf04236f,
+16816197,LBC TRADING LTD,lbctrading.com,200,weak,distinctive_name_only,b28afcce2494976c27c15b4a16c30057add137ce09e7b84697b67684b6e56104,redirected to www.hugedomains.com; possible placeholder page (this domain is for sale)
+16818429,BIGSELLE LIMITED,,,no_domain,,,"3 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16827881,FENIXXA IMPACT CONSULTING LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16832983,VELANTIS LTD,velantis.co.uk,200,weak,distinctive_name_only,d7bd351981e4302c54f6e783ce87e783432ee8471eb35f5d3758de978c77835d,
+16844439,ABSATOP CONSULTING LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16846314,KEOINNOVATIONS LTD,,,no_domain,,,"3 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16854706,NOVA NEURON LTD,novaneuron.com,200,weak,distinctive_name_only,cde2d46b53276902309a64d8ef78cd66fbf91ed12693f7b4ae0257134189e15a,
+16856027,MARK SMITH ELECTRICAL LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure,SSLError"
+16861105,VADMALL LIMITED,,,no_domain,,,"3 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16861861,ICONIQ RENEWABLES LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16864677,SANCTUARY GARDEN ROOMS LIMITED,sanctuarygardenrooms.uk,200,strong,company_number:16864677,3a69c353fbe8f4c545ef78459160d8227ca4a093c8e929f088327ab536bf196c,1 other candidate(s) also served a page
+16879015,YASH TEXTILES LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16891136,HWHJ CONSULTING LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16898885,ROCKBOURNE PROPERTIES LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16903065,LAGARTO LTD,lagarto.uk,200,weak,distinctive_name_only,37200bc75c229c51364b7924619d41bd5deca85d4ac97914a4718fa73ef43f2e,
+16919726,TNG OPTICAL LIMITED,tngoptical.com,200,weak,distinctive_name_only,050e99aae046e0883ffbaf36f5380172705bdecf0a0bdba940166c9aecd51117,redirected to tungngocoptic.com
+16926805,"DATA CREST GROUP CO., LTD",,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16935084,BROTHERS CONSULTANCY LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16941180,TRANISS GROUP LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16965217,LMC20 LIMITED,,,no_domain,,,"3 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16977120,GMC EVENTS LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: ConnectionError,DNSFailure,SSLError"
+16983135,MRC BUILDING & REFURBISHMENT LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+16987355,ARISTO CAPITAL LTD,aristocapital.co.uk,200,weak,distinctive_name_only,4a9d77e3e7e3b7922c3bd81528ddd0de553d12a480889bc9b2996306842b2e9c,possible placeholder page (coming soon); 1 other candidate(s) also served a page
+16990003,ATEAM WARDOBES LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+17015298,MEKYNS COLLECTION LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+17024925,GEARSUM LTD,gearsum.com,200,none,,08fdc4c8ff0303d8ebfa5007181bd4f8f1a0ce584d083e7a8d0c0d5a46fe94be,
+17030245,BORSUK CONSULTING LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+17030956,A&F TRAINING AND CONSULTING LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+17036146,MRE ELECTRICAL CONTRACTORS LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+17049959,NIGHTWIND AI LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+17061522,UNIVANTAGE LIMITED,,,no_domain,,,"3 candidate(s) tried, none served an HTML page; statuses: ConnectionError,DNSFailure"
+17075633,DB TALENT LTD,dbtalent.com,200,weak,distinctive_name_only,e5824491187b489ddaddf6bdba3d32c97dc33eb49c501bebe9fafe3de84b13ce,redirected to www.hugedomains.com; possible placeholder page (this domain is for sale)
+17080812,EAST LINDSEY FLOORING LTD,eastlindseyflooring.co.uk,200,weak,distinctive_name_only,a7b5844b978f775b69593aab8810b2a427582ec74e1155d1fdf092cf71949b98,
+17106998,BIRCHDALE CYBER CONSULTING LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+17120315,PROSPECT ONE LTD,prospect-one.uk,200,weak,distinctive_name_only,d4f9cbf05e006d338307947db465b46f627cd6cf5bfdc3d6e550a43474c0032c,2 other candidate(s) also served a page
+17122743,UPS BATTERY INSTALLATION AND MAINTENANCE LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+17122854,W RICHARDS BRICKWORK LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+17130546,LUKASWAY LTD,,,no_domain,,,"3 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+17152253,MEIVA’S LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: 403,DNSFailure"
+17157446,BELTESHAZZAR LTD,belteshazzar.co.uk,200,weak,distinctive_name_only,4d8b2e70e6f77aaa1dc3951d65217a04766a0a789e9deac49146d4cdfc12f1bc,1 other candidate(s) also served a page
+17161766,TAYDUL LTD,,,no_domain,,,"3 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+17170278,PRIMO DIRECT LIMITED,primodirect.co.uk,200,weak,distinctive_name_only,d971dc7c36b5876b76d5faab602a8c5a7d7002c50e070d88f051ae1358ff4da8,possible placeholder page (under construction); 1 other candidate(s) also served a page
+17172450,VIP ROAD SERVICES LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+17175178,THE TRADERS YARD LTD,tradersyard.com,200,weak,distinctive_name_only,0178077febeb3a408393cbe29b09f5c3c7839b6d9d06b7224d842b4a2dc4100b,1 other candidate(s) also served a page
+17189660,PHARMETRIC LTD,pharmetric.com,200,none,,6dc9c7fc93bb488bb0520a6c780a8d3c0fb5486a4711aca49b4c53fac7393023,
+17212690,GARETH DAVIES INTERIORS LTD,garethdaviesinteriors.co.uk,200,weak,distinctive_name_only,765da6827f9616145242ff3c4976bf34387ebaf6f3b3abfce2f7daba71efc270,
+17217366,GO FRESH TRANSPORT LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+17240384,THE FUTURE VIBE LTD,futurevibe.co.uk,200,weak,distinctive_name_only,2c1416ca51d9b8f8754cd81e31b1c8014d6e3cb2939d43a9187662b2ecbaf8d4,
+17250681,INDELIBLE FINE ART LTD,indeliblefineart.co.uk,200,weak,distinctive_name_only,7183dbe17dd5621d931887f37df2adb72b39e1557f16987e909ea44b32cc48bf,1 other candidate(s) also served a page
+17252896,IDEA NOVA LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: ConnectionError,DNSFailure"
+17269138,ANGELICARE LIMITED,angelicare.co.uk,200,weak,distinctive_name_only,8e61dfe4b1c569c2332a313f67ef19f838a4e2f66d7bc695e294151f3ef61fd8,2 other candidate(s) also served a page
+17270729,FATHIMA GLOBAL LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+17274097,FOXCARS LTD,foxcars.co.uk,200,none,,6dc9c7fc93bb488bb0520a6c780a8d3c0fb5486a4711aca49b4c53fac7393023,1 other candidate(s) also served a page
+17281056,A P M DRY LINING LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+17288906,TAMOURA LIMITED,tamoura.co.uk,200,weak,distinctive_name_only,23a5954901df04f574760a352cbb78e3f6e9ca2dfa54c7fd844833367ca51232,
+17291019,SARRJ MART ENTERPRISE LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+17307623,NEW TECHNOLOGY UK LIVESTOCK AND FEED LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+17308348,EXPERTS FORGE GROUP LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+17310068,HECHT MONTGOMERY LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: 403,DNSFailure"
+17313877,AJE TECH LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: 403,DNSFailure"
+17329689,GRH GROUP SERVICES UK LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+17338692,SDP CONSULTANT LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+17344136,ALNA SYSTEMS LTD,alnasystems.com,200,weak,distinctive_name_only,00e8cc8da3f66324bcc976b0701173b6392f02212b837b91380f24b9ca25d123,
+17348613,MAJO GLOBAL GROUP LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+17355101,KAT ROSE LIMITED,katrose.com,200,weak,distinctive_name_only,255bbbc6fc3ed9b00d6030267317258d878e8b7c42b21d37ca417f20275858ba,redirected to www.hugedomains.com; possible placeholder page (this domain is for sale)
+17359846,THE LEMONADE PROJECT CIC,lemonadeproject.com,200,weak,distinctive_name_only,d09467891cfcf357d0fc84d3c87dacdd363c27d2d8838971648392981233be08,redirected to www.hugedomains.com; possible placeholder page (this domain is for sale)
+17365881,THE SOCIAL DEPT. LIMITED,socialdept.com,200,weak,distinctive_name_only,2cc9ab4bb2a74bd13e06d37afe90c4e5ada17908e493cbb1b01aca471b5f1b58,redirected to www.hugedomains.com; possible placeholder page (this domain is for sale); 1 other candidate(s) also served a page
+NI015405,NORTHERN CANDLES LIMITED,northerncandles.com,200,none,,6dc9c7fc93bb488bb0520a6c780a8d3c0fb5486a4711aca49b4c53fac7393023,
+NI047173,KANE GROUP BUILDING SERVICES LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+NI054945,ROUTE 26 LIMITED,route-26.com,200,weak,distinctive_name_only,8fef71dbe430bc29125cf3cf3fe07fa71ad08d6964d5c4038f56e8e7d1a4d69a,redirected to thecoolnesscompany.com
+NI056692,BOA HOMES LTD,boahomes.com,200,weak,distinctive_name_only,c120134f130c39e914034b31d6e3a26726fa7d714b9fc50fb67307a78a168ddf,redirected to www.hugedomains.com; possible placeholder page (this domain is for sale)
+NI603750,JGTF ENTERPRISES LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+NI618460,GM WALLTRACKING BANBRIDGE LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+NI653020,SKG HAULAGE LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure,SSLError"
+NI686219,WRAY ENGINEERING (LISBURN) LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+NI732325,CAMPSIE AUTOSALVAGE LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+SC189746,RYBOND LIMITED,,,no_domain,,,"3 candidate(s) tried, none served an HTML page; statuses: DNSFailure,SSLError"
+SC350372,GC ENGINEERING SERVICES LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+SC383081,SPENCER DIXON LIMITED,spencerdixon.com,200,weak,distinctive_name_only,958d36be190409f1bbf46c140088e1e80090979dcc4dae6785ff7587a79cc2bb,
+SC384457,AD DESIGN LIMITED,addesign.co.uk,200,weak,distinctive_name_only,f24d9e2f5066ce5c71b787c9a11a7423d40277b324e9bf5fedc84b45be48f4d2,possible placeholder page (domain parking); 3 other candidate(s) also served a page
+SC410951,DTA & COMPANY LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+SC459114,THOMSON PETTIE LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: 406,DNSFailure"
+SC500389,INCREDIBLE DETAIL LIMITED,incredibledetail.co.uk,200,weak,distinctive_name_only,f8394c516b2f005822519c245e19c2a3b95c0626abf69c05bf8aff6cc72d925e,1 other candidate(s) also served a page
+SC530705,AILSA MACKIE LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: 500,DNSFailure"
+SC606420,GAS GLASGOW LIMITED,gasglasgow.co.uk,200,strong,company_number:SC606420,a2a1306a7091e3079e015cf6ed8b5950822c417a7eb42cc8cd2053ea719b03e2,redirected to gasglasgow.com
+SC691178,TRASH MUSIC PROJECTS LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+SC771007,HI-Q (EDINBURGH) LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+SC787605,ISLE OF HARRIS BREWERY LIMITED,isleofharrisbrewery.com,200,weak,distinctive_name_only,9db7e6216ecdc3c4a312e8bdbec1abf8cf1a6aae85aa1bb62e321d58a281bb78,
+SC801153,PLUG-IN FINANCE LTD,pluginfinance.co.uk,200,weak,distinctive_name_only,84f9d1e5eb4b631d7f74838575e1181e4fc83f5c2f347336830a8d06924c5a4e,1 other candidate(s) also served a page
+SC816015,SAVER MART LIMITED,savermart.com,200,none,,f8dd9e7e29791486dcb00e1a70885b910b7570b463dc67a4d7030342c99dbeff,
+SC816622,G20 EDIN LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+SC854993,AURORA SYNAPSE THERAPEUTICS LIMITED,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
+SC889018,BAX FAO LTD,,,no_domain,,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure"
