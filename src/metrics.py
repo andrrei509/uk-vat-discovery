@@ -115,6 +115,36 @@ def load_column(path: Path, *names: str) -> list[str]:
                      f"found: {', '.join(rows[0].keys())}")
 
 
+# The audit sheet is filled in by hand, and the hand-built version does not use
+# the same column names as the generated one. Both are correct; the reader
+# adapts rather than the sheet being renamed to suit the reader. First name
+# present on the row wins.
+ALIASES = {
+    "company_name":  ("company_name", "ch_name"),
+    "checked_at":    ("checked_at", "hmrc_checked_at"),
+    "source":        ("domain", "source_url"),
+    "ch_postcode":   ("ch_postcode",),
+    "ch_address":    ("ch_address", "ch_address_line1"),
+    "hmrc_address":  ("hmrc_address",),
+    "hmrc_name":     ("hmrc_name",),
+    "hmrc_postcode": ("hmrc_postcode",),
+}
+
+# `not_registered` is a distinct outcome from `not_owns`: the number is not on
+# the register at all, rather than belonging to somebody else. Both are failures
+# of the candidate, so both sit in the precision denominator, but they are
+# counted separately because they point at different upstream problems.
+VERDICTS = ("owns", "not_owns", "ambiguous", "not_registered")
+
+
+def field(row: dict, key: str) -> str:
+    for name in ALIASES.get(key, (key,)):
+        v = (row.get(name) or "").strip()
+        if v:
+            return v
+    return ""
+
+
 def norm_cn(v: str) -> str:
     v = (v or "").strip().upper()
     return v.zfill(8) if v.isdigit() else v
@@ -137,11 +167,11 @@ def report(sheet: Path, sample: Optional[Path], candidates: Optional[Path]) -> i
     for r in audited:
         verdicts.setdefault(r["verdict"].strip().lower(), []).append(r)
 
-    unknown = {k: v for k, v in verdicts.items()
-               if k not in ("owns", "not_owns", "ambiguous")}
+    unknown = {k: v for k, v in verdicts.items() if k not in VERDICTS}
     owns = verdicts.get("owns", [])
     not_owns = verdicts.get("not_owns", [])
     ambiguous = verdicts.get("ambiguous", [])
+    not_registered = verdicts.get("not_registered", [])
 
     companies = {norm_cn(r.get("company_number", "")) for r in rows if r.get("company_number")}
     owns_companies = {norm_cn(r["company_number"]) for r in owns if r.get("company_number")}
@@ -179,13 +209,14 @@ def report(sheet: Path, sample: Optional[Path], candidates: Optional[Path]) -> i
         print(f"  Wilson 95% CI          : [{lo:.3f}, {hi:.3f}]  (n={n_aud}, not the normal approximation)")
         print(f"  verdict == 'not_owns'  : {frac(len(not_owns), n_aud)}")
         print(f"  verdict == 'ambiguous' : {frac(len(ambiguous), n_aud)}")
+        print(f"  verdict == 'not_registered': {frac(len(not_registered), n_aud)}")
         if ambiguous:
             print("  NOTE: ambiguous rows are counted in the denominator but not as successes.")
             print("        Excluding them instead would raise the fraction - say which you did.")
     if unknown:
         for v, rs in sorted(unknown.items()):
             print(f"  *** UNRECOGNISED verdict {v!r} on {len(rs)} row(s) - "
-                  f"expected owns | not_owns | ambiguous ***")
+                  f"expected {' | '.join(VERDICTS)} ***")
 
     # ------------------------------------------------------- rejection funnel
     print("\n=== rejection breakdown: checksum -> EORI -> ownership " + "=" * 10)
@@ -217,6 +248,7 @@ def report(sheet: Path, sample: Optional[Path], candidates: Optional[Path]) -> i
     print(f"                       accepted 'owns'     {frac(len(owns), n_aud)}")
     print(f"                       rejected 'not_owns' {frac(len(not_owns), n_aud)}")
     print(f"                       'ambiguous'         {frac(len(ambiguous), n_aud)}")
+    print(f"                       'not_registered'    {frac(len(not_registered), n_aud)}")
     unaudited = len(rows) - n_aud
     if unaudited:
         print(f"  NOT YET AUDITED    : {frac(unaudited, len(rows))} sheet rows carry no verdict")
@@ -231,16 +263,16 @@ def report(sheet: Path, sample: Optional[Path], candidates: Optional[Path]) -> i
         for i, r in enumerate(ambiguous, 1):
             print(f"  [{i}] company_number : {r.get('company_number','')}")
             print(f"      vat            : {r.get('vat','')}")
-            print(f"      ch_name        : {r.get('ch_name','')}")
-            print(f"      hmrc_name      : {r.get('hmrc_name','')}")
-            print(f"      ch_postcode    : {r.get('ch_postcode','')}   "
-                  f"hmrc_postcode: {r.get('hmrc_postcode','')}")
-            print(f"      ch_address1    : {r.get('ch_address_line1','')}")
-            print(f"      hmrc_address   : {r.get('hmrc_address','')}")
-            print(f"      source_url     : {r.get('source_url','')}")
+            print(f"      company_name   : {field(r, 'company_name')}")
+            print(f"      hmrc_name      : {field(r, 'hmrc_name')}")
+            print(f"      ch_postcode    : {field(r, 'ch_postcode') or '-'}   "
+                  f"hmrc_postcode: {field(r, 'hmrc_postcode') or '-'}")
+            print(f"      ch_address     : {field(r, 'ch_address') or '-'}")
+            print(f"      hmrc_address   : {field(r, 'hmrc_address') or '-'}")
+            print(f"      source         : {field(r, 'source') or '-'}")
             print(f"      eori_valid     : {r.get('eori_valid','')}   "
                   f"eori_trader_name: {r.get('eori_trader_name','')}")
-            print(f"      checked_at     : {r.get('hmrc_checked_at','')}")
+            print(f"      checked_at     : {field(r, 'checked_at')}")
             print(f"      notes          : {r.get('notes','')}")
             print()
     return 0

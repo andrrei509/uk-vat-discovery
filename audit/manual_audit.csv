@@ -1,0 +1,11 @@
+﻿# Manual ownership check against https://www.gov.uk/check-uk-vat-number,,,,,,,,,,,
+,,,,,,,,,,,
+company_number,company_name,vat,domain,match_strength,eori_valid,eori_trader_name,hmrc_name,hmrc_postcode,verdict,notes,checked_at
+05131762,LOVE WATER LIMITED,851194036,lovewater.com,strong,TRUE,,LOVE WATER LTD,RH6 9BA,owns,,20.08.2026
+06759982,ONBIKE LIMITED,943190133,onbike.co.uk,strong,TRUE,,ONBIKE LTD,WR1 1JY,owns,,20.08.2026
+09412758,SURPLUSDRIVESUK LTD,213969785,surplusdrivesuk.co.uk,strong,TRUE,SURPLUSDRIVESUK LTD,SURPLUSDRIVESUK LTD,EN5 4JL,owns,,20.08.2026
+12983899,CARCODE LIMITED,372282495,carcode.uk,strong,TRUE,,CARCODE LIMITED,S61 2FH,owns,,20.08.2026
+13589368,ECONOSTORE LTD,447782355,econostore.co.uk,strong,FALSE,,ECONOSTORE LTD,HP13 5YZ,owns,,20.08.2026
+15532140,TERRASTRUCT LTD,503939094,terrastruct.co.uk,strong,FALSE,,TERRASTRUCT LTD,RH1 3PE,owns,,20.08.2026
+04417292,THINK-LAB LIMITED,156633205,thinklab.co.uk,weak,FALSE,,THINKLAB (UK) LTD,LE15 9LA,not_owns,,20.08.2026
+17250681,INDELIBLE FINE ART LTD,464381382,indeliblefineart.co.uk,weak,TRUE,INDELIBLE STUDIOS LIMITED,INDELIBLE STUDIOS LIMITED,BN1 1UT,not_owns,,20.08.2026

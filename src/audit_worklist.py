@@ -93,19 +93,29 @@ KEY = ("company_number", "vat")
 
 
 def read_sheet(path: Path) -> tuple[list[str], list[dict]]:
-    """Return (comment_lines, rows). Comment lines keep their leading '#'."""
-    comments: list[str] = []
+    """
+    Return (preamble_lines, rows).
+
+    The header row is located by looking for it, not by counting `#` lines. A
+    sheet that has been round-tripped through Excel does not come back the way
+    it was written: Excel pads a comment line out to the full column count
+    (`# note,,,,,,,,,,,`) and can leave a separator row of bare commas above the
+    header. Stopping at the first non-`#` line would make that separator the
+    header, giving twelve empty column names, after which every lookup fails on
+    a file that plainly contains the columns.
+    """
     with path.open(encoding="utf-8-sig", newline="") as fh:
         lines = fh.read().splitlines(keepends=True)
-    body_start = 0
+
+    header_at = 0
     for i, line in enumerate(lines):
-        if line.lstrip().startswith("#"):
-            comments.append(line.rstrip("\r\n"))
-            body_start = i + 1
-        else:
+        cells = next(csv.reader([line.rstrip("\r\n")]), [])
+        first = cells[0].strip() if cells else ""
+        if first and not first.startswith("#"):
+            header_at = i
             break
-    reader = csv.DictReader(lines[body_start:])
-    rows = [dict(r) for r in reader]
+    comments = [l.rstrip("\r\n") for l in lines[:header_at]]
+    rows = [dict(r) for r in csv.DictReader(lines[header_at:])]
     return comments, rows
 
 

@@ -1,0 +1,35 @@
+sheet     : audit\manual_audit.csv
+sheet rows: 8
+
+=== coverage ====================================================
+  sample file            : data\sample\sample.csv
+  sample size            : 500 distinct companies
+  companies with >=1 candidate : 8/500 = 0.016
+  companies with 'owns' verdict: 6/500 = 0.012
+  (which of the two numerators is 'coverage' is a judgement call, not this script's)
+
+=== precision (ownership, hand-audited) =========================
+  audited rows           : 8 of 8 sheet rows
+  verdict == 'owns'      : 6/8 = 0.750
+  Wilson 95% CI          : [0.409, 0.929]  (n=8, not the normal approximation)
+  verdict == 'not_owns'  : 2/8 = 0.250
+  verdict == 'ambiguous' : 0/8 = 0.000
+  verdict == 'not_registered': 0/8 = 0.000
+
+=== rejection breakdown: checksum -> EORI -> ownership ==========
+  stage 1 (checksum): raw pre-checksum candidates not supplied (--candidates)
+                      -> checksum pass/fail counts UNAVAILABLE
+  stage 2 (EORI)     : input 8 sheet row(s)
+                       eori_valid=true  5/8 = 0.625
+                       eori_valid=false 3/8 = 0.375
+                       not checked      0/8 = 0.000
+                       of the valid ones, trader name shared: 2/5 = 0.400
+                       (that share bounds how much ownership testing EORI alone can do)
+  stage 3 (ownership): input 8 audited row(s)
+                       accepted 'owns'     6/8 = 0.750
+                       rejected 'not_owns' 2/8 = 0.250
+                       'ambiguous'         0/8 = 0.000
+                       'not_registered'    0/8 = 0.000
+
+=== ambiguous rows, in full =====================================
+  none

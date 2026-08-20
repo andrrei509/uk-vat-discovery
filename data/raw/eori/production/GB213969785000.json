@@ -1,0 +1,15 @@
+{
+  "_env": "production",
+  "_requested_at": "2026-08-20T04:25:31.773195+00:00",
+  "companyDetails": {
+    "address": {
+      "cityName": "BARNET",
+      "postcode": "EN5 4JL",
+      "streetAndNumber": "121 SALISBURY ROAD BARNET HERTFORDS"
+    },
+    "traderName": "SURPLUSDRIVESUK LTD"
+  },
+  "eori": "GB213969785000",
+  "processingDate": "2026-08-20T05:25:11+01:00",
+  "valid": true
+}

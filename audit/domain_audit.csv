@@ -1,28 +1,28 @@
-﻿# Hand-check of src/domain_discovery.py. Fill in verdict,,,,,,,,,,,
-# what_the_site_actually_is and checked_at. verdict: correct | wrong | unclear,,,,,,,,,,,
-# 'correct' = the domain really is this company's. 'wrong' = it is,,,,,,,,,,,
-# somebody else's, parked, or unrelated. match_strength is what the,,,,,,,,,
-# matcher decided; verdict is what is true.,,,,,,,,,,,
-# selection: seed 20260820, spread across outcomes, regenerate with,,,,,,,,,
-#   python src/domain_audit_sheet.py,,,,,,,,,,,
+﻿# Hand-check of src/domain_discovery.py. Fill in verdict
+# what_the_site_actually_is and checked_at. verdict: correct | wrong | unclear
+# 'correct' = the domain really is this company's. 'wrong' = it is
+# somebody else's, parked, or unrelated. match_strength is what the
+# matcher decided; verdict is what is true.
+# selection: seed 20260820, spread across outcomes, regenerate with
+#   python src/domain_audit_sheet.py
 company_number,company_name,ch_address,sector_group,size_band,candidate_domain,match_strength,matched_on,notes,verdict,what_the_site_actually_is,checked_at
-4121793,PHSC PLC,"THE OLD CHURCH, AYLESFORD, ME20 7PR",business_services,larger,phsc.co.uk,strong,full_registered_name,possible placeholder page (coming soon),wrong,"site of Personnel Health & Safety Consultants Ltd, company 2485626 (a subsidiary of the sampled company PHSC plc 04121793)...same premises but different legal entity",20.08.2026
-5050419,BSN (LONDON) LIMITED,"55 LOUDOUN ROAD, LONDON, NW8 0DL",business_services,small,bsnlondon.com,strong,full_registered_name,"the site address (4 Prince Albert Road) doesnt match CH (55 Loudoun Road), the page says ""© 2020"", they probably moved. address disagreement did not mean wrong company. bare in mind for when i get to the HMRC name/address test, because the same thing will happen there",correct,,20.08.2026
-9625689,ETI LOGISTICS SUPPORT LTD,"151 ADDINGTON RD ADDINGTON ROAD, WELLINGBOROUGH, NN9 5UP",business_services,small,etilogisticssupport.co.uk,strong,name_plus_legal_form:limited,,correct,,20.08.2026
+04121793,PHSC PLC,"THE OLD CHURCH, AYLESFORD, ME20 7PR",business_services,larger,phsc.co.uk,strong,full_registered_name,possible placeholder page (coming soon),wrong,"site of Personnel Health & Safety Consultants Ltd, company 2485626 (a subsidiary of the sampled company PHSC plc 04121793)...same premises but different legal entity",20.08.2026
+05050419,BSN (LONDON) LIMITED,"55 LOUDOUN ROAD, LONDON, NW8 0DL",business_services,small,bsnlondon.com,strong,full_registered_name,"the site address (4 Prince Albert Road) doesnt match CH (55 Loudoun Road), the page says ""© 2020"", they probably moved. address disagreement did not mean wrong company. bare in mind for when i get to the HMRC name/address test, because the same thing will happen there",correct,,20.08.2026
+09625689,ETI LOGISTICS SUPPORT LTD,"151 ADDINGTON RD ADDINGTON ROAD, WELLINGBOROUGH, NN9 5UP",business_services,small,etilogisticssupport.co.uk,strong,name_plus_legal_form:limited,,correct,,20.08.2026
 15887473,SOUTH YORKSHIRE BUILDERS LTD,"4 BOLAND ROAD, SHEFFIELD, S8 7HX",construction_trades,unknown,southyorkshirebuilders.com,strong,company_number:15887473,,correct,,20.08.2026
 16302283,TIMGLOBAL LTD,"118 SHALFORD ROAD, SOLIHULL, B92 7NF",business_services,small,timglobal.uk,strong,full_registered_name,1 other candidate(s) also served a page,correct,,20.08.2026
-4818845,SURIYA JEWELS LIMITED,"292 HIGH STREET NORTH, LONDON, E12 6SA",wholesale_retail,small,suriyajewels.com,weak,distinctive_name_only,possible placeholder page (coming soon),,,
-5482648,FISH! RESTAURANTS LTD,"FIFTH FLOOR, CLAREVILLE HOUSE 26-27 OXENDON STREET, LONDON, SW1Y 4EL",wholesale_retail,small,fishrestaurants.com,weak,distinctive_name_only,,,,
-10643839,MAPACH LIMITED,"SECOND FLOOR KENNEL CLUB HOUSE, AYLESBURY, HP19 8DB",transport_logistics,micro,mapach.com,weak,distinctive_name_only,redirected to www.hugedomains.com; possible placeholder page (this domain is for sale),,,
-12746286,ADVANCED ROOF TESTING LTD,"62 THE PINES, HORSHAM, RH12 4UE",construction_trades,micro,advancedrooftesting.co.uk,weak,distinctive_name_only,,,,
-16331646,UNINHIBITED DEVELOPMENT SOLUTIONS LTD,"120 BENNETTS CLOSE, MITCHAM, CR4 1NS",business_services,unknown,uninhibiteddevelopmentsolutions.co.uk,weak,distinctive_name_only,possible placeholder page (under construction),,,
-4647066,PTERO-BYTE LIMITED,"FINSBURY HOUSE, CHIPPING NORTON, OX7 5LL",business_services,micro,pterobyte.com,none,,,correct,,
-4660630,OUR WORLD OUR SAY,"COASTWISE HOUSE, WORTHING, BN11 1SU",business_services,small,ourworldoursay.com,none,,,,,
-12019503,1COUNSEL LIMITED,"188 WESTBOURNE PARK ROAD, LONDON, W11 1BT",business_services,small,1counsel.com,none,,,,,
-14478374,JBB CONSULTANTS LIMITED,"10 DOWNS CLOSE, EASTBURY, RG17 7JW",business_services,micro,jbbconsultants.com,none,,,,,
-15396982,DID TEACH LIMITED,"30 EAST BOROUGH, WIMBORNE, BH21 1PL",business_services,micro,didteach.com,none,,redirected to www.thosewhocan.org,,,
-8877084,ODYSSEY ELECTRICAL SERVICES LTD,"54D FROME ROAD, BRADFORD ON AVON, BA15 1LA",construction_trades,micro,,no_domain,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure",wrong,"has odyssey-electrical.co.uk (shortened trading form, not generated); site unresponsive",
-10691545,ACE ELECTRICIANS LIMITED,"51 FISHER ROAD, HARROW, HA3 7JX",construction_trades,micro,,no_domain,,"6 candidate(s) tried, none served an HTML page; statuses: ConnectTimeout,DNSFailure",correct,no website found by hand either,
-12870277,MPL GROUNDWORK & BUILDING LIMITED,"THE REGENT, PENZANCE, TR18 4AE",construction_trades,small,,no_domain,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure",wrong,"trades as MPL Contractors, mplcontractors.co.uk; site suspended",
-16786308,SBA-SPI LIMITED,"2 CLARIDGE COURT, BERKHAMSTED, HP4 2AF",business_services,unknown,,no_domain,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure",correct,no website found by hand either,
-17313877,AJE TECH LTD,"5 OTTAWA HOUSE, HAYES, UB4 9HJ",business_services,unknown,,no_domain,,"6 candidate(s) tried, none served an HTML page; statuses: 403,DNSFailure",wrong,ajetech.com exists and matches CH registered office; my crawler got 403,
+04818845,SURIYA JEWELS LIMITED,"292 HIGH STREET NORTH, LONDON, E12 6SA",wholesale_retail,small,suriyajewels.com,weak,distinctive_name_only,possible placeholder page (coming soon),unclear,"coming soon placeholder, no company information, cant tell whose it is",20.08.2026
+05482648,FISH! RESTAURANTS LTD,"FIFTH FLOOR, CLAREVILLE HOUSE 26-27 OXENDON STREET, LONDON, SW1Y 4EL",wholesale_retail,small,fishrestaurants.com,weak,distinctive_name_only,,wrong,their real site is fishboroughmarket.com; generator never produced it,20.08.2026
+10643839,MAPACH LIMITED,"SECOND FLOOR KENNEL CLUB HOUSE, AYLESBURY, HP19 8DB",transport_logistics,micro,mapach.com,weak,distinctive_name_only,redirected to www.hugedomains.com; possible placeholder page (this domain is for sale),wrong,"redirects to hugedomains.com, domain listed for sale",20.08.2026
+12746286,ADVANCED ROOF TESTING LTD,"62 THE PINES, HORSHAM, RH12 4UE",construction_trades,micro,advancedrooftesting.co.uk,weak,distinctive_name_only,,correct,"genuinely their site, CH address 62 The Pines, Horsham RH12 4UE matches, corroborated by LinkedIn",20.08.2026
+16331646,UNINHIBITED DEVELOPMENT SOLUTIONS LTD,"120 BENNETTS CLOSE, MITCHAM, CR4 1NS",business_services,unknown,uninhibiteddevelopmentsolutions.co.uk,weak,distinctive_name_only,possible placeholder page (under construction),unclear,under construction placeholder; their actual presence is uni-concept.netlify.app and LinkedIn,20.08.2026
+04647066,PTERO-BYTE LIMITED,"FINSBURY HOUSE, CHIPPING NORTON, OX7 5LL",business_services,micro,pterobyte.com,none,,,correct,"company's own domain is ptero-byte.com (hyphenated); pterobyte.com is a different domain, didnt check what it hosts",20.08.2026
+04660630,OUR WORLD OUR SAY,"COASTWISE HOUSE, WORTHING, BN11 1SU",business_services,small,ourworldoursay.com,none,,,correct,"former domain owos.info, now offline; searched via search engine + Endole, no current company site found",20.08.2026
+12019503,1COUNSEL LIMITED,"188 WESTBOURNE PARK ROAD, LONDON, W11 1BT",business_services,small,1counsel.com,none,,,correct,"searched via search engine + Endole, no company website found",20.08.2026
+14478374,JBB CONSULTANTS LIMITED,"10 DOWNS CLOSE, EASTBURY, RG17 7JW",business_services,micro,jbbconsultants.com,none,,,correct,"searched via search engine + Endole, no company website found",20.08.2026
+15396982,DID TEACH LIMITED,"30 EAST BOROUGH, WIMBORNE, BH21 1PL",business_services,micro,didteach.com,none,,redirected to www.thosewhocan.org,wrong,"didteach.com is theirs and redirects to thosewhocan.org, the company trades as ""Those Who Can"", so the name matcher rejected it after the redirect",20.08.2026
+08877084,ODYSSEY ELECTRICAL SERVICES LTD,"54D FROME ROAD, BRADFORD ON AVON, BA15 1LA",construction_trades,micro,,no_domain,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure",wrong,"has odyssey-electrical.co.uk (shortened trading form, not generated); site unresponsive",20.08.2026
+10691545,ACE ELECTRICIANS LIMITED,"51 FISHER ROAD, HARROW, HA3 7JX",construction_trades,micro,,no_domain,,"6 candidate(s) tried, none served an HTML page; statuses: ConnectTimeout,DNSFailure",correct,"searched via search engine + Endole, no website found",20.08.2026
+12870277,MPL GROUNDWORK & BUILDING LIMITED,"THE REGENT, PENZANCE, TR18 4AE",construction_trades,small,,no_domain,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure",wrong,"trades as MPL Contractors, mplcontractors.co.uk; site suspended",20.08.2026
+16786308,SBA-SPI LIMITED,"2 CLARIDGE COURT, BERKHAMSTED, HP4 2AF",business_services,unknown,,no_domain,,"6 candidate(s) tried, none served an HTML page; statuses: DNSFailure",correct,"searched via search engine + Endole, no website found",20.08.2026
+17313877,AJE TECH LTD,"5 OTTAWA HOUSE, HAYES, UB4 9HJ",business_services,unknown,,no_domain,,"6 candidate(s) tried, none served an HTML page; statuses: 403,DNSFailure",wrong,ajetech.com exists and matches CH registered office; my crawler got 403,20.08.2026
