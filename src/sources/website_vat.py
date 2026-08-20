@@ -107,6 +107,11 @@ def html_to_text(html: str) -> str:
 
 @dataclass
 class Candidate:
+    # First, so every row can be joined straight back to data/sample/sample.csv.
+    # Blank when the input was the legacy two-column format, which carries no
+    # company number — and a candidate with no join key is much less useful,
+    # which is the reason for preferring sample_domains.csv as input.
+    company_number: str
     company: str
     domain: str
     url: str
@@ -116,6 +121,10 @@ class Candidate:
     has_label: bool
     context: str
     page_sha256: str
+
+
+FIELDNAMES = ["company_number", "company", "domain", "url", "raw_match", "vat",
+              "scheme", "has_label", "context", "page_sha256"]
 
 
 class PoliteFetcher:
@@ -202,7 +211,8 @@ class PoliteFetcher:
 
 
 def scan_domain(fetcher: PoliteFetcher, company: str, domain: str,
-                paths: Iterable[str] = CANDIDATE_PATHS) -> list[Candidate]:
+                paths: Iterable[str] = CANDIDATE_PATHS,
+                company_number: str = "") -> list[Candidate]:
     base = domain if domain.startswith("http") else f"https://{domain}"
     found: dict[str, Candidate] = {}
 
@@ -221,6 +231,7 @@ def scan_domain(fetcher: PoliteFetcher, company: str, domain: str,
             # nearby — better provenance for the same number.
             if vrn not in found or (c["has_label"] and not found[vrn].has_label):
                 found[vrn] = Candidate(
+                    company_number=company_number,
                     company=company,
                     domain=urlparse(base).netloc,
                     url=url,
@@ -234,18 +245,61 @@ def scan_domain(fetcher: PoliteFetcher, company: str, domain: str,
     return list(found.values())
 
 
+def load_domain_rows(path: str, match_strength: str, limit=None) -> list[dict]:
+    """
+    Accepts either format:
+
+      A) the simple two-column list:   company,domain
+      B) the output of domain_discovery.py:
+         company_number,company_name,candidate_domain,...,match_strength,...
+
+    For (B), rows are filtered by match_strength. Default is 'strong' only.
+
+    Why 'strong' only by default: a 'weak' match means the domain resolved and
+    the page contained the company's distinctive word — but that word is what
+    GENERATED the domain in the first place, so the test is close to circular.
+    Any unrelated firm sharing the word scores weak. Crawling those and counting
+    what comes back would inflate coverage with numbers belonging to other
+    companies. Run them separately with --match-strength weak if you want to
+    demonstrate that, but keep the output in its own file.
+    """
+    rows = list(csv.DictReader(open(path, newline="", encoding="utf-8-sig")))
+    if not rows:
+        return []
+
+    if "candidate_domain" in rows[0]:
+        before = len(rows)
+        rows = [r for r in rows
+                if (r.get("match_strength") or "").strip().lower() == match_strength
+                and (r.get("candidate_domain") or "").strip()]
+        print(f"discovery format: kept {len(rows)}/{before} rows "
+              f"with match_strength={match_strength!r}")
+        rows = [{"company": r["company_name"],
+                 "domain": r["candidate_domain"],
+                 "company_number": r.get("company_number", "")} for r in rows]
+    else:
+        rows = [{"company": r["company"], "domain": r["domain"],
+                 "company_number": r.get("company_number", "")} for r in rows]
+
+    return rows[:limit] if limit else rows
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--domains", required=True,
-                    help="CSV with columns: company,domain")
+                    help="CSV: either company,domain or the domain_discovery.py output")
     ap.add_argument("--out", required=True)
+    ap.add_argument("--match-strength", default="strong",
+                    choices=["strong", "weak", "none"],
+                    help="only used for domain_discovery.py input (default: strong)")
     ap.add_argument("--delay", type=float, default=2.0)
     ap.add_argument("--limit", type=int, default=None)
     args = ap.parse_args()
 
-    rows = list(csv.DictReader(open(args.domains, newline="", encoding="utf-8-sig")))
-    if args.limit:
-        rows = rows[: args.limit]
+    rows = load_domain_rows(args.domains, args.match_strength, args.limit)
+    if not rows:
+        print("No domains to scan. Check the file and --match-strength.")
+        return 1
 
     fetcher = PoliteFetcher(delay=args.delay)
     all_candidates: list[Candidate] = []
@@ -254,7 +308,11 @@ def main() -> int:
     for i, row in enumerate(rows, 1):
         company, domain = row["company"].strip(), row["domain"].strip()
         print(f"[{i}/{len(rows)}] {company}  ({domain})")
-        cands = scan_domain(fetcher, company, domain)
+        # Passed down rather than looked up afterwards by company name: two
+        # companies can share a name, and the join key must not depend on the
+        # name being unique.
+        cands = scan_domain(fetcher, company, domain,
+                            company_number=(row.get("company_number") or "").strip())
         if cands:
             with_any += 1
             for c in cands:
@@ -262,28 +320,28 @@ def main() -> int:
                 print(f"      {c.vat}  {label}  {urlparse(c.url).path or '/'}")
         all_candidates.extend(cands)
 
+    fields = FIELDNAMES
     out = Path(args.out)
     out.parent.mkdir(parents=True, exist_ok=True)
     with out.open("w", newline="", encoding="utf-8") as fh:
-        w = csv.DictWriter(fh, fieldnames=list(asdict(all_candidates[0]).keys())
-                           if all_candidates else ["company", "domain", "url", "raw_match",
-                                                   "vat", "scheme", "has_label", "context",
-                                                   "page_sha256"])
+        w = csv.DictWriter(fh, fieldnames=fields)
         w.writeheader()
         for c in all_candidates:
-            w.writerow(asdict(c))
+            d = asdict(c)
+            w.writerow({k: d.get(k, "") for k in fields})
 
     print("\n" + "=" * 60)
+    print(f"match_strength           : {args.match_strength}")
     print(f"domains scanned          : {len(rows)}")
-    print(f"domains yielding >=1 VRN : {with_any}  ({with_any / max(len(rows), 1):.1%})")
+    print(f"domains yielding >=1 VRN : {with_any}/{len(rows)}"
+          f"  ({with_any / max(len(rows), 1):.1%})")
     print(f"distinct (company, vrn)  : {len(all_candidates)}")
     labelled = sum(1 for c in all_candidates if c.has_label)
     print(f"of which VAT-labelled    : {labelled}/{len(all_candidates)}"
           f"  <- unlabelled ones are the risky ones")
     print(f"pages: {fetcher.stats}")
     print(f"\nwrote {out}")
-    print("\nNext: python src/eori_client.py --file "
-          f"{args.out} --column vat")
+    print(f"\nNext: python src/eori_client.py --file {args.out} --column vat")
     return 0
 
 

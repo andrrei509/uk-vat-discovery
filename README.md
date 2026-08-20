@@ -109,6 +109,9 @@ this table is what already stands up.
 | parquet is `9.6x` faster than the CSV (`2.42s` vs `23.31s`) | `python src/companies_house.py --profile` then `--profile --no-parquet` | stdout |
 | name-to-domain match rates (strong / weak / none / no_domain), split by size band and sector | `python src/domain_discovery.py` | `data/results/sample_domains.csv` and `notes/domain_discovery_output.txt`; every attempt logged to `data/raw/domain_attempts.jsonl` |
 | the 20 rows drawn for hand-checking the domain method | `python src/domain_discovery.py --report-only` (seeded, no fetching) | `notes/domain_discovery_output.txt` |
+| VAT numbers found on strong-match domains: domains scanned, domains yielding >=1 VRN, distinct (company, vrn), labelled vs unlabelled | `python src/sources/website_vat.py --domains data/results/sample_domains.csv --match-strength strong --out data/results/candidates.csv` | `data/results/candidates.csv` |
+| the same for weak-match domains, kept separate on purpose | `... --match-strength weak --out data/results/candidates_weak.csv` | `data/results/candidates_weak.csv` |
+| the 20-row domain hand-check sheet | `python src/domain_audit_sheet.py` | `audit/domain_audit.csv` |
 | the manual audit sheet itself | `python src/audit_worklist.py --candidates <candidates.csv>` | `audit/manual_audit.csv` |
 
 **What runs on a clean clone, and what does not.**
