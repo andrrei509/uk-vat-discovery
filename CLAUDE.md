@@ -191,8 +191,8 @@ python src\domain_discovery.py --limit 20                 # name->domain, small 
 python src\domain_discovery.py                            # full sample; resumable
 python src\domain_discovery.py --report-only              # re-print from the attempt cache
 python src\domain_audit_sheet.py                          # 20-row hand-check sheet
-python src\sources\website_vat.py --domains dataesults\sample_domains.csv ^
-    --match-strength strong --out dataesults\candidates.csv
-python src\sources\website_vat.py --domains dataesults\sample_domains.csv ^
-    --match-strength weak   --out dataesults\candidates_weak.csv   # NEVER merge with the above
+python src\sources\website_vat.py --domains data\results\sample_domains.csv ^
+    --match-strength strong --out data\results\candidates.csv
+python src\sources\website_vat.py --domains data\results\sample_domains.csv ^
+    --match-strength weak   --out data\results\candidates_weak.csv   # NEVER merge with the above
 ```
