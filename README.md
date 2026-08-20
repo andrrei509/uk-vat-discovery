@@ -2,7 +2,7 @@
 
 <!--
   SKELETON ONLY. Every heading below is a slot you fill with your own words.
-  The bracketed notes tell you what has to be in that section and why — they
+  The bracketed notes tell you what has to be in that section and why. They
   come from the assignment text and from what the grader said they look for.
   Delete each note once you've written the section.
 
@@ -33,7 +33,7 @@ pip install -r requirements.txt
 
 ### The Companies House snapshot
 
-Not committed — it is 493 MB zipped, far past what belongs in a repo. Download it
+Not committed, it is 493 MB zipped, far past what belongs in a repo. Download it
 yourself:
 
 - URL: <https://download.companieshouse.gov.uk/en_output.html>
@@ -60,7 +60,7 @@ a later download will differ. If your SHA256 does not match, every
 Companies-House-derived number below will differ too, and the difference is the
 snapshot, not the code.
 
-Then convert once — everything afterwards reads the parquet and runs in seconds:
+Then convert once, everything afterwards reads the parquet and runs in seconds:
 
 ```bash
 python src/companies_house.py --to-parquet
@@ -76,7 +76,7 @@ cp .env.example .env
 ```
 
 `.env.example` documents every key. `HMRC_REQUESTER_VRN` is deliberately left
-blank — the two-VRN endpoint that returns a `consultationNumber` receipt requires
+blank, the two-VRN endpoint that returns a `consultationNumber` receipt requires
 you to be a VAT-registered business.
 
 Nothing else in the repo needs credentials. `src/eori_client.py` calls a genuinely
@@ -86,20 +86,20 @@ open HMRC endpoint, and `src/checksum.py` and `src/metrics.py` are local.
 
 One row per number currently claimed anywhere in this repo. Numbers with **no**
 reproducing command are listed separately in
-[`notes/unreproducible.md`](notes/unreproducible.md) — that file is the worklist,
+[`notes/unreproducible.md`](notes/unreproducible.md), that file is the worklist,
 this table is what already stands up.
 
 | Number | Command | Output lands in |
 |---|---|---|
 | `4069/200000 = 2.0345%` random 9-digit strings pass the checksum | `python src/checksum.py` | stdout (seeded `random.seed(0)`, so byte-identical every run) |
 | `1/40` HMRC sandbox test VRNs pass the checksum | the one-liner at `notes/hmrc_api_findings.md:77` | stdout |
-| `22` nine-digit / `18` twelve-digit sandbox VRNs | *no command* | — see `notes/unreproducible.md` §D |
+| `22` nine-digit / `18` twelve-digit sandbox VRNs | *no command* | see `notes/unreproducible.md` §D |
 | snapshot sha256 `dd625ad9…`, `493049031` bytes, `5695465` rows | `python src/companies_house.py --hash` | stdout |
 | `14` of `55` CSV headers carry leading whitespace, incl. ` CompanyNumber` | `python src/companies_house.py --header` | stdout |
 | `5190464` Active; `88670` no postcode; `216285` no usable SIC; `98777` SIC 99999; `38703` SIC 74990; `82123` companies at 71-75 Shelton Street | `python src/companies_house.py --profile` | `audit/ch_profile_2026-08-01.txt` |
 | any other Companies House cut (frame sizes, cumulative incorporations) | `python src/companies_house.py --sql "<query>"` | stdout |
 | `GB220430231000` → `valid: true`, shared trader details `0/1` | `python src/eori_client.py 220430231` | `data/raw/eori/production/GB220430231000.json`, logged to `data/raw/eori_calls.jsonl` |
-| HTTP `401` `MISSING_CREDENTIALS` — proof the endpoint is application-restricted | `python src/hmrc_client.py 220430231 --no-consultation --no-auth` | `data/raw/hmrc/sandbox/220430231.noauth.single.json` |
+| HTTP `401` `MISSING_CREDENTIALS`, proof the endpoint is application-restricted | `python src/hmrc_client.py 220430231 --no-consultation --no-auth` | `data/raw/hmrc/sandbox/220430231.noauth.single.json` |
 | HTTP `404` from the sandbox VAT checker for a real VRN | `python src/hmrc_client.py 220430231 --no-consultation` **with credentials in `.env`** | `data/raw/hmrc/sandbox/220430231.json` |
 | Wilson 95% CI, e.g. `47/50 → [0.837829, 0.979385]` | `python src/metrics.py --self-test` | stdout (cross-checked against an independent derivation) |
 | coverage / precision / rejection breakdown | `python src/metrics.py --sheet audit/manual_audit.csv --sample <sample.csv> --candidates <raw.csv>` | stdout |
@@ -116,7 +116,7 @@ this table is what already stands up.
 
 **One caveat on `data/raw/domain_attempts.jsonl`:** its raw line count is not the
 attempt count. The log is append-only and two processes wrote to it concurrently
-during one run, so **5,316 lines hold 2,785 unique attempts** — 2,531 lines are
+during one run, so **5,316 lines hold 2,785 unique attempts**, 2,531 lines are
 duplicate writes of a key that was already present. Everything downstream
 de-duplicates on `(company_number, candidate_domain)` at load, so the figures in
 `notes/domain_discovery_output.txt` are unaffected; only `wc -l` misleads.
@@ -124,9 +124,10 @@ de-duplicates on `(company_number, candidate_domain)` at load, so the figures in
 
 **What runs on a clean clone, and what does not.**
 
-Runs immediately, no downloads, no credentials, no network — `checksum.py`,
-`metrics.py --self-test`, the sandbox-VRN one-liner, `eori_client.py 220430231`
-and `hmrc_client.py 220430231 --no-consultation --no-auth`. The last two replay
+These run immediately, with no downloads, no credentials and no network:
+`checksum.py`, `metrics.py --self-test`, the sandbox-VRN one-liner,
+`eori_client.py 220430231` and
+`hmrc_client.py 220430231 --no-consultation --no-auth`. The last two replay
 from committed cached responses rather than calling out.
 
 Needs the Companies House snapshot downloaded first: `--hash`, `--header`,
@@ -135,7 +136,7 @@ company names and addresses). Each exits 1 with a message naming the download UR
 
 Needs HMRC credentials in `.env`: the authenticated `404` row. Without
 credentials the same command runs in `noauth` mode and returns the `401`
-instead — which is correct behaviour, not a failure, but it is a different row
+instead, which is correct behaviour, not a failure, but it is a different row
 of this table.
 
 Needs inputs that do not exist yet, and so **cannot run on a clean clone at all**:
@@ -149,7 +150,7 @@ Both exit 1 with a message naming the file they wanted.
 
 ---
 
-# Part 1 — Research
+# Part 1: Research
 
 ## 1.1 What the problem actually is
 
@@ -183,11 +184,78 @@ Both exit 1 with a message naming the file they wanted.
 
 ## 1.4 Dead ends
 
-<!-- The section they said is worth more than the scraper. For each dead end:
-     source, expectation, exact reason it failed, and the evidence.
-     "Scraping is unreliable" is not a dead end. A statute that says the field
-     you hoped for isn't required, plus a count of how many publishers include
-     it anyway, is. -->
+### HMRC sandbox as a test environment
+
+I expected to test the whole pipeline end to end against the HMRC sandbox before
+production access arrived. I managed to pull HMRC's 40 published mock VRNs
+(`data/reference/hmrc_sandbox_test_vrns.csv`), tested them through
+`src/checksum.py`, and the result was 1 out of 40 passing the mod-97/mod-9755
+check, with HMRC's own documentation example (553557881) failing. My pipeline
+checksums before calling HMRC, so it would discard 39 of their 40 test cases
+before 1 single request went out. The thing with the sandbox is that it can prove
+my plumbing and nothing else, so every real number has to be verified elsewhere.
+
+### HMRC production API access
+
+I expected the whole process to be simple: apply, get some credentials and verify
+in bulk. The thing is, "Registering should take around 2 weeks. It may take
+longer if we need more information.", which I didn't have time for. Instead, I
+went with the EORI API that checks existence, and used the HMRC web form by hand
+for ownership. Not having the official verifier was a conundrum until I thought
+of using the web form, which is not ideal in terms of time, but still better than
+nothing.
+
+### Companies House has no website field
+
+What I was expecting before delving into the Companies House registry is for it
+to give me some route to company websites. I profiled all 55 columns
+(`python src/companies_house.py --profile`) but to my surprise, no website field.
+URI is a Companies House URL, not a company's. And it mattered a lot, since
+company -> website was clearly an unsolved prerequisite before I could even start
+looking for a VAT number. So before I could look for a single VAT number, I had
+to make up a way to find company websites, and the next section states how well
+that worked.
+
+### Guessing domains from registered names
+
+Initially, what I was aiming for was simple: normalize the registered name, try
+.com/.uk/.co.uk and find the site. I ran 2,785 candidate domains across 500
+companies with `python src/domain_discovery.py`. I then found 39 confident
+matches, a percentage of 7.8%. 83.8% of attempts died at DNS. The thing is, my
+hand check of 20 suggests roughly half the sample actually has a website, so it
+wasn't data being absent, but my method failing. That estimate is soft. My audit
+checked 5 rows from each outcome group rather than drawing proportionally, so the
+figure leans on 3 of 5 rows standing in for 295 companies. It points at the right
+conclusion, but I wouldn't quote it as a measurement. Four reasons (false
+negatives) it missed real sites: shortened trading form (Odyssey), different
+trading name (MPL Contractors), HTTP 403 (AJE Tech), and rebrand + redirect (Did
+Teach). And one where it did the opposite, found a site and attributed it to the
+wrong legal entity: the subsidiary trap (PHSC). (this was a false positive)
+
+### Weak name matching as a usable signal
+
+At first, I thought to myself, if a page contains the company's distinctive word,
+it's probably their website. After crawling all 125 weak domains into a separate
+file --match-strength weak, never merged with the strong ones, I discovered 2
+VRNs from 125 domains (1.6%), against 6 from 39 strong (15.4%). Both weak numbers
+belonged to other companies, so 0/2 owned. The reason why it's broken is due to
+it being three times the strong crawling, with zero correct pairs. What it cost
+to exclude? Well, ADVANCED ROOF TESTING was classified weak and is genuinely
+their site. At least one true positive thrown away, so the exclusion wasn't free.
+
+### EORI as the ownership test
+
+Initially, I hypothesized that EORI returns the trader's name, so ownership would
+come free and automated. After running all 8 candidates through
+`src/eori_client.py`, I found 5 valid, but only 2 of the 5 included
+companyDetails. This is because traders opt in to publishing their name, and most
+of them don't. I also found two of the three that came back invalid (ECONOSTORE,
+TERRASTRUCT), yet HMRC says both numbers are real and theirs. An EORI "false"
+means the company has no EORI, not that the number is fake. Used as a filter it
+would have discarded two correct pairs. I asked myself why this is a partial dead
+end, and reached the conclusion that it confirms existence cheaply and at scale,
+but usually can't confirm ownership. That eventually fell back to the web form,
+by hand.
 
 ## 1.5 What I learned that wasn't obvious at the start
 
@@ -195,12 +263,12 @@ Both exit 1 with a message naming the file they wanted.
 
 ---
 
-# Part 2 — Proof of concept
+# Part 2: Proof of concept
 
 ## 2.1 Sampling design
 
 <!-- How the sample was drawn, the seed, why it resembles the customer's
-     supplier base, and — this is the part that earns credit — the specific
+     supplier base, and, this is the part that earns credit, the specific
      ways it is NOT representative. Name your own sample's weaknesses before
      they do. The frozen sample is at data/sample/sample.csv. -->
 
@@ -219,12 +287,12 @@ Both exit 1 with a message naming the file they wanted.
 ## 2.4 Results
 
 <!-- Three numbers, not one:
-       1. coverage — found/sample AND found/estimated-VAT-registered-in-sample
-       2. precision — hand-audited, as a fraction, with a CI. Format it like
-          "47/50" — that string is an EXAMPLE OF THE FORMAT, not a result from
+       1. coverage, found/sample AND found/estimated-VAT-registered-in-sample
+       2. precision, hand-audited, as a fraction, with a CI. Format it like
+          "47/50", that string is an EXAMPLE OF THE FORMAT, not a result from
           this project. Replace it with the real fraction; do not leave an
           illustrative number where a measured one belongs.
-       3. rejection breakdown — how many candidates died at each stage and why
+       3. rejection breakdown, how many candidates died at each stage and why
      Round numbers read as invented. Fractions read as measured. -->
 
 ## 2.5 What these numbers don't capture
@@ -234,7 +302,7 @@ Both exit 1 with a message naming the file they wanted.
 
 ---
 
-# Part 3 — What I'd do with real resources
+# Part 3: What I'd do with real resources
 
 <!-- "I'd use a distributed crawler" was quoted as the anti-example. Required:
        - the architecture, and why it changes shape at scale
@@ -288,7 +356,7 @@ Every number in this document has a command in the repo that produces it. If you
 
 # Appendix
 
-- `DECISIONS.md` — dated decision log kept during the week
-- `data/raw/hmrc/` — every raw HMRC response, one JSON per VRN
-- `audit/manual_audit.csv` — the hand-checked pairs behind the precision number
-- `src/sources/` — one module per source tried, **including the ones that failed**
+- `DECISIONS.md`, dated decision log kept during the week
+- `data/raw/hmrc/`, every raw HMRC response, one JSON per VRN
+- `audit/manual_audit.csv`, the hand-checked pairs behind the precision number
+- `src/sources/`, one module per source tried, **including the ones that failed**
