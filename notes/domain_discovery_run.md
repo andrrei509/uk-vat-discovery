@@ -8,15 +8,19 @@ because the report gets overwritten every time it is regenerated.
 
 - Input: `data/sample/sample.csv` (500 companies, seed 20260820, frozen)
 - Run 19–20 Aug 2026
-- 2,661 candidate domains, 5.3 per company
+- 2,785 candidate domains, 5.6 per company
 - Per-host delay 2.0s, global floor 0.3s, timeout 15s, 16 DNS threads
 - User-Agent from `src/config.py`, carrying a contact address
 - robots.txt fetched and obeyed per host; 5 candidates were skipped as disallowed
 - Every attempt appended to `data/raw/domain_attempts.jsonl`
 
-Of the 2,661 attempts, 2,233 (83.9%) were `DNSFailure` and never resulted in a
-connection to anybody's server. 285 returned HTTP 200. The rest were TLS
+Of the 2,785 unique attempts, 2,335 (83.8%) were `DNSFailure` and never resulted
+in a connection to anybody's server. 299 returned HTTP 200. The rest were TLS
 failures, timeouts, and non-200 statuses.
+
+These figures are regenerated from the log, so they move if more candidates are
+attempted later; the per-company outcomes (39 strong / 125 weak / 41 none /
+295 no_domain) have not changed.
 
 ## A politeness caveat, stated because it is true
 
@@ -29,8 +33,8 @@ stopped after it became clear it would take hours. `TaskStop` killed the shell
 wrapper — its output file ends with `[killed]` — but the `nohup python` child
 survived it and ran to completion, writing 675 lines of progress and its own copy
 of the output files. Meanwhile the replacement run was already going. Both wrote
-to the same append-only attempt log, which is why 2,531 of the 2,661 keys appear
-in it twice.
+to the same append-only attempt log, which is why 2,531 keys appear in it twice.
+The file currently holds 5,316 lines for 2,785 unique attempts.
 
 Consequences, in order of how much they matter:
 

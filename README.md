@@ -114,6 +114,14 @@ this table is what already stands up.
 | the 20-row domain hand-check sheet | `python src/domain_audit_sheet.py` | `audit/domain_audit.csv` |
 | the manual audit sheet itself | `python src/audit_worklist.py --candidates <candidates.csv>` | `audit/manual_audit.csv` |
 
+**One caveat on `data/raw/domain_attempts.jsonl`:** its raw line count is not the
+attempt count. The log is append-only and two processes wrote to it concurrently
+during one run, so **5,316 lines hold 2,785 unique attempts** — 2,531 lines are
+duplicate writes of a key that was already present. Everything downstream
+de-duplicates on `(company_number, candidate_domain)` at load, so the figures in
+`notes/domain_discovery_output.txt` are unaffected; only `wc -l` misleads.
+`notes/domain_discovery_run.md` records how it happened.
+
 **What runs on a clean clone, and what does not.**
 
 Runs immediately, no downloads, no credentials, no network — `checksum.py`,

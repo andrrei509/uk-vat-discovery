@@ -36,9 +36,16 @@ N seconds, and identified myself" answers "would you ship this?" before they
 ask it.
 
 Usage:
-    python src/sources/website_vat.py --domains data/reference/probe_domains.csv \
-                                      --out data/results/probe_candidates.csv
-    python src/eori_client.py --file data/results/probe_candidates.csv --column vat
+    python src/sources/website_vat.py --domains data/results/sample_domains.csv \
+                                      --match-strength strong \
+                                      --out data/results/candidates.csv
+    python src/eori_client.py --file data/results/candidates.csv --column vat
+
+Run `weak` separately and never into the same file — see `--match-strength`:
+
+    python src/sources/website_vat.py --domains data/results/sample_domains.csv \
+                                      --match-strength weak \
+                                      --out data/results/candidates_weak.csv
 """
 
 from __future__ import annotations
