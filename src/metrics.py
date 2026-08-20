@@ -154,6 +154,76 @@ def norm_cn(v: str) -> str:
 # Report
 
 
+STRENGTH_RANK = {"strong": 0, "weak": 1, "none": 2, "(unspecified)": 3}
+
+BLOCK_NOTES = {
+    "strong": [
+        "Reportable. The page carried the company number or the full registered",
+        "name, so the domain was tied to the company by something other than the",
+        "word that generated it.",
+    ],
+    "weak": [
+        "EXCLUDED CONTROL GROUP - do not report these as a result.",
+        "The domain was generated from the company's own distinctive word, then",
+        "'confirmed' by finding that same word on the page. That is close to",
+        "circular: any unrelated firm sharing the word scores the same. Crawled",
+        "deliberately to show what that produces, not to add coverage.",
+    ],
+    "none": [
+        "Domains that resolved but matched nothing. Counted as NOT FOUND.",
+    ],
+}
+
+
+def block(title: str, rows: list[dict], note: list[str] | None = None) -> None:
+    """
+    One self-contained set of metrics for one group of rows.
+
+    Every group gets its own denominator. strong and weak are separate
+    experiments, and a precision figure that spans both answers no question
+    anyone asked.
+    """
+    print("\n=== " + title + " " + "=" * max(4, 62 - len(title)))
+    for line in (note or []):
+        print("  " + line)
+    if note:
+        print()
+
+    audited = [r for r in rows if (r.get("verdict") or "").strip()]
+    n = len(audited)
+    counts: dict[str, int] = {}
+    for r in audited:
+        key = r["verdict"].strip().lower()
+        counts[key] = counts.get(key, 0) + 1
+
+    print(f"  rows                   : {len(rows)}    audited: {n}")
+    if n == 0:
+        print("  no verdicts in this group -> precision UNAVAILABLE")
+    else:
+        k = counts.get("owns", 0)
+        lo, hi = wilson(k, n)
+        print(f"  verdict 'owns'         : {frac(k, n)}")
+        print(f"  precision, Wilson 95%  : [{lo:.3f}, {hi:.3f}]    n={n}")
+        print(f"  verdict 'not_owns'     : {frac(counts.get('not_owns', 0), n)}")
+        print(f"  verdict 'ambiguous'    : {frac(counts.get('ambiguous', 0), n)}")
+        print(f"  verdict 'not_registered': {frac(counts.get('not_registered', 0), n)}")
+        if counts.get("ambiguous"):
+            print("  NOTE: ambiguous sits in the denominator, not the numerator.")
+
+    ev = {"true": 0, "false": 0, "": 0}
+    for r in rows:
+        raw = (r.get("eori_valid") or "").strip().lower()
+        ev[raw if raw in ("true", "false") else ""] += 1
+    print(f"  eori_valid = true      : {frac(ev['true'], len(rows))}")
+    print(f"  eori_valid = false     : {frac(ev['false'], len(rows))}")
+    if ev[""]:
+        print(f"  eori not checked       : {frac(ev[''], len(rows))}")
+    shared = sum(1 for r in rows
+                 if (r.get("eori_trader_name") or "").strip()
+                 and (r.get("eori_valid") or "").strip().lower() == "true")
+    print(f"  of the valid, sharing trader details: {frac(shared, ev['true'])}")
+
+
 def report(sheet: Path, sample: Optional[Path], candidates: Optional[Path]) -> int:
     rows = load_sheet(sheet)
     print(f"sheet     : {sheet}")
@@ -191,67 +261,69 @@ def report(sheet: Path, sample: Optional[Path], candidates: Optional[Path]) -> i
         outside = companies - sample_ids
         print(f"  companies with >=1 candidate : {frac(len(in_sample), n_sample)}")
         print(f"  companies with 'owns' verdict: {frac(len(owns_companies & sample_ids), n_sample)}")
+        # Split here too: coverage earned by the weak control group is not
+        # coverage anybody should claim, so the two must not be added together.
+        by_strength: dict[str, set] = {}
+        for r in rows:
+            if (r.get("verdict") or "").strip().lower() != "owns":
+                continue
+            key = (r.get("match_strength") or "(unspecified)").strip().lower()
+            by_strength.setdefault(key, set()).add(norm_cn(r.get("company_number", "")))
+        for g in sorted(by_strength, key=lambda g: STRENGTH_RANK.get(g, 99)):
+            tag = "  <- control group, not coverage" if g == "weak" else ""
+            print(f"    of which {g:<14}: "
+                  f"{frac(len(by_strength[g] & sample_ids), n_sample)}{tag}")
         if outside:
             print(f"  WARNING: {len(outside)} audited compan{'y' if len(outside) == 1 else 'ies'} "
                   f"not in the sample file - excluded from coverage")
         print("  (which of the two numerators is 'coverage' is a judgement call, not this script's)")
 
-    # --------------------------------------------------------------- precision
-    print("\n=== precision (ownership, hand-audited) " + "=" * 25)
+    # ------------------------------------------------- split by match_strength
+    groups: dict[str, list[dict]] = {}
+    for r in rows:
+        key = (r.get("match_strength") or "(unspecified)").strip().lower()
+        groups.setdefault(key, []).append(r)
+
+    print("\n=== rows by match_strength " + "=" * 38)
+    for g in sorted(groups, key=lambda g: STRENGTH_RANK.get(g, 99)):
+        print(f"  {g:<16} {len(groups[g])} row(s)")
+
+    for g in sorted(groups, key=lambda g: STRENGTH_RANK.get(g, 99)):
+        block(g.upper(), groups[g], BLOCK_NOTES.get(g))
+
+    block("POOLED (do not report as precision)", rows, [
+        "Both experiments in one denominator, shown only so the blocks above can",
+        "be checked against a total. strong and weak measure different things, so",
+        "a figure spanning both is not a precision for either one.",
+    ])
+
     n_aud = len(audited)
-    if n_aud == 0:
-        print("  no rows carry a verdict yet -> precision UNAVAILABLE.")
-    else:
-        k = len(owns)
-        lo, hi = wilson(k, n_aud)
-        print(f"  audited rows           : {n_aud} of {len(rows)} sheet rows")
-        print(f"  verdict == 'owns'      : {frac(k, n_aud)}")
-        print(f"  Wilson 95% CI          : [{lo:.3f}, {hi:.3f}]  (n={n_aud}, not the normal approximation)")
-        print(f"  verdict == 'not_owns'  : {frac(len(not_owns), n_aud)}")
-        print(f"  verdict == 'ambiguous' : {frac(len(ambiguous), n_aud)}")
-        print(f"  verdict == 'not_registered': {frac(len(not_registered), n_aud)}")
-        if ambiguous:
-            print("  NOTE: ambiguous rows are counted in the denominator but not as successes.")
-            print("        Excluding them instead would raise the fraction - say which you did.")
     if unknown:
         for v, rs in sorted(unknown.items()):
-            print(f"  *** UNRECOGNISED verdict {v!r} on {len(rs)} row(s) - "
+            print(f"\n  *** UNRECOGNISED verdict {v!r} on {len(rs)} row(s) - "
                   f"expected {' | '.join(VERDICTS)} ***")
 
     # ------------------------------------------------------- rejection funnel
-    print("\n=== rejection breakdown: checksum -> EORI -> ownership " + "=" * 10)
+    # Stage 1 is the only funnel step that is not per-strength: the checksum runs
+    # before any domain exists, so it has no match_strength to split on. Stages 2
+    # (EORI) and 3 (ownership) are reported inside each block above, against that
+    # block's own denominator.
+    print("\n=== stage 1: checksum, before any domain existed " + "=" * 16)
     if candidates is None:
-        print("  stage 1 (checksum): raw pre-checksum candidates not supplied (--candidates)")
-        print("                      -> checksum pass/fail counts UNAVAILABLE")
+        print("  raw pre-checksum candidates not supplied (--candidates)")
+        print("  -> checksum pass/fail counts UNAVAILABLE")
     else:
         from checksum import is_valid
 
         raw = [v for v in load_column(candidates, "vat", "vat_number", "vrn") if v]
         passed = [v for v in raw if is_valid(v)]
-        print(f"  stage 1 (checksum) : input {len(raw)} extracted candidate(s)")
-        print(f"                       passed  {frac(len(passed), len(raw))}")
-        print(f"                       dropped {frac(len(raw) - len(passed), len(raw))}")
+        print(f"  input   {len(raw)} extracted candidate(s)")
+        print(f"  passed  {frac(len(passed), len(raw))}")
+        print(f"  dropped {frac(len(raw) - len(passed), len(raw))}")
 
-    ev = {"true": 0, "false": 0, "": 0}
-    for r in rows:
-        ev[(r.get("eori_valid") or "").strip().lower() if
-           (r.get("eori_valid") or "").strip().lower() in ("true", "false") else ""] += 1
-    print(f"  stage 2 (EORI)     : input {len(rows)} sheet row(s)")
-    print(f"                       eori_valid=true  {frac(ev['true'], len(rows))}")
-    print(f"                       eori_valid=false {frac(ev['false'], len(rows))}")
-    print(f"                       not checked      {frac(ev[''], len(rows))}")
-    traders = sum(1 for r in rows if (r.get("eori_trader_name") or "").strip())
-    print(f"                       of the valid ones, trader name shared: {frac(traders, ev['true'])}")
-    print("                       (that share bounds how much ownership testing EORI alone can do)")
-
-    print(f"  stage 3 (ownership): input {n_aud} audited row(s)")
-    print(f"                       accepted 'owns'     {frac(len(owns), n_aud)}")
-    print(f"                       rejected 'not_owns' {frac(len(not_owns), n_aud)}")
-    print(f"                       'ambiguous'         {frac(len(ambiguous), n_aud)}")
-    print(f"                       'not_registered'    {frac(len(not_registered), n_aud)}")
     unaudited = len(rows) - n_aud
     if unaudited:
-        print(f"  NOT YET AUDITED    : {frac(unaudited, len(rows))} sheet rows carry no verdict")
+        print(f"\n  NOT YET AUDITED: {frac(unaudited, len(rows))} sheet rows carry no verdict")
 
     # ----------------------------------------------------------- ambiguous rows
     print("\n=== ambiguous rows, in full " + "=" * 37)

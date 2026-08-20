@@ -6,30 +6,63 @@ sheet rows: 8
   sample size            : 500 distinct companies
   companies with >=1 candidate : 8/500 = 0.016
   companies with 'owns' verdict: 6/500 = 0.012
+    of which strong        : 6/500 = 0.012
   (which of the two numerators is 'coverage' is a judgement call, not this script's)
 
-=== precision (ownership, hand-audited) =========================
-  audited rows           : 8 of 8 sheet rows
-  verdict == 'owns'      : 6/8 = 0.750
-  Wilson 95% CI          : [0.409, 0.929]  (n=8, not the normal approximation)
-  verdict == 'not_owns'  : 2/8 = 0.250
-  verdict == 'ambiguous' : 0/8 = 0.000
-  verdict == 'not_registered': 0/8 = 0.000
+=== rows by match_strength ======================================
+  strong           6 row(s)
+  weak             2 row(s)
 
-=== rejection breakdown: checksum -> EORI -> ownership ==========
-  stage 1 (checksum): raw pre-checksum candidates not supplied (--candidates)
-                      -> checksum pass/fail counts UNAVAILABLE
-  stage 2 (EORI)     : input 8 sheet row(s)
-                       eori_valid=true  5/8 = 0.625
-                       eori_valid=false 3/8 = 0.375
-                       not checked      0/8 = 0.000
-                       of the valid ones, trader name shared: 2/5 = 0.400
-                       (that share bounds how much ownership testing EORI alone can do)
-  stage 3 (ownership): input 8 audited row(s)
-                       accepted 'owns'     6/8 = 0.750
-                       rejected 'not_owns' 2/8 = 0.250
-                       'ambiguous'         0/8 = 0.000
-                       'not_registered'    0/8 = 0.000
+=== STRONG ========================================================
+  Reportable. The page carried the company number or the full registered
+  name, so the domain was tied to the company by something other than the
+  word that generated it.
+
+  rows                   : 6    audited: 6
+  verdict 'owns'         : 6/6 = 1.000
+  precision, Wilson 95%  : [0.610, 1.000]    n=6
+  verdict 'not_owns'     : 0/6 = 0.000
+  verdict 'ambiguous'    : 0/6 = 0.000
+  verdict 'not_registered': 0/6 = 0.000
+  eori_valid = true      : 4/6 = 0.667
+  eori_valid = false     : 2/6 = 0.333
+  of the valid, sharing trader details: 1/4 = 0.250
+
+=== WEAK ==========================================================
+  EXCLUDED CONTROL GROUP - do not report these as a result.
+  The domain was generated from the company's own distinctive word, then
+  'confirmed' by finding that same word on the page. That is close to
+  circular: any unrelated firm sharing the word scores the same. Crawled
+  deliberately to show what that produces, not to add coverage.
+
+  rows                   : 2    audited: 2
+  verdict 'owns'         : 0/2 = 0.000
+  precision, Wilson 95%  : [0.000, 0.658]    n=2
+  verdict 'not_owns'     : 2/2 = 1.000
+  verdict 'ambiguous'    : 0/2 = 0.000
+  verdict 'not_registered': 0/2 = 0.000
+  eori_valid = true      : 1/2 = 0.500
+  eori_valid = false     : 1/2 = 0.500
+  of the valid, sharing trader details: 1/1 = 1.000
+
+=== POOLED (do not report as precision) ===========================
+  Both experiments in one denominator, shown only so the blocks above can
+  be checked against a total. strong and weak measure different things, so
+  a figure spanning both is not a precision for either one.
+
+  rows                   : 8    audited: 8
+  verdict 'owns'         : 6/8 = 0.750
+  precision, Wilson 95%  : [0.409, 0.929]    n=8
+  verdict 'not_owns'     : 2/8 = 0.250
+  verdict 'ambiguous'    : 0/8 = 0.000
+  verdict 'not_registered': 0/8 = 0.000
+  eori_valid = true      : 5/8 = 0.625
+  eori_valid = false     : 3/8 = 0.375
+  of the valid, sharing trader details: 2/5 = 0.400
+
+=== stage 1: checksum, before any domain existed ================
+  raw pre-checksum candidates not supplied (--candidates)
+  -> checksum pass/fail counts UNAVAILABLE
 
 === ambiguous rows, in full =====================================
   none
