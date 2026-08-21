@@ -171,16 +171,16 @@ Both exit 1 with a message naming the file they wanted.
 
 ## 1.3 Source landscape
 
-<!-- One subsection per source you actually touched. For each:
-       - what you expected before you looked
-       - what you ran (command / URL / n)
-       - what came back (the number)
-       - verdict: usable / partially usable / dead end
-     Depth should be UNEVEN. Some sources deserve four lines, one deserves two
-     pages. Uniform depth across sources is the tell that nobody really
-     investigated anything. -->
-
-### 1.3.1 <source name>
+| Source | What I expected | What I ran | What came back | Verdict |
+|---|---|---|---|---|
+| HMRC Check a UK VAT Number API v2.0 | | `hmrc_client.py --no-auth` | HTTP 401, application-restricted; production access "around 2 weeks" | Dead end on this timeline, §1.4 |
+| HMRC sandbox | | `checksum.py` on the 40 published test VRNs | 1 of 40 pass the check digit | Proves plumbing only, §1.4 |
+| HMRC Check an EORI Number API | | `eori_client.py`, 8 candidates | 5 valid; 2 of 5 shared trader details | Partially usable: existence yes, ownership rarely |
+| HMRC VAT checker web form | | 8 lookups by hand | name and address for every one | Usable, and the only ownership test I had |
+| Companies House bulk snapshot | | `companies_house.py --profile` | 5,695,465 rows, 55 columns, no website field | Usable as the frame, useless as a source, §1.4 |
+| Company websites, domains guessed from names | | `domain_discovery.py`, 2,785 attempts | 39 strong of 500, 83.8% died at DNS | The PoC's actual source |
+| Weak-matched domains | | `website_vat.py --match-strength weak` | 2 VRNs from 125 domains, 0 of 2 owned | Dead end, §1.4 |
+| Search-engine AI overviews | | 5 lookups while hand-checking | contradicted my own Companies House snapshot twice, wrong company number once | A lead, never evidence |
 
 ## 1.4 Dead ends
 
@@ -224,7 +224,7 @@ companies with `python src/domain_discovery.py`. I then found 39 confident
 matches, a percentage of 7.8%. 83.8% of attempts died at DNS. The thing is, my
 hand check of 20 suggests roughly half the sample actually has a website, so it
 wasn't data being absent, but my method failing. That estimate is soft. My audit
-checked 5 rows from each outcome group rather than drawing proportionally, so the
+checked 5 rows from each outcome group instead of drawing proportionally, so the
 figure leans on 3 of 5 rows standing in for 295 companies. It points at the right
 conclusion, but I wouldn't quote it as a measurement. Four reasons (false
 negatives) it missed real sites: shortened trading form (Odyssey), different
@@ -236,12 +236,13 @@ wrong legal entity: the subsidiary trap (PHSC). (this was a false positive)
 
 At first, I thought to myself, if a page contains the company's distinctive word,
 it's probably their website. After crawling all 125 weak domains into a separate
-file --match-strength weak, never merged with the strong ones, I discovered 2
+file `--match-strength weak`, never merged with the strong ones, I discovered 2
 VRNs from 125 domains (1.6%), against 6 from 39 strong (15.4%). Both weak numbers
 belonged to other companies, so 0/2 owned. The reason why it's broken is due to
-it being three times the strong crawling, with zero correct pairs. What it cost
-to exclude? Well, ADVANCED ROOF TESTING was classified weak and is genuinely
-their site. At least one true positive thrown away, so the exclusion wasn't free.
+it being three times the strong crawling (125 domains vs. 39), with zero correct
+pairs. What it cost to exclude? Well, ADVANCED ROOF TESTING was classified weak
+and is genuinely their site. At least one true positive thrown away, so the
+exclusion wasn't free.
 
 ### EORI as the ownership test
 
@@ -274,8 +275,19 @@ by hand.
 
 ## 2.2 Pipeline
 
-<!-- What runs, in what order, with what filters. A diagram in text is fine.
-     Say which stage throws away the most candidates and why. -->
+```
+Companies House snapshot          5,695,465 rows
+  └─ exclusions                   frame 2,362,322
+      └─ stratified sample, seed 20260820, 20 strata
+                                  500  (+50 held out, untouched)
+          └─ domain_discovery.py  strong 39 | weak 125 | none 41 | none found 295
+              └─ FILTER: strong only                    39   ← 461 lost here
+                  └─ website_vat.py, 15 paths per site, robots.txt obeyed
+                      └─ checksum mod-97 / mod-9755      6   ← 33 lost here
+                          └─ eori_client.py, existence
+                              └─ HMRC web form by hand, ownership
+                                                         6   ← 0 lost here
+```
 
 ## 2.3 Verification: validity is not ownership
 
