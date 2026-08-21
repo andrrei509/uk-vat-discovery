@@ -319,7 +319,9 @@ Precision on shipped rows: 6/6, Wilson 95% CI [0.610, 1.000]
 
 Weak-match control, excluded: 2 found, 0/2 owned
 
-Before I ran it, I expected it to be higher than this, because I thought that out of 500 companies I would end up with more than 6. I started with 500 companies and ran a test to see if I could find their website. 295 of them had no domain at all, and another 166 had one I didn't trust enough to count, so 461 dropped out and the remaining 39 moved on. Out of those 39 that were asked if the site shows a VAT number, 33 said no, so I only had 6 candidates left. The 1.2% coverage is biased low, and these 3 mechanisms dragged it down: 4 false negatives in 20 hand checked domain assignments, 295 companies never crawled at all because no domain was found, and only 15 candidate paths per site, which is how AJE Tech, a site I knew was correct, came back 403. I held back 50 rows, drawn with the sample, and never touched them. The experiment I would do is to work those 50 by hand, find each site myself, look for the VAT number myself, and compare against what the pipeline gets on the same 50. The gap between the 2 is the miss rate. I didn't have the week to run it.
+Before I ran it, I expected it to be higher than this, because I thought that out of 500 companies I would end up with more than 6. I started with 500 companies and ran a test to see if I could find their website. 295 of them had no domain at all, and another 166 had one I didn't trust enough to count, so 461 dropped out and the remaining 39 moved on. Out of those 39 that were asked if the site shows a VAT number, 33 said no, so I only had 6 candidates left.
+
+The 1.2% coverage is biased low, and these 3 mechanisms dragged it down: 4 false negatives in 20 hand checked domain assignments, 295 companies never crawled at all because no domain was found, and only 15 candidate paths per site, which is how AJE Tech, a site I knew was correct, came back 403. I held back 50 rows, drawn with the sample, and never touched them. The experiment I would do is to work those 50 by hand, find each site myself, look for the VAT number myself, and compare against what the pipeline gets on the same 50. The gap between the 2 is the miss rate. I didn't have the week to run it.
 
 I checked 8 pairs by hand against HMRC's VAT checker web form, each pair being a VAT number and the company I had attributed it to. 6 were strong matches and all 6 returned the right company. 2 were weak matches and both returned a different company. 6 out of 6 isn't the same as saying the method is always right, because the Wilson 95% interval on this rate is 0.61 to 1.00. If the true rate were 0.61, the probability of getting all 6 right in a row is 0.61 raised to the 6th power, which is about 5%. That is the usual line for too unlikely to keep believing, so 0.61 is roughly the lowest true rate still compatible with what I saw. If the true rate were higher, say 0.8, which is where my own domain audit lands with 4 of 5 strong assignments correct, the chance of getting 6 in a row would be 26%, which is not surprising at all. As for what to expect on the next hundred strong rows, a wrong domain almost guarantees a wrong number, and a right domain does not guarantee a right one, so 80% is a ceiling and not a target. That 4 of 5 is itself only five rows, so it is a soft anchor. What I actually expect is to land at or below 80%, not at 6 out of 6.
 
@@ -370,7 +372,17 @@ Every number in this document has a command in the repo that produces it. If you
 
 ## Keeping the dataset current
 
+<!-- Companies register and deregister continuously. Say what is cheap to
+     re-check and what needs rediscovery from scratch, whether the Companies
+     House monthly delta triggers any of it, and what a deregistered number
+     still sitting in the dataset costs the customer. -->
+
 ## Knowing you're wrong at scale with nothing to compare against
+
+<!-- No ground truth exists, so name the checks that work without one:
+     agreement between independent sources, distributional drift in the
+     sector/region/size mix of what you find, planted canaries, sampling for
+     human audit. Say what you would alert on and at what threshold. -->
 
 ## Sources I would not ship
 

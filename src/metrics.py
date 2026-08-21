@@ -12,7 +12,7 @@ Reporting rules this module enforces
 
 3. **Wilson score interval, not the normal approximation.** n here is ~50 and
    the proportion sits near 1.0, which is exactly where the normal
-   approximation breaks — it happily returns upper bounds above 1.0 and its
+   approximation breaks, it happily returns upper bounds above 1.0 and its
    coverage is poor in the tail. Wilson stays inside [0, 1] and behaves at the
    boundary.
 
@@ -76,7 +76,7 @@ def wilson(k: int, n: int, z: float = Z95) -> tuple[float, float]:
 
 
 def frac(k: int, n: int) -> str:
-    """`47/50 = 0.940` — the count is never separated from the ratio."""
+    """`47/50 = 0.940`, the count is never separated from the ratio."""
     if n <= 0:
         return f"{k}/0 = n/a (no denominator)"
     return f"{k}/{n} = {k / n:.3f}"
@@ -97,10 +97,16 @@ def load_column(path: Path, *names: str) -> list[str]:
     """
     First matching column from a CSV, as a list of stripped strings.
 
-    Leading `#` lines are skipped. Both `data/sample/sample.csv` and
-    `audit/manual_audit.csv` carry a provenance header block, and without this
-    the first comment line would be parsed as the header row — giving a
+    Leading `#` lines are skipped. `data/sample/sample.csv` and
+    `audit/domain_audit.csv` carry a provenance header block, and without this
+    the first comment line would be parsed as the header row, giving a
     "column not present" error on a file that plainly contains the column.
+
+    `audit/manual_audit.csv` used to carry one too. It was removed: that sheet
+    is opened in Excel, Excel pads comment lines out to the full column count
+    and can leave a separator row of bare commas above the header, and the
+    result defeats a plain `pandas.read_csv`. It is now a header row and data
+    rows, nothing else.
     """
     with path.open(encoding="utf-8-sig", newline="") as fh:
         lines = [ln for ln in fh.read().splitlines(keepends=True)
