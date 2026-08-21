@@ -135,16 +135,24 @@ FIELDNAMES = ["company_number", "company", "domain", "url", "raw_match", "vat",
 
 
 class PoliteFetcher:
-    def __init__(self, delay: float = 2.0, timeout: int = 20, user_agent: Optional[str] = None):
+    def __init__(self, delay: float = 2.0, timeout: int = 20, user_agent: Optional[str] = None,
+                 cache_only: bool = False):
         self.delay = delay
         self.timeout = timeout
         self.ua = user_agent or USER_AGENT
+        # cache_only turns the fetcher into a reader of what was already
+        # captured. A count derived from live pages is not reproducible: the
+        # sites change, so re-running next week gives a different answer to the
+        # same question. Reading only from data/raw/pages makes the number a
+        # property of the captures rather than of today's web.
+        self.cache_only = cache_only
         self.session = requests.Session()
         self.session.headers.update({"User-Agent": self.ua})
         self._robots: dict[str, Optional[urllib.robotparser.RobotFileParser]] = {}
         self._last = 0.0
         PAGE_CACHE.mkdir(parents=True, exist_ok=True)
-        self.stats = {"fetched": 0, "cached": 0, "blocked": 0, "errors": 0, "not_found": 0}
+        self.stats = {"fetched": 0, "cached": 0, "blocked": 0, "errors": 0,
+                      "not_found": 0, "skipped_uncached": 0}
 
     def _robots_for(self, base: str):
         host = urlparse(base).netloc
@@ -188,6 +196,10 @@ class PoliteFetcher:
             html = cached.read_text(encoding="utf-8", errors="replace")
             return html_to_text(html), hashlib.sha256(html.encode()).hexdigest()
 
+        if self.cache_only:
+            self.stats["skipped_uncached"] += 1
+            return None
+
         if not self.allowed(url):
             self.stats["blocked"] += 1
             print(f"    robots.txt disallows {url}", file=sys.stderr)
@@ -219,9 +231,23 @@ class PoliteFetcher:
 
 def scan_domain(fetcher: PoliteFetcher, company: str, domain: str,
                 paths: Iterable[str] = CANDIDATE_PATHS,
-                company_number: str = "") -> list[Candidate]:
+                company_number: str = "",
+                stats: Optional[dict] = None) -> list[Candidate]:
+    """
+    Scan one domain's candidate paths and return the VAT numbers found.
+
+    `stats`, if given, is updated in place with the extraction counters. It
+    exists because "33 domains produced nothing" is two very different findings
+    stacked on top of each other: a site that never mentions a 9-digit number at
+    all, and a site that does but whose numbers fail the check digit. The first
+    says the data is absent, the second says the filter is working. Without the
+    counters the two are indistinguishable, and the pipeline diagram had to
+    guess at which one did the removing.
+    """
     base = domain if domain.startswith("http") else f"https://{domain}"
     found: dict[str, Candidate] = {}
+    host = urlparse(base).netloc
+    per_domain = {"pages_read": 0, "matches": 0, "passed": 0, "rejected": 0}
 
     for path in paths:
         url = urljoin(base, path)
@@ -229,10 +255,16 @@ def scan_domain(fetcher: PoliteFetcher, company: str, domain: str,
         if not got:
             continue
         text, sha = got
+        per_domain["pages_read"] += 1
+        page_matches = 0
         for c in iter_candidates(text):
+            page_matches += 1
+            per_domain["matches"] += 1
             parsed = c["parsed"]
             if not parsed:
-                continue  # rejected by the check digit; counted by metrics later
+                per_domain["rejected"] += 1
+                continue  # rejected by the check digit
+            per_domain["passed"] += 1
             vrn = parsed.normalised
             # Keep the first sighting, but prefer one that had a VAT label
             # nearby — better provenance for the same number.
@@ -249,6 +281,16 @@ def scan_domain(fetcher: PoliteFetcher, company: str, domain: str,
                     context=c["context"][:300],
                     page_sha256=sha,
                 )
+        if stats is not None and page_matches:
+            stats["pages_with_match"] = stats.get("pages_with_match", 0) + 1
+
+    if stats is not None:
+        stats["pages_scanned"] = stats.get("pages_scanned", 0) + per_domain["pages_read"]
+        stats["regex_matches"] = stats.get("regex_matches", 0) + per_domain["matches"]
+        stats["rejected_by_checksum"] = (stats.get("rejected_by_checksum", 0)
+                                         + per_domain["rejected"])
+        stats.setdefault("domains", {})[host] = dict(per_domain, company=company,
+                                                     company_number=company_number)
     return list(found.values())
 
 
@@ -291,6 +333,53 @@ def load_domain_rows(path: str, match_strength: str, limit=None) -> list[dict]:
     return rows[:limit] if limit else rows
 
 
+def print_extraction_breakdown(stats: dict, rows: list, fetcher: PoliteFetcher) -> None:
+    """
+    Split the domains that produced no VAT number into the reasons why.
+
+    "33 of 39 domains yielded nothing" is a single number covering two findings
+    that point in opposite directions. A site with no 9-digit number anywhere
+    means the data is not published. A site whose numbers all fail the check
+    digit means the filter did its job. Reporting them together makes the
+    checksum look responsible for losses it had nothing to do with.
+    """
+    domains = stats.get("domains", {})
+    no_pages = [d for d, v in domains.items() if v["pages_read"] == 0]
+    no_match = [d for d, v in domains.items() if v["pages_read"] and v["matches"] == 0]
+    all_failed = [d for d, v in domains.items() if v["matches"] and v["passed"] == 0]
+    yielded = [d for d, v in domains.items() if v["passed"]]
+
+    print()
+    print("=== extraction breakdown " + "=" * 44)
+    print(f"  domains in                        : {len(rows)}")
+    print(f"  pages scanned                     : {stats.get('pages_scanned', 0)}")
+    print(f"  pages with >=1 regex match        : {stats.get('pages_with_match', 0)}")
+    print(f"  regex matches seen                : {stats.get('regex_matches', 0)}")
+    print(f"  matches rejected by the check digit: {stats.get('rejected_by_checksum', 0)}")
+    print()
+    print("  by domain:")
+    print(f"    yielded >=1 valid VRN           : {len(yielded)}")
+    print(f"    no 9-digit candidate at all     : {len(no_match)}")
+    print(f"    candidate(s) found, all failed the check digit: {len(all_failed)}")
+    print(f"    no page could be read           : {len(no_pages)}")
+    total = len(yielded) + len(no_match) + len(all_failed) + len(no_pages)
+    print(f"    total                           : {total}")
+    if fetcher.cache_only:
+        print(f"  URLs skipped as uncached          : "
+              f"{fetcher.stats.get('skipped_uncached', 0)}")
+    if all_failed:
+        print()
+        print("  domains where every candidate failed the check digit:")
+        for d in sorted(all_failed):
+            v = domains[d]
+            print(f"    {d}  ({v['matches']} match(es), {v['rejected']} rejected)")
+    if no_pages:
+        print()
+        print("  domains where no page could be read:")
+        for d in sorted(no_pages):
+            print(f"    {d}")
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--domains", required=True,
@@ -301,6 +390,11 @@ def main() -> int:
                     help="only used for domain_discovery.py input (default: strong)")
     ap.add_argument("--delay", type=float, default=2.0)
     ap.add_argument("--limit", type=int, default=None)
+    ap.add_argument("--cache-only", action="store_true",
+                    help="read only from data/raw/pages, never fetch; makes the "
+                         "extraction counts reproducible from the captures")
+    ap.add_argument("--no-write", action="store_true",
+                    help="compute and report, write no candidates CSV")
     args = ap.parse_args()
 
     rows = load_domain_rows(args.domains, args.match_strength, args.limit)
@@ -308,8 +402,12 @@ def main() -> int:
         print("No domains to scan. Check the file and --match-strength.")
         return 1
 
-    fetcher = PoliteFetcher(delay=args.delay)
+    fetcher = PoliteFetcher(delay=args.delay, cache_only=args.cache_only)
+    if args.cache_only:
+        print("cache-only: reading data/raw/pages, no network")
+        print()
     all_candidates: list[Candidate] = []
+    stats: dict = {}
     with_any = 0
 
     for i, row in enumerate(rows, 1):
@@ -319,7 +417,8 @@ def main() -> int:
         # companies can share a name, and the join key must not depend on the
         # name being unique.
         cands = scan_domain(fetcher, company, domain,
-                            company_number=(row.get("company_number") or "").strip())
+                            company_number=(row.get("company_number") or "").strip(),
+                            stats=stats)
         if cands:
             with_any += 1
             for c in cands:
@@ -327,15 +426,19 @@ def main() -> int:
                 print(f"      {c.vat}  {label}  {urlparse(c.url).path or '/'}")
         all_candidates.extend(cands)
 
-    fields = FIELDNAMES
     out = Path(args.out)
-    out.parent.mkdir(parents=True, exist_ok=True)
-    with out.open("w", newline="", encoding="utf-8") as fh:
-        w = csv.DictWriter(fh, fieldnames=fields)
-        w.writeheader()
-        for c in all_candidates:
-            d = asdict(c)
-            w.writerow({k: d.get(k, "") for k in fields})
+    if args.no_write:
+        print()
+        print(f"--no-write: {out} left untouched")
+    else:
+        fields = FIELDNAMES
+        out.parent.mkdir(parents=True, exist_ok=True)
+        with out.open("w", newline="", encoding="utf-8") as fh:
+            w = csv.DictWriter(fh, fieldnames=fields)
+            w.writeheader()
+            for c in all_candidates:
+                d = asdict(c)
+                w.writerow({k: d.get(k, "") for k in fields})
 
     print("\n" + "=" * 60)
     print(f"match_strength           : {args.match_strength}")
@@ -347,8 +450,12 @@ def main() -> int:
     print(f"of which VAT-labelled    : {labelled}/{len(all_candidates)}"
           f"  <- unlabelled ones are the risky ones")
     print(f"pages: {fetcher.stats}")
-    print(f"\nwrote {out}")
-    print(f"\nNext: python src/eori_client.py --file {args.out} --column vat")
+
+    print_extraction_breakdown(stats, rows, fetcher)
+
+    if not args.no_write:
+        print(f"\nwrote {out}")
+        print(f"\nNext: python src/eori_client.py --file {args.out} --column vat")
     return 0
 
 

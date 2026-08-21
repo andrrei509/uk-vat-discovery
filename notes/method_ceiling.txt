@@ -1,0 +1,134 @@
+METHOD CEILING
+==============
+
+How high could this pipeline go if every company that has a website were
+crawled successfully? Not what it achieved (6 of 500 = 1.2%), but what the
+method itself is capped at.
+
+Reproduce with:
+  python src/method_ceiling.py
+
+All intervals are Wilson 95%, computed by src/metrics.py:wilson.
+
+
+1. PUBLICATION RATE
+-------------------
+Of the domains actually crawled, how many published a valid VAT number?
+
+  6 / 39 = 0.154        Wilson 95% [0.072, 0.297]
+
+Source: data/results/candidates.csv (6 rows) over the 39 strong-match rows in
+data/results/sample_domains.csv.
+
+
+2. SHARE OF THE 500 WITH A FINDABLE WEBSITE
+-------------------------------------------
+Recomputed from audit/domain_audit.csv, which audited 5 rows from each of the
+four outcome groups. The groups are wildly different sizes, so an unweighted
+count over the 20 rows would treat the 295-company group and the 39-company
+group as equally important. Each group's rate is therefore weighted by the
+group's real size.
+
+  group       audited   has a site   rate    Wilson 95%        real size
+  strong        5           4        0.800   [0.376, 0.964]        39
+  weak          5           3        0.600   [0.231, 0.882]       125
+  none          5           2        0.400   [0.118, 0.769]        41
+  no_domain     5           3        0.600   [0.231, 0.882]       295
+
+  weighted point estimate: 0.599, about 300 of 500
+  weighted range         : [0.233, 0.879]
+
+ASSUMPTION, stated because it drives the number
+-----------------------------------------------
+"Has a findable website" is read from the auditor's free-text note, not from
+the verdict column. The two answer different questions. The verdict answers
+"was the pipeline right", so a no_domain row marked `wrong` means the company
+does have a site that the pipeline missed, while a strong row marked `wrong`
+means the pipeline found a site that belongs to somebody else. Counting
+verdicts directly would add those two together and produce nonsense.
+
+Row by row, a company counts as having a findable website when the note shows
+a site belonging to that company exists and can be located by a person:
+
+  counted as HAVING a site (12 of 20)
+    BSN (LONDON), ETI LOGISTICS SUPPORT, SOUTH YORKSHIRE BUILDERS, TIMGLOBAL
+    FISH! RESTAURANTS      fishboroughmarket.com, the generator never tried it
+    ADVANCED ROOF TESTING  genuinely theirs
+    UNINHIBITED DEV SOLS   uni-concept.netlify.app
+    PTERO-BYTE             ptero-byte.com, hyphenated, not the form generated
+    DID TEACH              didteach.com, theirs, redirects to thosewhocan.org
+    ODYSSEY ELECTRICAL     odyssey-electrical.co.uk exists, unresponsive
+    MPL GROUNDWORK         mplcontractors.co.uk exists, suspended
+    AJE TECH               ajetech.com exists, crawler got 403
+
+  counted as NOT having one (8 of 20)
+    PHSC PLC               phsc.co.uk belongs to a different legal entity
+    SURIYA JEWELS          placeholder page, owner not identifiable
+    MAPACH                 domain listed for sale
+    OUR WORLD OUR SAY      former domain offline
+    1COUNSEL, JBB CONSULTANTS, ACE ELECTRICIANS, SBA-SPI   none found
+
+Three of the twelve (ODYSSEY, MPL, AJE TECH) have a site that exists but did
+not serve a page: unresponsive, suspended, or 403. They are counted as having
+one because the question is what the method could reach at its ceiling, not
+what it reached on the day.
+
+That single judgement call moves the answer more than anything else here. All
+three sit in the no_domain group, and that group's 5 audited rows stand in for
+295 of the 500 companies. Counting them the other way takes no_domain from
+3/5 to 0/5 and drags the whole estimate down:
+
+  counted as having a site (used above): share 0.599, ceiling 9.2%
+  counted as not having one           : share 0.245, ceiling 3.8%
+
+So the ceiling is somewhere between about 4% and about 9% depending on how
+three rows are read. That fragility is the real finding: no estimate resting on
+5 rows per group can be quoted to one decimal place, whatever the arithmetic
+says.
+
+PHSC is the judgement call in the other direction. It is a listed plc and
+phsc.co.uk resolves, but the audit found the site belongs to a subsidiary at
+the same premises. A site belonging to another legal entity cannot yield a VAT
+number for this one, so it is counted as not having one.
+
+
+3. CEILING
+----------
+  ceiling = share with a findable website x publication rate
+
+  point estimate : 0.599 x 0.154 = 0.092, about 9.2%, roughly 46 of 500
+  range          : [0.233 x 0.072, 0.879 x 0.297]
+                 = [0.017, 0.262], about 1.7% to 26.1%, or 8 to 131 of 500
+
+  achieved       : 6 of 500 = 1.2%
+
+The achieved figure sits at the very bottom of the range, which is what you
+would expect from a method losing 461 of 500 at domain discovery.
+
+
+4. TWO CAVEATS THAT BOTH PUSH THE CEILING UP
+--------------------------------------------
+a) 6/39 is itself a floor, not the true publication rate. Only 15 candidate
+   paths per site were fetched and no PDFs were opened at all. A VAT number on
+   a page outside that list, or inside a downloadable invoice, terms document
+   or price list, was never looked for. The real share of sites publishing a
+   number somewhere is higher than 6/39 by an unknown amount.
+
+b) The 39 strong-match companies are not a random draw from the 500. A company
+   whose registered name maps cleanly onto its own domain, and whose site
+   states that registered name or company number, is already showing signs of
+   caring about formal identity. Companies like that plausibly publish a VAT
+   number more often than the other 461. If so, applying 6/39 to the whole
+   sample overstates the ceiling rather than understating it, which cuts
+   against caveat (a).
+
+Both caveats are unquantified. Neither is a reason to move the number; they are
+the reason the range is as wide as it is.
+
+
+5. WHAT WOULD NARROW THIS
+-------------------------
+Every interval above rests on 5 audited rows per group. The 50 held-out rows in
+data/sample/sample.csv, worked by hand and compared against what the pipeline
+produces on the same 50, would replace all four of these 5-row estimates with
+one 50-row measurement.

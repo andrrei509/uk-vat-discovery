@@ -111,6 +111,8 @@ this table is what already stands up.
 | the 20 rows drawn for hand-checking the domain method | `python src/domain_discovery.py --report-only` (seeded, no fetching) | `notes/domain_discovery_output.txt` |
 | VAT numbers found on strong-match domains: domains scanned, domains yielding >=1 VRN, distinct (company, vrn), labelled vs unlabelled | `python src/sources/website_vat.py --domains data/results/sample_domains.csv --match-strength strong --out data/results/candidates.csv` | `data/results/candidates.csv` |
 | the same for weak-match domains, kept separate on purpose | `... --match-strength weak --out data/results/candidates_weak.csv` | `data/results/candidates_weak.csv` |
+| the extraction split: of the 33 strong domains that yielded no VRN, `32` had no 9-digit candidate at all and `1` had one that failed the check digit | `python src/sources/website_vat.py --domains data/results/sample_domains.csv --match-strength strong --out data/results/candidates.csv --cache-only --no-write` | `notes/extraction_breakdown.txt`. Reads `data/raw/pages`, which is gitignored, so a clean clone must re-crawl first |
+| the method's ceiling: publication rate `6/39`, share of the 500 with a findable website `0.599`, ceiling `9.2%` with range `1.7%` to `26.1%` | `python src/method_ceiling.py` | `notes/method_ceiling.txt` |
 | the 20-row domain hand-check sheet | `python src/domain_audit_sheet.py` | `audit/domain_audit.csv` |
 | the manual audit sheet itself | `python src/audit_worklist.py --candidates <candidates.csv>` | `audit/manual_audit.csv` |
 
@@ -283,8 +285,13 @@ Companies House snapshot          5,695,465 rows
           └─ domain_discovery.py  strong 39 | weak 125 | none 41 | none found 295
               └─ FILTER: strong only                    39   ← 461 lost here
                   └─ website_vat.py, 15 paths per site, robots.txt obeyed
-                      └─ checksum mod-97 / mod-9755      6   ← 33 lost here
-                          └─ eori_client.py, existence
+                      └─ VAT number present on the site  6   ← 33 lost here
+                         (32 had no 9-digit candidate at all,
+                          1 had one that failed the check digit)
+                          └─ EORI existence check, NOT used as a filter
+                                                         6   ← 0 lost here
+                             (as a filter: 4, and both lost
+                              were confirmed correct)
                               └─ HMRC web form by hand, ownership
                                                          6   ← 0 lost here
 ```
@@ -298,14 +305,27 @@ Companies House snapshot          5,695,465 rows
 
 ## 2.4 Results
 
-<!-- Three numbers, not one:
-       1. coverage, found/sample AND found/estimated-VAT-registered-in-sample
-       2. precision, hand-audited, as a fraction, with a CI. Format it like
-          "47/50", that string is an EXAMPLE OF THE FORMAT, not a result from
-          this project. Replace it with the real fraction; do not leave an
-          illustrative number where a measured one belongs.
-       3. rejection breakdown, how many candidates died at each stage and why
-     Round numbers read as invented. Fractions read as measured. -->
+| Stage | In | Out | Lost | Where the number lives |
+|---|---|---|---|---|
+| Sample drawn, seed 20260820, 20 strata | frame 2,362,322 | 500 | 50 held out | `data/sample/sample.csv` |
+| Domain discovery, strong matches only | 500 | 39 | 461 | `data/results/sample_domains.csv` |
+| VAT number present on the site | 39 | 6 | 33 (32 none, 1 check digit) | `notes/extraction_breakdown.txt` |
+| EORI existence, not used as a filter | 6 | 6 | 0 | `data/raw/eori/production/` |
+| HMRC web form, ownership | 6 | 6 | 0 | `audit/manual_audit.csv` |
+
+End to end: 6 of 500 = 1.2%
+
+Precision on shipped rows: 6/6, Wilson 95% CI [0.610, 1.000]
+
+Weak-match control, excluded: 2 found, 0/2 owned
+
+Before I ran it, I expected it to be higher than this, because I thought that out of 500 companies I would end up with more than 6. I started with 500 companies and ran a test to see if I could find their website. 295 of them had no domain at all, and another 166 had one I didn't trust enough to count, so 461 dropped out and the remaining 39 moved on. Out of those 39 that were asked if the site shows a VAT number, 33 said no, so I only had 6 candidates left. The 1.2% coverage is biased low, and these 3 mechanisms dragged it down: 4 false negatives in 20 hand checked domain assignments, 295 companies never crawled at all because no domain was found, and only 15 candidate paths per site, which is how AJE Tech, a site I knew was correct, came back 403. I held back 50 rows, drawn with the sample, and never touched them. The experiment I would do is to work those 50 by hand, find each site myself, look for the VAT number myself, and compare against what the pipeline gets on the same 50. The gap between the 2 is the miss rate. I didn't have the week to run it.
+
+I checked 8 pairs by hand against HMRC's VAT checker web form, each pair being a VAT number and the company I had attributed it to. 6 were strong matches and all 6 returned the right company. 2 were weak matches and both returned a different company. 6 out of 6 isn't the same as saying the method is always right, because the Wilson 95% interval on this rate is 0.61 to 1.00. If the true rate were 0.61, the probability of getting all 6 right in a row is 0.61 raised to the 6th power, which is about 5%. That is the usual line for too unlikely to keep believing, so 0.61 is roughly the lowest true rate still compatible with what I saw. If the true rate were higher, say 0.8, which is where my own domain audit lands with 4 of 5 strong assignments correct, the chance of getting 6 in a row would be 26%, which is not surprising at all. As for what to expect on the next hundred strong rows, a wrong domain almost guarantees a wrong number, and a right domain does not guarantee a right one, so 80% is a ceiling and not a target. That 4 of 5 is itself only five rows, so it is a soft anchor. What I actually expect is to land at or below 80%, not at 6 out of 6.
+
+Of the 39 companies whose sites I crawled, 33 were lost at extraction. 32 of them had no 9-digit number anywhere on the site, and 1 of them had one that failed the check digit, ecorpconsulting.co.uk, so my code removed 1 of the 33, and the companies removed 32 by not publishing. A better crawler wouldn't have fixed that, since on the 15 pages I fetched there was no VAT number to find at all.
+
+494 companies were removed before anything reached the web form, 461 at domain discovery and 33 at extraction, so the 6 that arrived had already survived a strict filter. A verifier that only ever sees pre-filtered input passes everything, whether it works or not. The 2 weak candidates were a separate control and were not among the 6. Both went through the web form and both came back as a different company, which is the evidence that the verifier works, because they were the only input it saw that failed the strong-match test. The thing is, EORI returned `valid: false` for 2 of the 6 strong candidates, ECONOSTORE and TERRASTRUCT, and the web form confirmed both were genuinely owned. EORI was never used as a filter. Had it been, it would have destroyed 2 of the 6 correct rows.
 
 ## 2.5 What these numbers don't capture
 

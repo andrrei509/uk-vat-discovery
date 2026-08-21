@@ -1,0 +1,90 @@
+Extraction breakdown for the strong-match crawl.
+
+Reproduce with:
+  python src/sources/website_vat.py --domains data/results/sample_domains.csv \
+      --match-strength strong --out data/results/candidates.csv \
+      --cache-only --no-write
+
+--cache-only reads data/raw/pages and never fetches, so the counts are a
+property of the captured pages rather than of what the sites serve today.
+data/raw/pages is gitignored (36 MB), so a clean clone cannot rerun this
+without re-crawling. The numbers below are the record.
+
+================================================================
+
+discovery format: kept 39/500 rows with match_strength='strong'
+cache-only: reading data/raw/pages, no network
+
+[1/39] LEA CONSULTANCY SERVICES LIMITED  (leaconsultancyservices.co.uk)
+[2/39] PHSC PLC  (phsc.co.uk)
+[3/39] JEREMY LEWISON LIMITED  (jeremylewison.co.uk)
+[4/39] BSN (LONDON) LIMITED  (bsnlondon.com)
+[5/39] LOVE WATER LIMITED  (lovewater.com)
+      851194036  labelled  /terms
+[6/39] INTELLETECH LIMITED  (intelletech.co.uk)
+[7/39] DOUGLAS WILLIS LIMITED  (douglaswillis.co.uk)
+[8/39] ONBIKE LIMITED  (onbike.co.uk)
+      943190133  labelled  /
+[9/39] EZ MANAGEMENT LIMITED  (ezmanagement.com)
+[10/39] LYBURN CONSTRUCTION LTD  (lyburnconstruction.co.uk)
+[11/39] SURPLUSDRIVESUK LTD  (surplusdrivesuk.co.uk)
+      213969785  labelled  /
+[12/39] ETI LOGISTICS SUPPORT LTD  (etilogisticssupport.co.uk)
+[13/39] SKINPHARMA LIMITED  (skinpharma.co.uk)
+[14/39] ARI TRADERS LIMITED  (aritraders.co.uk)
+[15/39] ECORP CONSULTING LTD  (ecorpconsulting.co.uk)
+[16/39] COGNIS CONSULTING LTD  (cognisconsulting.co.uk)
+[17/39] VERTEX PRECISION LTD  (vertexprecision.uk)
+[18/39] CARCODE LIMITED  (carcode.uk)
+      372282495  labelled  /
+[19/39] PLATINUM CHAUFFEURS UK LTD  (platinumchauffeursuk.co.uk)
+[20/39] SHAURI TECHNOLOGIES LIMITED  (shauritechnologies.com)
+[21/39] ECONOSTORE LTD  (econostore.co.uk)
+      447782355  labelled  /
+[22/39] BATHFORD JOINERY LIMITED  (bathfordjoinery.co.uk)
+[23/39] MUSEUM SOUND DESIGN LIMITED  (museumsounddesign.com)
+[24/39] C&L BUILDESIGN LTD  (clbuildesign.co.uk)
+[25/39] ORLA ROSE ASSOCIATES LTD  (orlaroseassociates.co.uk)
+[26/39] SOONFOUND LTD  (soonfound.co.uk)
+[27/39] NRIA LIMITED  (nria.co.uk)
+[28/39] UPSURGE STUDIO LTD  (upsurgestudio.com)
+[29/39] YOCYCLE LIMITED  (yocycle.co.uk)
+[30/39] TERRASTRUCT LTD  (terrastruct.co.uk)
+      503939094  labelled  /
+[31/39] OUTCOME STRIDE LTD  (outcomestride.com)
+[32/39] SOUTH YORKSHIRE BUILDERS LTD  (southyorkshirebuilders.com)
+[33/39] HIGHPOINT OFFICES LTD  (highpointoffices.co.uk)
+[34/39] GET-INCLUSIVE LTD  (get-inclusive.com)
+[35/39] TIMGLOBAL LTD  (timglobal.uk)
+[36/39] BHARAT MART LIMITED  (bharatmart.uk)
+[37/39] GVS UTILITIES LIMITED  (gvsutilities.co.uk)
+[38/39] SANCTUARY GARDEN ROOMS LIMITED  (sanctuarygardenrooms.uk)
+[39/39] GAS GLASGOW LIMITED  (gasglasgow.co.uk)
+
+--no-write: data\results\candidates.csv left untouched
+
+============================================================
+match_strength           : strong
+domains scanned          : 39
+domains yielding >=1 VRN : 6/39  (15.4%)
+distinct (company, vrn)  : 6
+of which VAT-labelled    : 6/6  <- unlabelled ones are the risky ones
+pages: {'fetched': 0, 'cached': 150, 'blocked': 0, 'errors': 0, 'not_found': 0, 'skipped_uncached': 435}
+
+=== extraction breakdown ============================================
+  domains in                        : 39
+  pages scanned                     : 150
+  pages with >=1 regex match        : 26
+  regex matches seen                : 27
+  matches rejected by the check digit: 1
+
+  by domain:
+    yielded >=1 valid VRN           : 6
+    no 9-digit candidate at all     : 32
+    candidate(s) found, all failed the check digit: 1
+    no page could be read           : 0
+    total                           : 39
+  URLs skipped as uncached          : 435
+
+  domains where every candidate failed the check digit:
+    ecorpconsulting.co.uk  (1 match(es), 1 rejected)
